@@ -33,7 +33,7 @@ export type ResourceField = {
 export type FormField = {
   key: string;
   label: string;
-  type: "text" | "number" | "textarea" | "select" | "json";
+  type: "text" | "number" | "textarea" | "select" | "json" | "boolean";
   required?: boolean;
   options?: Array<{ label: string; value: string }>;
   condition?: (values: Record<string, unknown>) => boolean;
@@ -607,6 +607,21 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
                           value={getFieldValue(field.key) as string | number | undefined}
                           onChange={(e) => setFieldValue(field.key, Number(e.target.value))}
                           className="bg-background border-border/50"
+                        />
+                      </div>
+                    );
+                  }
+
+                  if (field.type === "boolean") {
+                    return (
+                      <div key={field.key} className="flex items-center justify-between p-3 rounded-lg border border-border/50 bg-background/50">
+                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider cursor-pointer select-none" htmlFor={field.key}>{field.label}</label>
+                        <input
+                          id={field.key}
+                          type="checkbox"
+                          checked={Boolean(getFieldValue(field.key))}
+                          onChange={(e) => setFieldValue(field.key, e.target.checked)}
+                          className="w-4 h-4 rounded border-border/50 text-primary focus:ring-primary/45 focus:ring-2 cursor-pointer bg-background"
                         />
                       </div>
                     );
