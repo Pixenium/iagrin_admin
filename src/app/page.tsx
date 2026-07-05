@@ -115,38 +115,28 @@ export default function Dashboard() {
     }
   }, [statsData.system]);
 
-  // Periodically fluctuate stats to look premium and active
+  // Listen to real system stats from socket
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLiveFarmersCount((prev) => {
-        const change = Math.floor(Math.random() * 3) - 1;
-        const next = prev + change;
-        return next > 10 && next < 100 ? next : prev;
-      });
-
-      setCpuUsage((prev) => {
-        const change = Math.floor(Math.random() * 5) - 2;
-        const next = prev + change;
-        const target = statsData.system?.cpu ?? 32;
-        return next > target - 10 && next < target + 10 ? next : prev;
-      });
-
-      setRamUsage((prev) => {
-        const change = (Math.random() * 0.1) - 0.05;
-        const next = Number((prev + change).toFixed(2));
-        const target = statsData.system?.ram ?? 4.2;
-        return next > target - 0.5 && next < target + 0.5 ? next : prev;
-      });
-
+    if (!socket) return;
+    
+    const handleSystemStats = (data: any) => {
+      if (data.cpu !== undefined) setCpuUsage(data.cpu);
+      if (data.ram !== undefined) setRamUsage(data.ram);
+      if (data.liveFarmersCount !== undefined) setLiveFarmersCount(data.liveFarmersCount);
+      
       setNetworkLatency((prev) => {
         const change = Math.floor(Math.random() * 7) - 3;
         const next = prev + change;
         return next > 25 && next < 70 ? next : prev;
       });
-    }, 3000);
+    };
 
-    return () => clearInterval(interval);
-  }, [statsData.system]);
+    socket.on("system_stats", handleSystemStats);
+    
+    return () => {
+      socket.off("system_stats", handleSystemStats);
+    };
+  }, [socket]);
 
   // Listen to live socket events to populate recent activity feed
   useEffect(() => {

@@ -76,9 +76,9 @@ export default function AIManagementPage() {
                 <RefreshCw className="w-3.5 h-3.5" /> Refresh
               </Button>
             </div>
-            {prompts.data?.rows?.length > 0 ? (
+            {(prompts.data?.rows?.length ?? 0) > 0 ? (
               <div className="grid gap-4">
-                {prompts.data.rows.map((prompt: Record<string, unknown>) => (
+                {(prompts.data?.rows ?? []).map((prompt: Record<string, unknown>) => (
                   <Card key={String(prompt._id || prompt.id)}>
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between">
@@ -131,10 +131,10 @@ export default function AIManagementPage() {
                         <div className="flex items-center gap-2 mb-1">
                           {log.success ? <CheckCircle2 className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-500" />}
                           <span className="text-xs font-bold">{String(log.model || "unknown")}</span>
-                          <span className="text-[10px] text-muted-foreground">{formatDate(log.createdAt)}</span>
+                          <span className="text-[10px] text-muted-foreground">{formatDate(log.createdAt as string)}</span>
                         </div>
                         <p className="text-xs text-muted-foreground truncate">Prompt: {String(log.prompt || "").substring(0, 200)}</p>
-                        {log.error && <p className="text-xs text-red-500 mt-1">Error: {String(log.error).substring(0, 300)}</p>}
+                        {!!log.error && <p className="text-xs text-red-500 mt-1">Error: {String(log.error).substring(0, 300)}</p>}
                       </div>
                       <div className="flex gap-3 shrink-0 text-right">
                         <div>
@@ -158,11 +158,11 @@ export default function AIManagementPage() {
                 <Card><CardContent className="py-8 text-center text-muted-foreground text-sm">No AI logs found</CardContent></Card>
               )}
             </div>
-            {logs.data?.pagination?.totalPages > 1 && (
+            {logs.data && logs.data.totalPages > 1 && (
               <div className="flex justify-center gap-2">
                 <Button size="sm" variant="outline" disabled={logPage <= 1} onClick={() => setLogPage(logPage - 1)}>Previous</Button>
-                <span className="flex items-center text-xs text-muted-foreground">Page {logPage} of {logs.data.pagination.totalPages}</span>
-                <Button size="sm" variant="outline" disabled={logPage >= (logs.data?.pagination?.totalPages || 1)} onClick={() => setLogPage(logPage + 1)}>Next</Button>
+                <span className="flex items-center text-xs text-muted-foreground">Page {logPage} of {logs.data.totalPages}</span>
+                <Button size="sm" variant="outline" disabled={logPage >= logs.data.totalPages} onClick={() => setLogPage(logPage + 1)}>Next</Button>
               </div>
             )}
           </div>
