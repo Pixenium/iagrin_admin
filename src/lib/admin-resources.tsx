@@ -717,46 +717,104 @@ export const resources: Record<string, ResourceConfig> = {
     deletePath: (id) => `/machinery/${id}`,
     sortOptions: [{ label: "Price Low", value: "minPrice" }, { label: "Price High", value: "-minPrice" }],
     filterOptions: [
-      { label: "All", value: "all" }, { label: "Tractors", value: "tractors" },
-      { label: "Machines", value: "machines" }, { label: "Implements", value: "implements" },
+      { label: "All", value: "all" }, { label: "Tractors", value: "Tractor" },
+      { label: "Harvesters", value: "Harvester" }, { label: "Sprayers", value: "Sprayer" },
+      { label: "Smart Farming", value: "Smart Farming" }, { label: "Irrigation", value: "Irrigation" },
     ],
     filterParam: "category",
     defaultCreate: {
-      title: "", category: "machines", brand: "", model: "", market: "India",
-      imageUrl: "", gallery: [], minPrice: 0, maxPrice: 0, discount: 0,
-      horsePower: "", engine: "", fuelType: "diesel", attachments: [],
-      dealer: "", dealerPhone: "", dealerWebsite: "", location: "",
-      lat: 20.5937, lng: 78.9629, manualPdf: "", youtubeDemo: "",
-      about: "", isActive: true, rating: 0, reviews: 0,
+      title: "", category: "Tractor", mainCategory: "Tractor", subcategory: "Utility Tractor",
+      company: "", variant: "Standard", market: "Anand Agri Market", imageUrl: "",
+      minPrice: 0, maxPrice: 0, trendPercent: 0, rating: 4.5, reviews: 10,
+      powerOutput: "50 HP", fuelType: "Diesel", primaryUsage: "Primary tillage and haulage operations",
+      specs: { horsepower: "50 HP", transmission: "8F + 2R", pto: "540 RPM" },
+      features: ["Power Steering", "Dual Clutch", "Oil Immersed Brakes"],
+      applications: ["Ploughing", "Sowing", "Haulage"],
+      compatibleCrops: ["Wheat", "Rice", "Cotton", "Maize"],
+      usageRecommendations: ["Change engine oil every 250 hours", "Check tire pressure weekly"],
+      maintenanceInfo: ["Keep air filter clean", "Inspect battery water level monthly"],
+      variantsDetailed: [
+        { name: "Standard 2WD", power: "50 HP", priceFrom: "550000" },
+        { name: "Pro 4WD", power: "55 HP", priceFrom: "720000" }
+      ],
+      dealerAvailability: [
+        { dealerName: "Sonalika Motors Anand", city: "Anand", state: "Gujarat", availability: "In Stock" }
+      ],
+      trendPoints: [0.3, 0.32, 0.35, 0.37, 0.4, 0.42],
+      isActive: true
+    },
+    createPayload: (body) => {
+      const payload = { ...body };
+      payload.mainCategory = payload.category;
+      
+      const parseArray = (val: any) => {
+        if (typeof val === "string") {
+          return val.split(",").map((s) => s.trim()).filter(Boolean);
+        }
+        return val || [];
+      };
+
+      payload.features = parseArray(payload.features);
+      payload.applications = parseArray(payload.applications);
+      payload.compatibleCrops = parseArray(payload.compatibleCrops);
+      payload.usageRecommendations = parseArray(payload.usageRecommendations);
+      payload.maintenanceInfo = parseArray(payload.maintenanceInfo);
+
+      const parseJson = (val: any, fallback: any = {}) => {
+        if (typeof val === "string") {
+          try {
+            return JSON.parse(val);
+          } catch {
+            return fallback;
+          }
+        }
+        return val || fallback;
+      };
+
+      payload.specs = parseJson(payload.specs, {});
+      payload.variantsDetailed = parseJson(payload.variantsDetailed, []);
+      payload.dealerAvailability = parseJson(payload.dealerAvailability, []);
+      payload.trendPoints = parseJson(payload.trendPoints, [0.3, 0.32, 0.35, 0.37, 0.4, 0.42]);
+
+      return payload;
+    },
+    updatePayload: (body) => {
+      const config = resources.machinery;
+      return config.createPayload!(body);
     },
     formFields: [
       { key: "title", label: "Machine Name", type: "text", required: true },
-      { key: "category", label: "Category", type: "select", options: [
-        { label: "Tractors", value: "tractors" }, { label: "Machines", value: "machines" },
-        { label: "Implements", value: "implements" }, { label: "Harvesters", value: "harvesters" },
-        { label: "Pumps", value: "pumps" }, { label: "Sprayers", value: "sprayers" },
+      { key: "category", label: "Main Category", type: "select", options: [
+        { label: "Tractors", value: "Tractor" }, { label: "Harvesting", value: "Harvester" },
+        { label: "Sprayers & Implements", value: "Sprayer" }, { label: "Smart Farming", value: "Smart Farming" },
+        { label: "Irrigation & Pumps", value: "Irrigation" }, { label: "Soil Testing", value: "Soil Testing" },
       ]},
-      { key: "brand", label: "Brand", type: "text" },
-      { key: "model", label: "Model", type: "text" },
+      { key: "subcategory", label: "Subcategory", type: "text" },
+      { key: "company", label: "Company / Brand", type: "text" },
+      { key: "variant", label: "Variant Name", type: "text" },
+      { key: "market", label: "Mandi / Market", type: "text" },
       { key: "imageUrl", label: "Main Image URL", type: "text" },
-      { key: "gallery", label: "Gallery Images (JSON array)", type: "json" },
       { key: "minPrice", label: "Min Price (INR)", type: "number" },
       { key: "maxPrice", label: "Max Price (INR)", type: "number" },
-      { key: "discount", label: "Discount (%)", type: "number" },
-      { key: "horsePower", label: "Horse Power", type: "text" },
-      { key: "engine", label: "Engine", type: "text" },
+      { key: "trendPercent", label: "Price Trend (%)", type: "number" },
+      { key: "rating", label: "Rating (0-5)", type: "number" },
+      { key: "reviews", label: "Review Count", type: "number" },
+      { key: "powerOutput", label: "Power Output / HP", type: "text" },
       { key: "fuelType", label: "Fuel Type", type: "select", options: [
-        { label: "Diesel", value: "diesel" }, { label: "Petrol", value: "petrol" },
-        { label: "Electric", value: "electric" }, { label: "CNG", value: "cng" },
+        { label: "Diesel", value: "Diesel" }, { label: "Petrol", value: "Petrol" },
+        { label: "Electric/Solar", value: "Electric/Solar" }, { label: "Battery", value: "Battery" },
       ]},
-      { key: "attachments", label: "Attachments (JSON array)", type: "json" },
-      { key: "dealer", label: "Dealer Name", type: "text" },
-      { key: "dealerPhone", label: "Dealer Phone", type: "text" },
-      { key: "dealerWebsite", label: "Dealer Website", type: "text" },
-      { key: "location", label: "Location", type: "text" },
-      { key: "manualPdf", label: "Manual PDF URL", type: "text" },
-      { key: "youtubeDemo", label: "YouTube Demo URL", type: "text" },
-      { key: "about", label: "Description", type: "textarea" },
+      { key: "primaryUsage", label: "Primary Usage", type: "text" },
+      { key: "about", label: "Description / About", type: "textarea" },
+      { key: "specs", label: "Specs (JSON map)", type: "json" },
+      { key: "features", label: "Features (comma separated list)", type: "text" },
+      { key: "applications", label: "Applications (comma separated list)", type: "text" },
+      { key: "compatibleCrops", label: "Compatible Crops (comma separated list)", type: "text" },
+      { key: "usageRecommendations", label: "Usage Recommendations (comma separated list)", type: "text" },
+      { key: "maintenanceInfo", label: "Maintenance Info (comma separated list)", type: "text" },
+      { key: "variantsDetailed", label: "Detailed Variants (JSON list)", type: "json" },
+      { key: "dealerAvailability", label: "Dealers (JSON list)", type: "json" },
+      { key: "trendPoints", label: "Trend Points (6 decimal points, JSON list)", type: "json" },
       { key: "isActive", label: "Active", type: "boolean" },
     ],
     fields: [
@@ -769,17 +827,17 @@ export const resources: Record<string, ResourceConfig> = {
           )}
           <div>
             <p className="font-medium text-sm">{String(row.title ?? "Untitled")}</p>
-            <p className="text-[10px] text-muted-foreground">{String(row.brand ?? "")} {String(row.model ?? "")}</p>
+            <p className="text-[10px] text-muted-foreground">{String(row.company ?? "")} {String(row.variant ?? "")}</p>
           </div>
         </div>
       )},
-      { key: "category", label: "Category", render: (row) => <span className="text-xs capitalize">{String(row.category ?? "-")}</span> },
+      { key: "category", label: "Category", render: (row) => <span className="text-xs font-semibold capitalize">{String(row.category ?? "-")}</span> },
       { key: "minPrice", label: "Price Range", render: (row) => (
-        <span className="font-medium">{money(row.minPrice ?? row.price ?? row.basePrice)} - {money(row.maxPrice)}</span>
+        <span className="font-bold text-primary">{money(row.minPrice)} - {money(row.maxPrice)}</span>
       )},
-      { key: "horsePower", label: "HP" },
-      { key: "fuelType", label: "Fuel", render: (row) => <span className="text-xs capitalize">{String(row.fuelType ?? "-")}</span> },
-      { key: "dealer", label: "Dealer", render: (row) => <span className="text-xs">{String(row.dealer ?? "-")}</span> },
+      { key: "powerOutput", label: "Power" },
+      { key: "fuelType", label: "Fuel", render: (row) => <span className="text-xs font-medium capitalize">{String(row.fuelType ?? "-")}</span> },
+      { key: "market", label: "Market" },
       { key: "isActive", label: "Status", render: (row) => <StatusBadge value={row.isActive ?? row.status} /> },
     ],
   },

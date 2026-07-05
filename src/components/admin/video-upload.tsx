@@ -246,6 +246,9 @@ export function VideoUploadDialog({ open, onClose, onComplete }: {
         xhr.onabort = () => reject(new Error("Upload cancelled"));
         xhr.open("PUT", targetUrl, true);
         xhr.setRequestHeader("Content-Type", contentType);
+        if (localMode && token) {
+          xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+        }
         xhr.send(videoFile);
       });
 
