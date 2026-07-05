@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, ReactNode, useMemo, useState } from "react";
+import { FormEvent, ReactNode, useMemo, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertCircle,
@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Edit3,
+  Download,
   Filter,
   Plus,
   RefreshCw,
@@ -23,6 +24,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { useRealtime } from "@/components/realtime-sync";
 
 export type ResourceField = {
   key: string;
@@ -103,6 +105,45 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
   const [busy, setBusy] = useState(false);
   const [editorMode, setEditorMode] = useState<"form" | "json">("form");
 
+  const { socket } = useRealtime();
+
+  // Build reverse map from query key to event for socket emissions
+  const eventToQueryKey = {
+    "users:changed": ["users"],
+    "farms:changed": ["farms"],
+    "soil:changed": ["soil"],
+    "weather:changed": ["weather"],
+    "market:changed": ["market"],
+    "notifications:changed": ["notifications"],
+    "news:changed": ["news", "banners"],
+    "schemes:changed": ["schemes"],
+    "tasks:changed": ["tasks"],
+    "events:changed": ["events"],
+    "machinery:changed": ["machinery"],
+    "marketplace:changed": ["marketplace"],
+    "community:changed": ["community-posts", "community-topics", "community-experts"],
+    "videos:processing": ["videos"],
+    "videos:published": ["videos"],
+    "videos:failed": ["videos"],
+    "videos:liked": ["videos"],
+    "videos:saved": ["videos"],
+    "videos:commented": ["videos"],
+  };
+
+  const queryKeyToEvent = useMemo(() => {
+    const map: Record<string, string> = {};
+    Object.entries(eventToQueryKey).forEach(([event, keys]) => {
+      if (Array.isArray(keys)) {
+        keys.forEach((key) => {
+          map[key] = event;
+        });
+      } else {
+        map[keys] = event;
+      }
+    });
+    return map;
+  }, []);
+
   const parsedValues = useMemo(() => {
     try {
       return JSON.parse(formText || "{}");
@@ -111,7 +152,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
     }
   }, [formText]);
 
-  const setFieldValue = (key: string, value: unknown) => {
+  const setFieldValue = useCallback((key: string, value: unknown) => {
     try {
       const current = JSON.parse(formText || "{}");
       if (key.includes(".")) {
@@ -129,9 +170,9 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
     } catch (e) {
       console.error(e);
     }
-  };
+  }, [formText]);
 
-  const getFieldValue = (key: string): unknown => {
+  const getFieldValue = useCallback((key: string): unknown => {
     if (key.includes(".")) {
       const parts = key.split(".");
       let curr = parsedValues;
@@ -142,7 +183,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
       return curr ?? "";
     }
     return parsedValues[key] ?? "";
-  };
+  }, [parsedValues]);
 
   const params = {
     page,
@@ -161,68 +202,148 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
     return rows.filter((row) => JSON.stringify(row).toLowerCase().includes(keyword));
   }, [config.searchParam, rows, search]);
 
+  const exportCsv = useCallback(() => {
+    const headers = config.fields.map((f) => f.label);
+    const csv = [
+      headers.join(","),
+      ...filteredRows.map((row) =>
+        config.fields
+          .map((f) => {
+            const val = f.render ? undefined : valueAt(row, f.key);
+            const display = val !== undefined ? displayValue(val) : "";
+            return `"${String(display).replace(/"/g, '""')}"`;
+          })
+          .join(",")
+      ),
+    ].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${config.queryKey}-${new Date().toISOString().split("T")[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [config, filteredRows]);
+
   const stats = useMemo(
     () => [
       { label: "Records", value: (query.data?.total ?? rows.length).toLocaleString("en-IN") },
       { label: "Loaded", value: rows.length.toLocaleString("en-IN") },
       { label: "Selected", value: selected.size.toLocaleString("en-IN") },
     ],
-    [query.data?.total, rows.length, selected.size],
+    [query.data?.total, rows.length, selected.size]
   );
 
-  const invalidate = async () => {
+  const invalidate = useCallback(async () => {
     await queryClient.invalidateQueries({ queryKey: [config.queryKey] });
     await queryClient.invalidateQueries({ queryKey: ["dashboard"] });
-  };
+  }, [queryClient]);
 
-  const openCreate = () => {
+  const openCreate = useCallback(() => {
     setEditing(null);
     setFormError("");
     setFormText(JSON.stringify(config.defaultCreate ?? {}, null, 2));
-  };
+  }, [config.defaultCreate]);
 
-  const openEdit = (row: Record<string, unknown>) => {
+  const openEdit = useCallback((row: Record<string, unknown>) => {
     setEditing(row);
     setFormError("");
     setFormText(JSON.stringify(row, null, 2));
-  };
+  }, []);
 
-  const closeForm = () => {
+  const closeForm = useCallback(() => {
     setEditing(null);
     setFormText("");
     setFormError("");
-  };
+  }, []);
 
-  const mutate = async (path: string, method: string, body?: unknown) => {
-    setBusy(true);
-    setNotice("");
-    setFormError("");
+  const mutate = useCallback(
+    async (path: string, method: string, body?: unknown) => {
+      setBusy(true);
+      setNotice("");
+      setFormError("");
 
-    try {
-      const response = await apiFetch(path, {
-        method,
-        body: body === undefined ? undefined : JSON.stringify(body),
-      });
-      await invalidate();
-      const result = response.data as Record<string, unknown> | undefined;
-      if (result && ("sentTokens" in result || "sentUsers" in result)) {
-        setNotice(
-          `Push sent: ${Number(result.sentUsers ?? 0)} users, ${Number(result.sentTokens ?? 0)} devices (${Number(result.consideredUsers ?? result.totalTokens ?? 0)} considered)`,
-        );
-      } else if (result && "sent" in result) {
-        setNotice(result.sent ? "Notification delivered" : "Stored in inbox (no device token for push)");
-      } else {
-        setNotice("Saved successfully");
+      try {
+        const response = await apiFetch(path, {
+          method,
+          body: body === undefined ? undefined : JSON.stringify(body),
+        });
+        await invalidate();
+        const result = response.data as Record<string, unknown> | undefined;
+        // Set notice based on response
+        if (result && ("sentTokens" in result || "sentUsers" in result)) {
+          setNotice(
+            `Push sent: ${Number(result.sentUsers ?? 0)} users, ${Number(result.sentTokens ?? 0)} devices (${Number(result.consideredUsers ?? result.totalTokens ?? 0)} considered)`,
+          );
+        } else if (result && "sent" in result) {
+          setNotice(result.sent ? "Notification delivered" : "Stored in inbox (no device token for push)");
+        } else {
+          setNotice("Saved successfully");
+        }
+        closeForm();
+
+        // Emit socket event if connected
+        if (socket && config.queryKey) {
+          const event = queryKeyToEvent[config.queryKey];
+          if (event) {
+            socket.emit(event);
+          }
+        }
+      } catch (error) {
+        setFormError(error instanceof Error ? error.message : "Request failed");
+      } finally {
+        setBusy(false);
       }
-      closeForm();
+    },
+    [invalidate, socket, config.queryKey, queryKeyToEvent, closeForm]
+  );
+
+  const deleteOne = useCallback(async (row: Record<string, unknown>) => {
+    if (!config.deletePath) return;
+    const id = recordId(row);
+    if (!id) return;
+    await mutate(config.deletePath(id), "DELETE");
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
+  }, [config.deletePath, mutate, recordId]);
+
+  const runAction = useCallback(
+    async (row: Record<string, unknown>, action: NonNullable<ResourceConfig["actions"]>[number]) => {
+      await mutate(action.path(row), action.method ?? "POST", action.body?.(row) ?? {});
+      // Emit socket event for custom actions? We rely on mutate to emit, but note that mutate uses config.queryKey.
+      // For custom actions, the event might be different. We'll rely on the mutate emitting based on config.queryKey.
+      // If the custom action affects a different resource, we might need to adjust. For now, we assume it affects the same resource.
+    },
+    [mutate]
+  );
+
+  const bulkDelete = useCallback(async () => {
+    if (!config.deletePath || selected.size === 0) return;
+    setBusy(true);
+    try {
+      await Promise.all([...selected].map((id) => apiFetch(config.deletePath!(id), { method: "DELETE" })));
+      setSelected(new Set());
+      await invalidate();
+      setNotice("Bulk delete completed");
+
+      // Emit socket event for bulk delete
+      if (socket && config.queryKey) {
+        const event = queryKeyToEvent[config.queryKey];
+        if (event) {
+          socket.emit(event);
+        }
+      }
     } catch (error) {
-      setFormError(error instanceof Error ? error.message : "Request failed");
+      setFormError(error instanceof Error ? error.message : "Bulk delete failed");
     } finally {
       setBusy(false);
     }
-  };
+  }, [config.deletePath, selected, invalidate, socket, queryKeyToEvent]);
 
-  const submitForm = (event: FormEvent) => {
+  const submitForm = useCallback((event: FormEvent) => {
     event.preventDefault();
     const parsed = parseJson(formText);
     if (!parsed.ok) {
@@ -241,38 +362,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
       const body = config.createPayload ? config.createPayload(parsed.value as Record<string, unknown>) : parsed.value;
       void mutate(config.createPath, config.createMethod ?? "POST", body);
     }
-  };
-
-  const deleteOne = async (row: Record<string, unknown>) => {
-    if (!config.deletePath) return;
-    const id = recordId(row);
-    if (!id) return;
-    await mutate(config.deletePath(id), "DELETE");
-    setSelected((prev) => {
-      const next = new Set(prev);
-      next.delete(id);
-      return next;
-    });
-  };
-
-  const runAction = async (row: Record<string, unknown>, action: NonNullable<ResourceConfig["actions"]>[number]) => {
-    await mutate(action.path(row), action.method ?? "POST", action.body?.(row) ?? {});
-  };
-
-  const bulkDelete = async () => {
-    if (!config.deletePath || selected.size === 0) return;
-    setBusy(true);
-    try {
-      await Promise.all([...selected].map((id) => apiFetch(config.deletePath!(id), { method: "DELETE" })));
-      setSelected(new Set());
-      await invalidate();
-      setNotice("Bulk delete completed");
-    } catch (error) {
-      setFormError(error instanceof Error ? error.message : "Bulk delete failed");
-    } finally {
-      setBusy(false);
-    }
-  };
+  }, [formText, editing, config, mutate, recordId]);
 
   return (
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
@@ -284,6 +374,9 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
         <div className="flex gap-2 self-start md:self-auto">
           <Button variant="outline" className="gap-2 border-border/50 bg-card/40" onClick={() => query.refetch()}>
             <RefreshCw className={cn("w-4 h-4", query.isFetching && "animate-spin")} /> Sync
+          </Button>
+          <Button variant="outline" className="gap-2 border-border/50 bg-card/40" onClick={exportCsv} disabled={filteredRows.length === 0}>
+            <Download className="w-4 h-4" /> Export CSV
           </Button>
           {config.createPath && (
             <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary-hover" onClick={openCreate}>
@@ -472,7 +565,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
                                 disabled={busy}
                                 onClick={() => deleteOne(row)}
                               >
-                                <Trash2 className="w-3.5 h-3.5" /> Delete
+                                <Trash2 className="w-4 h-4" /> Delete
                               </Button>
                             )}
                           </div>

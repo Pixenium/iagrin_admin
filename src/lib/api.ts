@@ -2,7 +2,7 @@
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ||
-  "http://localhost:5000/api/v1";
+  "https://api.iagrin.com/api/v1";
 
 export type ApiEnvelope<T> = {
   success?: boolean;
@@ -39,7 +39,9 @@ function getToken() {
 export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise<ApiEnvelope<T>> {
   const token = getToken();
   const isFormData = init.body instanceof FormData;
-  const response = await fetch(`${API_BASE}${path}`, {
+  const url = `${API_BASE}${path}`;
+  
+  let response = await fetch(url, {
     ...init,
     credentials: "include",
     headers: {
@@ -49,7 +51,57 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
     },
   });
 
-  const body = await response.json().catch(() => ({ message: "Request failed" }));
+  let body = await response.json().catch(() => ({ message: "Request failed" }));
+  
+  if (response.status === 401 && !path.includes("/auth/refresh-token") && !path.includes("/auth/login")) {
+    const refreshToken = localStorage.getItem("iagrin_refresh_token");
+    if (refreshToken) {
+      try {
+        const refreshResponse = await fetch(`${API_BASE}/auth/refresh-token`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ refreshToken }),
+        });
+        
+        if (refreshResponse.ok) {
+          const refreshBody = await refreshResponse.json();
+          const data = refreshBody?.data ?? refreshBody;
+          const newAccessToken = data?.tokens?.accessToken ?? data?.token;
+          const newRefreshToken = data?.tokens?.refreshToken ?? refreshToken;
+          
+          if (newAccessToken) {
+            localStorage.setItem("iagrin_access_token", newAccessToken);
+            localStorage.setItem("iagrin_refresh_token", newRefreshToken);
+            
+            response = await fetch(url, {
+              ...init,
+              credentials: "include",
+              headers: {
+                ...(isFormData ? {} : { "Content-Type": "application/json" }),
+                Authorization: `Bearer ${newAccessToken}`,
+                ...(init.headers || {}),
+              },
+            });
+            body = await response.json().catch(() => ({ message: "Request failed" }));
+          }
+        } else {
+          localStorage.removeItem("iagrin_access_token");
+          localStorage.removeItem("iagrin_refresh_token");
+          localStorage.removeItem("iagrin_user");
+          if (typeof window !== "undefined") {
+            window.location.href = "/login";
+          }
+        }
+      } catch (e) {
+        console.error("Silent refresh error:", e);
+      }
+    } else {
+      if (typeof window !== "undefined") {
+        window.location.href = "/login";
+      }
+    }
+  }
+
   if (!response.ok) {
     throw new Error(body?.message || body?.error || `Request failed (${response.status})`);
   }
@@ -76,6 +128,7 @@ export function normalizeList<T = Record<string, unknown>>(payload: unknown, pag
     Array.isArray(source) ? source :
     Array.isArray(sourceRecord.items) ? sourceRecord.items :
     Array.isArray(sourceRecord.rows) ? sourceRecord.rows :
+    Array.isArray(sourceRecord.activities) ? sourceRecord.activities :
     Array.isArray(sourceRecord.users) ? sourceRecord.users :
     Array.isArray(sourceRecord.crops) ? sourceRecord.crops :
     Array.isArray(sourceRecord.farms) ? sourceRecord.farms :
@@ -84,9 +137,15 @@ export function normalizeList<T = Record<string, unknown>>(payload: unknown, pag
     Array.isArray(sourceRecord.schemes) ? sourceRecord.schemes :
     Array.isArray(sourceRecord.notifications) ? sourceRecord.notifications :
     Array.isArray(sourceRecord.prices) ? sourceRecord.prices :
-    Array.isArray(sourceRecord.reels) ? sourceRecord.reels :
+    Array.isArray(sourceRecord.videos) ? sourceRecord.videos :
     Array.isArray(sourceRecord.machinery) ? sourceRecord.machinery :
+    Array.isArray(sourceRecord.posts) ? sourceRecord.posts :
+    Array.isArray(sourceRecord.topics) ? sourceRecord.topics :
+    Array.isArray(sourceRecord.experts) ? sourceRecord.experts :
+    Array.isArray(sourceRecord.alerts) ? sourceRecord.alerts :
+    Array.isArray(sourceRecord.diagnoses) ? sourceRecord.diagnoses :
     Array.isArray(sourceRecord.list) ? sourceRecord.list :
+    Array.isArray(sourceRecord.data) ? sourceRecord.data :
     [];
 
   const pagination = ((sourceRecord.pagination as Record<string, unknown> | undefined) ?? (meta.pagination as Record<string, unknown> | undefined) ?? meta) as Record<string, unknown>;
@@ -105,7 +164,7 @@ export function normalizeList<T = Record<string, unknown>>(payload: unknown, pag
 }
 
 export function recordId(row: Record<string, unknown>) {
-  const rawId = row.id ?? row._id ?? row.userId ?? row.cropId ?? row.farmId ?? row.taskId ?? row.reelId ?? "";
+  const rawId = row.id ?? row._id ?? row.userId ?? row.cropId ?? row.farmId ?? row.taskId ?? row.videoId ?? "";
   if (typeof rawId === "object" && rawId !== null) {
     const obj = rawId as Record<string, unknown>;
     if (typeof obj.$oid === "string") return obj.$oid;

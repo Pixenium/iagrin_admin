@@ -29,3 +29,9 @@ export function timeAgo(date: Date): string {
   if (seconds < 86400) return Math.floor(seconds / 3600) + "h ago";
   return Math.floor(seconds / 86400) + "d ago";
 }
+
+export function formatDate(date: Date | string | number): string {
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "-";
+  return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+}

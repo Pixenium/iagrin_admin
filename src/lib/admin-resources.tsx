@@ -2,6 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { StatusBadge, type ResourceConfig } from "@/components/admin/resource-page";
+import { cn } from "@/lib/utils";
+import { Film } from "lucide-react";
 
 const text = (value: unknown) => String(value ?? "-");
 const money = (value: unknown) => Number(value ?? 0).toLocaleString("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
@@ -15,41 +17,70 @@ export const resources: Record<string, ResourceConfig> = {
     updatePath: (id) => `/admin/users/${id}/role`,
     deletePath: (id) => `/admin/user/${id}`,
     updateMethod: "PATCH",
-    updatePayload: (body) => ({ role: body.role }),
+    updatePayload: (body) => ({ role: body.role, status: body.status }),
     searchParam: "search",
-    sortOptions: [{ label: "Newest first", value: "-createdAt" }, { label: "Name", value: "name" }],
-    fields: [
-      { key: "name", label: "Name" },
-      { key: "email", label: "Email" },
-      { key: "phone", label: "Phone" },
-      { key: "role", label: "Role", render: (row) => <StatusBadge value={row.role} /> },
-      { key: "provider", label: "Provider" },
-      { key: "createdAt", label: "Joined" },
+    sortOptions: [
+      { label: "Newest first", value: "-createdAt" },
+      { label: "Oldest first", value: "createdAt" },
+      { label: "Name A-Z", value: "name" },
+      { label: "Name Z-A", value: "-name" },
     ],
-  },
-  crops: {
-    title: "Crops",
-    description: "Create, update, and monitor crop profiles used by the Flutter app.",
-    queryKey: "crops",
-    listPath: "/crops",
-    createPath: "/crops",
-    updatePath: (id) => `/crops/${id}`,
-    deletePath: (id) => `/crops/${id}`,
-    defaultCreate: { name: "", season: "Kharif", variety: "", sowingDate: "", notes: "" },
+    filterOptions: [
+      { label: "Active", value: "active" },
+      { label: "Suspended", value: "suspended" },
+      { label: "Admin", value: "admin" },
+      { label: "User", value: "user" },
+    ],
+    filterParam: "status",
     formFields: [
-      { key: "name", label: "Crop Name", type: "text", required: true },
-      { key: "season", label: "Season", type: "select", options: [{ label: "Kharif", value: "Kharif" }, { label: "Rabi", value: "Rabi" }, { label: "Zaid", value: "Zaid" }] },
-      { key: "variety", label: "Variety", type: "text" },
-      { key: "sowingDate", label: "Sowing Date (YYYY-MM-DD)", type: "text" },
-      { key: "notes", label: "Notes", type: "textarea" },
+      { key: "role", label: "Role", type: "select", options: [
+        { label: "User", value: "user" },
+        { label: "Admin", value: "admin" },
+        { label: "Content Manager", value: "content_manager" },
+        { label: "Moderator", value: "moderator" },
+      ]},
+      { key: "status", label: "Account Status", type: "select", options: [
+        { label: "Active", value: "active" },
+        { label: "Suspended", value: "suspended" },
+        { label: "Blocked", value: "blocked" },
+      ]},
     ],
     fields: [
-      { key: "name", label: "Crop" },
-      { key: "cropName", label: "Crop Name" },
-      { key: "season", label: "Season" },
-      { key: "variety", label: "Variety" },
-      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? row.isActive} /> },
-      { key: "createdAt", label: "Created" },
+      { key: "name", label: "Name", render: (row) => (
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary shrink-0">
+            {String(row.name ?? row.email ?? "U").charAt(0).toUpperCase()}
+          </div>
+          <div>
+            <p className="text-sm font-medium">{String(row.name ?? "Unknown")}</p>
+            <p className="text-[10px] text-muted-foreground">{String(row.email ?? "")}</p>
+          </div>
+        </div>
+      )},
+      { key: "phone", label: "Phone" },
+      { key: "role", label: "Role", render: (row) => {
+        const role = String(row.role ?? "user");
+        const colors: Record<string, string> = {
+          admin: "bg-red-100 text-red-700 border-red-200",
+          user: "bg-blue-100 text-blue-700 border-blue-200",
+          content_manager: "bg-purple-100 text-purple-700 border-purple-200",
+          moderator: "bg-amber-100 text-amber-700 border-amber-200",
+        };
+        return <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${colors[role] ?? "bg-accent text-muted-foreground"}`}>{role.replace("_", " ")}</span>;
+      }},
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? (row.isActive ? "active" : "inactive")} /> },
+      { key: "provider", label: "Provider" },
+      { key: "language", label: "Language" },
+      { key: "createdAt", label: "Joined", render: (row) => {
+        const d = row.createdAt ? new Date(String(row.createdAt)) : null;
+        return <span className="text-xs text-muted-foreground">{d ? d.toLocaleDateString() : "-"}</span>;
+      }},
+    ],
+    actions: [
+      { label: "Suspend", path: (row) => `/admin/users/${row.id ?? row._id}/role`, method: "PATCH",
+        body: () => ({ status: "suspended" }) },
+      { label: "Restore", path: (row) => `/admin/users/${row.id ?? row._id}/role`, method: "PATCH",
+        body: () => ({ status: "active" }) },
     ],
   },
   farms: {
@@ -62,14 +93,8 @@ export const resources: Record<string, ResourceConfig> = {
     deletePath: (id) => `/farms/${id}`,
     updateMethod: "PUT",
     defaultCreate: {
-      name: "",
-      cropType: "",
-      state: "",
-      district: "",
-      taluka: "",
-      village: "",
-      areaHectare: 1,
-      polygonGeojson: { type: "Polygon", coordinates: [] },
+      name: "", cropType: "", state: "", district: "", taluka: "",
+      village: "", areaHectare: 1, polygonGeojson: { type: "Polygon", coordinates: [] },
     },
     formFields: [
       { key: "name", label: "Field Name", type: "text", required: true },
@@ -96,6 +121,8 @@ export const resources: Record<string, ResourceConfig> = {
     description: "Review satellite soil observations, alerts, and farm analysis readiness.",
     queryKey: "soil",
     listPath: "/alerts",
+    searchParam: "location",
+    sortOptions: [{ label: "Newest", value: "-createdAt" }],
     fields: [
       { key: "title", label: "Alert" },
       { key: "message", label: "Message" },
@@ -105,38 +132,273 @@ export const resources: Record<string, ResourceConfig> = {
     ],
     actions: [{ label: "Mark Read", path: (row) => `/alerts/${row.id ?? row._id}/read`, method: "PATCH" }],
   },
+  cropDoctor: {
+    title: "Crop Doctor Diagnoses",
+    description: "Review all AI crop disease diagnoses from the app.",
+    queryKey: "crop-doctor",
+    listPath: "/crop-doctor/admin/diagnoses",
+    sortOptions: [{ label: "Newest first", value: "-createdAt" }],
+    searchParam: "search",
+    fields: [
+      { key: "cropName", label: "Crop" },
+      { key: "diseaseName", label: "Disease" },
+      { key: "isHealthy", label: "Status", render: (row) => row.isHealthy ? <StatusBadge value="healthy" /> : <StatusBadge value="diseased" /> },
+      { key: "confidence", label: "Confidence", render: (row) => `${Math.round(Number(row.confidence ?? 0) * 100)}%` },
+      { key: "severity", label: "Severity", render: (row) => <StatusBadge value={row.severity} /> },
+      { key: "risk", label: "Risk", render: (row) => <StatusBadge value={row.risk || row.severity} /> },
+      { key: "createdAt", label: "Diagnosed" },
+    ],
+  },
+  diseaseMaster: {
+    title: "Disease Master",
+    description: "Manage the disease knowledge library. Disable diseases to hide from AI results.",
+    queryKey: "disease-master",
+    listPath: "/crop-doctor/admin/diseases",
+    createPath: "/crop-doctor/admin/diseases",
+    updatePath: (id) => `/crop-doctor/admin/diseases/${id}`,
+    deletePath: (id) => `/crop-doctor/admin/diseases/${id}`,
+    updateMethod: "PUT",
+    sortOptions: [{ label: "Name A-Z", value: "name" }],
+    defaultCreate: {
+      name: "", scientificName: "", category: "fungal", symptoms: [], causes: [], prevention: [],
+      severity: "medium", isEnabled: true,
+    },
+    formFields: [
+      { key: "name", label: "Disease Name", type: "text", required: true },
+      { key: "scientificName", label: "Scientific Name", type: "text" },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "Fungal", value: "fungal" }, { label: "Bacterial", value: "bacterial" },
+        { label: "Viral", value: "viral" }, { label: "Pest", value: "pest" },
+        { label: "Nutritional", value: "nutritional" }, { label: "Physiological", value: "physiological" },
+        { label: "Healthy", value: "healthy" },
+      ]},
+      { key: "symptoms", label: "Symptoms (comma separated)", type: "text" },
+      { key: "causes", label: "Causes (comma separated)", type: "text" },
+      { key: "prevention", label: "Prevention (comma separated)", type: "text" },
+      { key: "severity", label: "Default Severity", type: "select", options: [
+        { label: "Low", value: "low" }, { label: "Medium", value: "medium" }, { label: "High", value: "high" },
+      ]},
+      { key: "isEnabled", label: "Enabled", type: "boolean" },
+    ],
+    fields: [
+      { key: "name", label: "Disease Name" },
+      { key: "scientificName", label: "Scientific Name" },
+      { key: "category", label: "Category", render: (row) => <StatusBadge value={row.category} /> },
+      { key: "severity", label: "Severity", render: (row) => <StatusBadge value={row.severity} /> },
+      { key: "isEnabled", label: "Enabled", render: (row) => <StatusBadge value={row.isEnabled ? "active" : "inactive"} /> },
+      { key: "updatedAt", label: "Updated" },
+    ],
+    createPayload: (body) => ({
+      name: body.name, scientificName: body.scientificName || "", category: body.category || "fungal",
+      symptoms: typeof body.symptoms === "string" ? body.symptoms.split(",").map((s: string) => s.trim()).filter(Boolean) : (body.symptoms || []),
+      causes: typeof body.causes === "string" ? body.causes.split(",").map((s: string) => s.trim()).filter(Boolean) : (body.causes || []),
+      prevention: typeof body.prevention === "string" ? body.prevention.split(",").map((s: string) => s.trim()).filter(Boolean) : (body.prevention || []),
+      severity: body.severity || "medium", isEnabled: body.isEnabled ?? true,
+    }),
+  },
+  cropMaster: {
+    title: "Crop Master",
+    description: "Manage the crop knowledge library for AI crop identification.",
+    queryKey: "crop-master",
+    listPath: "/crop-doctor/admin/crops",
+    createPath: "/crop-doctor/admin/crops",
+    updatePath: (id) => `/crop-doctor/admin/crops/${id}`,
+    deletePath: (id) => `/crop-doctor/admin/crops/${id}`,
+    updateMethod: "PUT",
+    sortOptions: [{ label: "Name A-Z", value: "name" }],
+    defaultCreate: { name: "", scientificName: "", category: "", aliases: [], stages: [], isEnabled: true },
+    formFields: [
+      { key: "name", label: "Crop Name", type: "text", required: true },
+      { key: "scientificName", label: "Scientific Name", type: "text" },
+      { key: "category", label: "Category", type: "text" },
+      { key: "aliases", label: "Aliases (comma separated)", type: "text" },
+      { key: "stages", label: "Growth Stages (comma separated)", type: "text" },
+      { key: "isEnabled", label: "Enabled", type: "boolean" },
+    ],
+    fields: [
+      { key: "name", label: "Crop" },
+      { key: "scientificName", label: "Scientific Name" },
+      { key: "category", label: "Category" },
+      { key: "isEnabled", label: "Enabled", render: (row) => <StatusBadge value={row.isEnabled ? "active" : "inactive"} /> },
+    ],
+    createPayload: (body) => ({
+      name: body.name, scientificName: body.scientificName || "", category: body.category || "",
+      aliases: typeof body.aliases === "string" ? body.aliases.split(",").map((s: string) => s.trim()).filter(Boolean) : (body.aliases || []),
+      stages: typeof body.stages === "string" ? body.stages.split(",").map((s: string) => s.trim()).filter(Boolean) : (body.stages || []),
+      isEnabled: body.isEnabled ?? true,
+    }),
+  },
+  treatmentMaster: {
+    title: "Treatment Master",
+    description: "Manage organic and chemical treatment recommendations.",
+    queryKey: "treatment-master",
+    listPath: "/crop-doctor/admin/treatments",
+    createPath: "/crop-doctor/admin/treatments",
+    updatePath: (id) => `/crop-doctor/admin/treatments/${id}`,
+    deletePath: (id) => `/crop-doctor/admin/treatments/${id}`,
+    updateMethod: "PUT",
+    sortOptions: [{ label: "Name A-Z", value: "name" }],
+    defaultCreate: { name: "", type: "organic", applicationMethod: "", dosage: "", frequency: "", effectiveness: "medium", isEnabled: true },
+    formFields: [
+      { key: "name", label: "Treatment Name", type: "text", required: true },
+      { key: "type", label: "Type", type: "select", options: [
+        { label: "Organic", value: "organic" }, { label: "Chemical", value: "chemical" },
+        { label: "Biological", value: "biological" }, { label: "Cultural", value: "cultural" },
+      ]},
+      { key: "applicationMethod", label: "Application Method", type: "text" },
+      { key: "dosage", label: "Dosage", type: "text" },
+      { key: "frequency", label: "Frequency", type: "text" },
+      { key: "safetyInterval", label: "Safety Interval", type: "text" },
+      { key: "effectiveness", label: "Effectiveness", type: "select", options: [
+        { label: "Low", value: "low" }, { label: "Medium", value: "medium" }, { label: "High", value: "high" },
+      ]},
+      { key: "isEnabled", label: "Enabled", type: "boolean" },
+    ],
+    fields: [
+      { key: "name", label: "Treatment" },
+      { key: "type", label: "Type", render: (row) => <StatusBadge value={row.type} /> },
+      { key: "applicationMethod", label: "Method" },
+      { key: "dosage", label: "Dosage" },
+      { key: "effectiveness", label: "Effectiveness", render: (row) => <StatusBadge value={row.effectiveness} /> },
+      { key: "isEnabled", label: "Enabled", render: (row) => <StatusBadge value={row.isEnabled ? "active" : "inactive"} /> },
+    ],
+  },
+  translationMaster: {
+    title: "Translation Master",
+    description: "Manage multilingual translations for Crop Doctor UI (EN/GU/HI).",
+    queryKey: "translation-master",
+    listPath: "/crop-doctor/admin/translations",
+    createPath: "/crop-doctor/admin/translations",
+    updatePath: (id) => `/crop-doctor/admin/translations/${id}`,
+    deletePath: (id) => `/crop-doctor/admin/translations/${id}`,
+    updateMethod: "PUT",
+    defaultCreate: { key: "", en: "", gu: "", hi: "", module: "crop-doctor" },
+    formFields: [
+      { key: "key", label: "Translation Key", type: "text", required: true },
+      { key: "en", label: "English", type: "text" },
+      { key: "gu", label: "Gujarati", type: "text" },
+      { key: "hi", label: "Hindi", type: "text" },
+      { key: "module", label: "Module", type: "text" },
+      { key: "isEnabled", label: "Enabled", type: "boolean" },
+    ],
+    fields: [
+      { key: "key", label: "Key" },
+      { key: "en", label: "English" },
+      { key: "gu", label: "Gujarati" },
+      { key: "hi", label: "Hindi" },
+      { key: "isEnabled", label: "Enabled", render: (row) => <StatusBadge value={row.isEnabled ? "active" : "inactive"} /> },
+    ],
+  },
   market: {
     title: "Market Rates",
     description: "Live commodity rates and market signals from backend market jobs.",
     queryKey: "market",
     listPath: "/market/prices",
     searchParam: "crop",
-    sortOptions: [{ label: "Latest", value: "-reportedAt" }, { label: "Crop", value: "crop" }],
+    filterOptions: [
+      { label: "All Crops", value: "all" },
+      { label: "Wheat", value: "wheat" },
+      { label: "Cotton", value: "cotton" },
+      { label: "Rice", value: "rice" },
+      { label: "Maize", value: "maize" },
+      { label: "Soybean", value: "soybean" },
+      { label: "Groundnut", value: "groundnut" },
+    ],
+    filterParam: "crop",
+    sortOptions: [
+      { label: "Latest", value: "-reportedAt" },
+      { label: "Crop A-Z", value: "crop" },
+      { label: "Price High-Low", value: "-price" },
+      { label: "Price Low-High", value: "price" },
+    ],
     fields: [
-      { key: "crop", label: "Crop" },
-      { key: "market", label: "Market" },
-      { key: "state", label: "State" },
-      { key: "price", label: "Price", render: (row) => money(row.price ?? row.modalPrice ?? row.minPrice) },
-      { key: "unit", label: "Unit" },
+      { key: "crop", label: "Commodity", render: (row) => (
+        <span className="font-medium">{String(row.crop_name ?? row.crop ?? row.Commodity ?? "-")}</span>
+      )},
+      { key: "state", label: "State", render: (row) => String(row.state_name ?? row.state ?? row.State ?? "-") },
+      { key: "market", label: "Market / Mandi", render: (row) => String(row.market_name ?? row.market ?? row.Market ?? "-") },
+      { key: "price", label: "Modal Price", render: (row) => (
+        <span className="font-bold text-primary">{money(row.modal_price ?? row.modalPrice ?? row.Modal_Price)}</span>
+      )},
+      { key: "minPrice", label: "Min", render: (row) => money(row.min_price ?? row.minPrice ?? row.Min_Price) },
+      { key: "maxPrice", label: "Max", render: (row) => money(row.max_price ?? row.maxPrice ?? row.Max_Price) },
+      { key: "arrival", label: "Arrival (Qty)", render: (row) => String(row.Arrival_Qty ?? row.arrival ?? "-") },
+      { key: "trend", label: "Trend", render: (row) => {
+        const t = Number(row.trend ?? 0);
+        return <span className={cn("text-xs font-bold", t >= 0 ? "text-green-600" : "text-red-600")}>{t >= 0 ? "↑" : "↓"} {Math.abs(t)}%</span>;
+      }},
       { key: "reportedAt", label: "Reported" },
     ],
   },
-  reels: {
-    title: "Reels",
-    description: "Moderate reel feed, publishing status, comments, likes, saves, and shares.",
-    queryKey: "reels",
-    listPath: "/reels/feed",
-    createPath: "/reels/uploads",
-    defaultCreate: { title: "", description: "", videoUrl: "", thumbnailUrl: "", cropTags: [] },
-    fields: [
-      { key: "title", label: "Title" },
-      { key: "creator.name", label: "Creator" },
-      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },
-      { key: "likeCount", label: "Likes" },
-      { key: "shareCount", label: "Shares" },
-      { key: "createdAt", label: "Created" },
+  videos: {
+    title: "Videos",
+    description: "Upload from browser or manage existing video content. All counters sync in realtime.",
+    queryKey: "videos",
+    listPath: "/videos/admin-list",
+    updatePath: (id) => `/videos/${id}/status`,
+    deletePath: (id) => `/videos/${id}`,
+    updateMethod: "PATCH",
+    updatePayload: (body) => ({ status: body.status ?? "published", isFeatured: body.isFeatured, isTrending: body.isTrending }),
+    defaultCreate: {
+      authorName: "", caption: "", category: "for_you",
+      language: "hi", isFeatured: false, isTrending: false, status: "published",
+    },
+    formFields: [
+      { key: "caption", label: "Caption / Description", type: "textarea" },
+      { key: "authorName", label: "Author Name", type: "text" },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "For You", value: "for_you" }, { label: "Organic", value: "organic" },
+        { label: "Machinery", value: "machinery" }, { label: "Weather", value: "weather" },
+        { label: "Market", value: "market" }, { label: "Tasks", value: "tasks" },
+        { label: "Soil", value: "soil" }, { label: "Schemes", value: "schemes" },
+        { label: "News", value: "news" }, { label: "Events", value: "events" },
+      ]},
+      { key: "language", label: "Language", type: "select", options: [
+        { label: "Hindi", value: "hi" }, { label: "English", value: "en" },
+        { label: "Gujarati", value: "gu" }, { label: "Marathi", value: "mr" },
+      ]},
+      { key: "isFeatured", label: "Featured", type: "boolean" },
+      { key: "isTrending", label: "Trending", type: "boolean" },
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Published", value: "published" }, { label: "Draft", value: "draft" }, { label: "Hidden", value: "hidden" },
+      ]},
     ],
-    actions: [{ label: "Publish", path: (row) => `/reels/${row.id ?? row._id}/publish`, method: "POST", body: () => ({ status: "published" }) }],
+    fields: [
+      { key: "caption", label: "Caption", render: (row) => (
+        <div className="flex items-center gap-3">
+          {row.thumbnailUrl ? (
+            <div className="relative w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-black/5">
+              <img src={row.thumbnailUrl as string} alt="" className="w-full h-full object-cover" />
+              <div className="absolute bottom-0.5 right-0.5 px-1 py-0.5 rounded bg-black/70 text-white text-[8px] font-medium">
+                {Number(row.durationSeconds ?? 0) > 0
+                  ? `${Math.floor(Number(row.durationSeconds) / 60)}:${(Number(row.durationSeconds) % 60).toString().padStart(2, "0")}`
+                  : "--:--"}
+              </div>
+            </div>
+          ) : (
+            <div className="w-14 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
+              <Film className="w-5 h-5 text-muted-foreground" />
+            </div>
+          )}
+          <span className="truncate max-w-[180px] text-sm font-medium">{String(row.caption ?? "Untitled")}</span>
+        </div>
+      )},
+      { key: "authorName", label: "Creator", render: (row) => <span className="text-xs">{String(row.authorName ?? "-")}</span> },
+      { key: "category", label: "Category", render: (row) => <span className="text-xs capitalize">{String(row.category ?? "-")}</span> },
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },
+      { key: "viewCount", label: "Views", render: (row) => <span className="font-medium">{(row.viewCount ?? 0).toLocaleString()}</span> },
+      { key: "likeCount", label: "Likes", render: (row) => <span className="font-medium">{(row.likeCount ?? 0).toLocaleString()}</span> },
+      { key: "commentCount", label: "Comments", render: (row) => <span className="font-medium">{(row.commentCount ?? 0).toLocaleString()}</span> },
+      { key: "shareCount", label: "Shares", render: (row) => <span className="font-medium">{(row.shareCount ?? 0).toLocaleString()}</span> },
+      { key: "createdAt", label: "Created", render: (row) => {
+        const d = row.createdAt ? new Date(String(row.createdAt)) : null;
+        return <span className="text-xs text-muted-foreground">{d ? d.toLocaleDateString() : "-"}</span>;
+      }},
+    ],
+    actions: [
+      { label: "Publish", path: (row) => `/videos/${row.id ?? row._id}/status`, method: "PATCH", body: () => ({ status: "published" }) },
+      { label: "Feature", path: (row) => `/videos/${row.id ?? row._id}/status`, method: "PATCH", body: () => ({ isFeatured: true }) },
+    ],
   },
   notifications: {
     title: "Notifications",
@@ -145,7 +407,10 @@ export const resources: Record<string, ResourceConfig> = {
     listPath: "/notifications",
     createPath: "/notifications/send",
     deletePath: (id) => `/notifications/${id}`,
-    defaultCreate: { target: "all", title: "", message: "", type: "advisory", priority: "high" },
+    defaultCreate: {
+      target: "all", title: "", message: "", type: "advisory",
+      priority: "high", image: "", icon: "", deepLink: "", scheduleAt: "",
+    },
     createPayload: (body) => {
       const payload: Record<string, unknown> = {
         target: body.target ?? "all",
@@ -154,43 +419,75 @@ export const resources: Record<string, ResourceConfig> = {
         type: body.type === "general" ? "advisory" : body.type,
         priority: body.priority ?? "high",
       };
-      if (body.metadata && typeof body.metadata === "object" && Object.keys(body.metadata as object).length > 0) {
-        payload.metadata = body.metadata;
-      }
-      if (payload.target === "user" && body.userId) {
-        payload.userId = body.userId;
-      } else if (payload.target === "token" && body.token) {
-        payload.token = body.token;
-      }
+      if (body.image) payload.image = body.image;
+      if (body.icon) payload.icon = body.icon;
+      if (body.deepLink) payload.deepLink = body.deepLink;
+      if (body.scheduleAt) payload.scheduleAt = body.scheduleAt;
+      if (body.metadata && typeof body.metadata === "object") payload.metadata = body.metadata;
+      if (payload.target === "user" && body.userId) payload.userId = body.userId;
+      else if (payload.target === "segment" && body.segment) payload.segment = body.segment;
+      else if (payload.target === "token" && body.token) payload.token = body.token;
       return payload;
     },
     formFields: [
-      { key: "target", label: "Target", type: "select", options: [{ label: "All Users (Flutter app)", value: "all" }, { label: "Specific User ID", value: "user" }, { label: "FCM Device Token", value: "token" }] },
-      { key: "userId", label: "User ID", type: "text", condition: (values) => values.target === "user" },
-      { key: "token", label: "FCM Token", type: "text", condition: (values) => values.target === "token" },
+      { key: "target", label: "Target Audience", type: "select", options: [
+        { label: "All Users (Flutter app)", value: "all" },
+        { label: "Specific User ID", value: "user" },
+        { label: "User Segment", value: "segment" },
+        { label: "FCM Device Token", value: "token" },
+      ]},
+      { key: "userId", label: "User ID", type: "text", condition: (v) => v.target === "user" },
+      { key: "segment", label: "Segment", type: "select", condition: (v) => v.target === "segment", options: [
+        { label: "All Farmers", value: "farmers" },
+        { label: "Premium Users", value: "premium" },
+        { label: "Hindi Speakers", value: "hi" },
+        { label: "Gujarati Speakers", value: "gu" },
+        { label: "Marathi Speakers", value: "mr" },
+      ]},
+      { key: "token", label: "FCM Token", type: "text", condition: (v) => v.target === "token" },
       { key: "title", label: "Title", type: "text", required: true },
       { key: "message", label: "Message / Body", type: "textarea", required: true },
-      { key: "type", label: "Type", type: "select", options: [{ label: "Advisory", value: "advisory" }, { label: "Weather", value: "weather" }, { label: "Market", value: "market" }, { label: "Tasks", value: "tasks" }, { label: "Schemes", value: "schemes" }, { label: "News", value: "news" }, { label: "Events", value: "events" }] },
-      { key: "priority", label: "Priority", type: "select", options: [{ label: "Critical", value: "critical" }, { label: "High", value: "high" }, { label: "Normal", value: "normal" }] },
+      { key: "type", label: "Type", type: "select", options: [
+        { label: "Advisory", value: "advisory" }, { label: "Weather Alert", value: "weather" },
+        { label: "Market Update", value: "market" }, { label: "Task Reminder", value: "tasks" },
+        { label: "Soil Alert", value: "soil" }, { label: "Machinery", value: "machinery" },
+        { label: "Schemes", value: "schemes" }, { label: "News", value: "news" },
+        { label: "Events", value: "events" }, { label: "Promotional", value: "promotional" },
+      ]},
+      { key: "priority", label: "Priority", type: "select", options: [
+        { label: "Critical", value: "critical" }, { label: "High", value: "high" },
+        { label: "Normal", value: "normal" }, { label: "Low", value: "low" },
+      ]},
+      { key: "image", label: "Image URL", type: "text" },
+      { key: "icon", label: "Icon URL", type: "text" },
+      { key: "deepLink", label: "Deep Link (app://path)", type: "text" },
+      { key: "scheduleAt", label: "Schedule (ISO datetime, empty = send now)", type: "text" },
       { key: "metadata", label: "Metadata (JSON, optional)", type: "json" },
     ],
     filterParam: "status",
     filterOptions: [
-      { label: "All status", value: "all" },
-      { label: "Sent", value: "sent" },
-      { label: "Failed", value: "failed" },
+      { label: "All status", value: "all" }, { label: "Sent", value: "sent" },
+      { label: "Scheduled", value: "scheduled" }, { label: "Failed", value: "failed" },
     ],
     fields: [
       { key: "title", label: "Title" },
       { key: "message", label: "Message" },
-      { key: "userId", label: "User" },
       { key: "type", label: "Type", render: (row) => <StatusBadge value={row.type} /> },
-      { key: "priority", label: "Priority", render: (row) => <StatusBadge value={row.priority} /> },
+      { key: "priority", label: "Priority", render: (row) => {
+        const p = String(row.priority ?? "normal");
+        const colors: Record<string, string> = {
+          critical: "bg-red-100 text-red-700", high: "bg-orange-100 text-orange-700",
+          normal: "bg-blue-100 text-blue-700", low: "bg-gray-100 text-gray-700",
+        };
+        return <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors[p] ?? "bg-accent"}`}>{p}</span>;
+      }},
       { key: "status", label: "Delivery", render: (row) => <StatusBadge value={row.status} /> },
-      { key: "read", label: "Read", render: (row) => <StatusBadge value={row.read} /> },
+      { key: "read", label: "Read", render: (row) => <StatusBadge value={row.read ? "read" : "unread"} /> },
       { key: "sentAt", label: "Sent" },
     ],
-    actions: [{ label: "Mark Read", path: () => "/notifications/read", method: "PATCH", body: (row) => ({ notificationIds: [row.id ?? row._id] }) }],
+    actions: [
+      { label: "Mark Read", path: () => "/notifications/read", method: "PATCH", body: (row) => ({ notificationIds: [row.id ?? row._id] }) },
+    ],
   },
   tasks: {
     title: "Tasks",
@@ -200,65 +497,142 @@ export const resources: Record<string, ResourceConfig> = {
     createPath: "/tasks",
     updatePath: (id) => `/tasks/${id}`,
     deletePath: (id) => `/tasks/${id}`,
-    defaultCreate: { title: "", description: "", dueDate: "", priority: "medium" },
+    sortOptions: [
+      { label: "Newest", value: "-createdAt" },
+      { label: "Due Date", value: "dueDate" },
+      { label: "Priority", value: "-priority" },
+    ],
+    filterOptions: [
+      { label: "All", value: "all" },
+      { label: "Pending", value: "pending" },
+      { label: "In Progress", value: "in_progress" },
+      { label: "Completed", value: "completed" },
+    ],
+    filterParam: "status",
+    defaultCreate: { title: "", description: "", dueDate: "", priority: "medium", assignedTo: "", status: "pending", progress: 0 },
     formFields: [
       { key: "title", label: "Task Title", type: "text", required: true },
       { key: "description", label: "Description", type: "textarea" },
+      { key: "assignedTo", label: "Assigned To (User ID)", type: "text" },
       { key: "dueDate", label: "Due Date (YYYY-MM-DD)", type: "text" },
-      { key: "priority", label: "Priority", type: "select", options: [{ label: "High", value: "high" }, { label: "Medium", value: "medium" }, { label: "Low", value: "low" }] },
+      { key: "priority", label: "Priority", type: "select", options: [
+        { label: "Critical", value: "critical" }, { label: "High", value: "high" },
+        { label: "Medium", value: "medium" }, { label: "Low", value: "low" },
+      ]},
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Pending", value: "pending" }, { label: "In Progress", value: "in_progress" },
+        { label: "Completed", value: "completed" }, { label: "Cancelled", value: "cancelled" },
+      ]},
+      { key: "progress", label: "Progress (0-100)", type: "number" },
     ],
     fields: [
-      { key: "title", label: "Task" },
-      { key: "priority", label: "Priority", render: (row) => <StatusBadge value={row.priority} /> },
-      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? row.completed} /> },
+      { key: "title", label: "Task", render: (row) => (
+        <div>
+          <p className="font-medium">{String(row.title ?? "Untitled")}</p>
+          {String(row.assignedTo ?? "") && <p className="text-[10px] text-muted-foreground">Assigned to: {String(row.assignedTo)}</p>}
+        </div>
+      )},
+      { key: "priority", label: "Priority", render: (row) => {
+        const p = String(row.priority ?? "medium");
+        const colors: Record<string, string> = {
+          critical: "bg-red-100 text-red-700", high: "bg-orange-100 text-orange-700",
+          medium: "bg-blue-100 text-blue-700", low: "bg-gray-100 text-gray-700",
+        };
+        return <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors[p] ?? "bg-accent"}`}>{p}</span>;
+      }},
+      { key: "status", label: "Status", render: (row) => {
+        const s = String(row.status ?? (row.completed ? "completed" : "pending"));
+        return <StatusBadge value={s} />;
+      }},
+      { key: "progress", label: "Progress", render: (row) => {
+        const p = Number(row.progress ?? (row.completed ? 100 : 0));
+        return (
+          <div className="flex items-center gap-2">
+            <div className="h-1.5 w-20 rounded-full bg-accent/40 overflow-hidden">
+              <div className="h-full bg-primary rounded-full" style={{ width: `${p}%` }} />
+            </div>
+            <span className="text-xs text-muted-foreground">{p}%</span>
+          </div>
+        );
+      }},
       { key: "dueDate", label: "Due" },
       { key: "createdAt", label: "Created" },
     ],
-    actions: [{ label: "Complete", path: (row) => `/tasks/${row.id ?? row._id}/complete`, method: "POST" }],
+    actions: [
+      { label: "Complete", path: (row) => `/tasks/${row.id ?? row._id}/complete`, method: "POST" },
+    ],
   },
   events: {
     title: "Events",
-    description: "Inspect farmer events and registrations available in the mobile app.",
+    description: "Create and manage agricultural events, workshops, and exhibitions.",
     queryKey: "events",
     listPath: "/events/list",
     createPath: "/events",
     updatePath: (id) => `/events/${id}`,
     deletePath: (id) => `/events/${id}`,
     updateMethod: "PATCH",
+    sortOptions: [{ label: "Latest", value: "-date" }, { label: "Upcoming", value: "date" }],
+    filterOptions: [
+      { label: "All", value: "all" }, { label: "Training", value: "training" },
+      { label: "Expo", value: "expo" }, { label: "Webinar", value: "webinar" },
+      { label: "Workshop", value: "workshop" },
+    ],
+    filterParam: "category",
     defaultCreate: {
-      title: "",
-      description: "",
-      category: "training",
-      date: "",
-      location: { state: "", district: "", address: "", lat: 20.5937, lng: 78.9629 },
-      organizer: "",
-      crops: [],
-      interests: [],
-      isLiveStreaming: false,
-      streamUrl: "",
+      title: "", description: "", category: "training", date: "",
+      time: "", location: { state: "", district: "", address: "", lat: 20.5937, lng: 78.9629 },
+      organizer: "", phone: "", registrationUrl: "", maxParticipants: 0,
+      banner: "", gallery: [], isLiveStreaming: false, streamUrl: "", status: "draft",
     },
     formFields: [
       { key: "title", label: "Event Title", type: "text", required: true },
-      { key: "description", label: "Description", type: "textarea", required: true },
-      { key: "category", label: "Category", type: "select", options: [{ label: "Training", value: "training" }, { label: "Agri Expo", value: "expo" }, { label: "Buyer Meet", value: "buyer_meet" }, { label: "Government Meet", value: "government" }, { label: "Webinar", value: "webinar" }, { label: "Workshop", value: "workshop" }, { label: "Market Linkage", value: "market_linkage" }] },
+      { key: "description", label: "Description (Rich Text)", type: "textarea", required: true },
+      { key: "banner", label: "Banner Image URL", type: "text" },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "Training", value: "training" }, { label: "Agri Expo", value: "expo" },
+        { label: "Buyer Meet", value: "buyer_meet" }, { label: "Government Meet", value: "government" },
+        { label: "Webinar", value: "webinar" }, { label: "Workshop", value: "workshop" },
+        { label: "Market Linkage", value: "market_linkage" },
+      ]},
       { key: "date", label: "Event Date (YYYY-MM-DD)", type: "text", required: true },
-      { key: "location.state", label: "State", type: "text", required: true },
+      { key: "time", label: "Event Time (HH:MM)", type: "text" },
+      { key: "location.state", label: "State", type: "text" },
       { key: "location.district", label: "District", type: "text" },
-      { key: "location.address", label: "Address", type: "text", required: true },
-      { key: "location.lat", label: "Latitude", type: "number", required: true },
-      { key: "location.lng", label: "Longitude", type: "number", required: true },
-      { key: "organizer", label: "Organizer", type: "text", required: true },
-      { key: "crops", label: "Target Crops (JSON array)", type: "json" },
+      { key: "location.address", label: "Address", type: "text" },
+      { key: "organizer", label: "Organizer", type: "text" },
+      { key: "phone", label: "Contact Phone", type: "text" },
+      { key: "registrationUrl", label: "Registration URL", type: "text" },
+      { key: "maxParticipants", label: "Max Participants", type: "number" },
       { key: "isLiveStreaming", label: "Live Streamed?", type: "boolean" },
       { key: "streamUrl", label: "Stream URL", type: "text" },
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Draft", value: "draft" }, { label: "Published", value: "published" },
+        { label: "Cancelled", value: "cancelled" }, { label: "Completed", value: "completed" },
+      ]},
+      { key: "gallery", label: "Gallery Images (JSON array)", type: "json" },
     ],
     fields: [
-      { key: "title", label: "Event" },
-      { key: "category", label: "Category" },
+      { key: "title", label: "Event", render: (row) => (
+        <div className="flex items-center gap-2">
+          {row.banner ? (
+            <img src={row.banner as string} alt="" className="w-10 h-10 rounded-lg object-cover" />
+          ) : (
+            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-xs">📅</div>
+          )}
+          <div>
+            <p className="font-medium text-sm">{String(row.title ?? "Untitled")}</p>
+            <p className="text-[10px] text-muted-foreground">{String(row.organizer ?? "")}</p>
+          </div>
+        </div>
+      )},
+      { key: "category", label: "Category", render: (row) => <span className="text-xs capitalize">{String(row.category ?? "-")}</span> },
       { key: "location.state", label: "State" },
-      { key: "location.address", label: "Address" },
-      { key: "date", label: "Date" },
+      { key: "date", label: "Date", render: (row) => {
+        const d = row.date ? new Date(String(row.date)) : null;
+        return <span className="text-xs">{d ? d.toLocaleDateString() : "-"}</span>;
+      }},
       { key: "organizer", label: "Organizer" },
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? "draft"} /> },
     ],
   },
   schemes: {
@@ -270,85 +644,143 @@ export const resources: Record<string, ResourceConfig> = {
     updatePath: (id) => `/schemes/${id}`,
     deletePath: (id) => `/schemes/${id}`,
     updateMethod: "PATCH",
+    sortOptions: [{ label: "Newest", value: "-createdAt" }, { label: "Deadline", value: "deadline" }],
+    filterOptions: [
+      { label: "All", value: "all" }, { label: "Active", value: "active" },
+      { label: "Expired", value: "expired" }, { label: "Draft", value: "draft" },
+    ],
+    filterParam: "status",
     defaultCreate: {
-      name: "",
-      state: "All India",
+      name: "", state: "All India", description: "", category: "central",
+      eligibility: "", requiredDocuments: [], benefits: "",
+      officialWebsite: "", applyUrl: "", deadline: "",
+      banner: "", pdfUrl: "", logo: "", status: "draft",
       eligibilityRules: { minLandSizeAcres: 0, crops: [], states: [] },
-      benefits: { description: "", cashAmount: 0, subsidyPercent: 0 },
-      requiredDocuments: [],
-      deadline: "",
-      machineryCategories: [],
-      stepByStepGuide: [],
-      translations: [],
-      sourceUrl: "",
     },
     createPayload: (body) => {
       const payload = { ...body };
       if (!payload.sourceUrl) delete payload.sourceUrl;
-      if (Array.isArray(payload.machineryCategories) && payload.machineryCategories.length === 0) delete payload.machineryCategories;
-      if (Array.isArray(payload.stepByStepGuide) && payload.stepByStepGuide.length === 0) delete payload.stepByStepGuide;
-      if (Array.isArray(payload.translations) && payload.translations.length === 0) delete payload.translations;
-      return payload;
-    },
-    updatePayload: (body) => {
-      const payload = { ...body };
-      if (!payload.sourceUrl) delete payload.sourceUrl;
+      if (Array.isArray(payload.requiredDocuments) && payload.requiredDocuments.length === 0) delete payload.requiredDocuments;
       return payload;
     },
     formFields: [
       { key: "name", label: "Scheme Name", type: "text", required: true },
-      { key: "state", label: "State Eligibility", type: "text", required: true },
-      { key: "benefits.description", label: "Benefits Description", type: "textarea", required: true },
-      { key: "benefits.cashAmount", label: "Cash Amount (INR)", type: "number" },
-      { key: "benefits.subsidyPercent", label: "Subsidy Percent", type: "number" },
-      { key: "eligibilityRules", label: "Eligibility Rules (JSON)", type: "json" },
-      { key: "requiredDocuments", label: "Required Documents (JSON array)", type: "json" },
-      { key: "deadline", label: "Deadline (YYYY-MM-DD)", type: "text", required: true },
-      { key: "stepByStepGuide", label: "Step-by-Step Guide (JSON array)", type: "json" },
-      { key: "sourceUrl", label: "Source URL", type: "text" },
+      { key: "description", label: "Description", type: "textarea", required: true },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "Central", value: "central" }, { label: "State", value: "state" },
+        { label: "Subsidy", value: "subsidy" }, { label: "Loan", value: "loan" },
+        { label: "Insurance", value: "insurance" }, { label: "Training", value: "training" },
+      ]},
+      { key: "state", label: "State Eligibility", type: "text" },
+      { key: "benefits", label: "Benefits Description", type: "textarea" },
+      { key: "eligibility", label: "Eligibility Criteria", type: "textarea" },
+      { key: "requiredDocuments", label: "Required Documents (comma separated)", type: "text" },
+      { key: "officialWebsite", label: "Official Website URL", type: "text" },
+      { key: "applyUrl", label: "Apply URL", type: "text" },
+      { key: "deadline", label: "Deadline (YYYY-MM-DD)", type: "text" },
+      { key: "banner", label: "Banner Image URL", type: "text" },
+      { key: "pdfUrl", label: "PDF Detail URL", type: "text" },
+      { key: "logo", label: "Government Logo URL", type: "text" },
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Active", value: "active" }, { label: "Draft", value: "draft" },
+        { label: "Expired", value: "expired" },
+      ]},
     ],
     fields: [
-      { key: "name", label: "Scheme" },
-      { key: "category", label: "Category" },
+      { key: "name", label: "Scheme", render: (row) => (
+        <div className="flex items-center gap-2">
+          {row.logo ? (
+            <img src={row.logo as string} alt="" className="w-8 h-8 rounded object-contain" />
+          ) : (
+            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-xs">🏛</div>
+          )}
+          <span className="font-medium">{String(row.name ?? "Untitled")}</span>
+        </div>
+      )},
+      { key: "category", label: "Category", render: (row) => <span className="text-xs capitalize">{String(row.category ?? "-")}</span> },
       { key: "state", label: "State" },
-      { key: "benefitAmount", label: "Benefit" },
+      { key: "benefits", label: "Benefit", render: (row) => {
+        const b = row.benefits ?? row.benefitAmount ?? "";
+        return <span className="text-xs truncate max-w-[200px] block">{String(b).substring(0, 50)}</span>;
+      }},
       { key: "deadline", label: "Deadline" },
       { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? (row.isActive ? "active" : "inactive")} /> },
     ],
   },
   machinery: {
     title: "Machinery",
-    description: "Manage machinery catalogue, rentals, inquiries, and app catalogue visibility.",
+    description: "Manage machinery catalogue, rentals, and dealer information.",
     queryKey: "machinery",
     listPath: "/machinery",
     createPath: "/machinery",
     updatePath: (id) => `/machinery/${id}`,
     deletePath: (id) => `/machinery/${id}`,
+    sortOptions: [{ label: "Price Low", value: "minPrice" }, { label: "Price High", value: "-minPrice" }],
+    filterOptions: [
+      { label: "All", value: "all" }, { label: "Tractors", value: "tractors" },
+      { label: "Machines", value: "machines" }, { label: "Implements", value: "implements" },
+    ],
+    filterParam: "category",
     defaultCreate: {
-      category: "machines",
-      title: "",
-      market: "India",
-      imageUrl: "",
-      minPrice: 0,
-      maxPrice: 0,
-      trendPercent: 0,
-      rating: 0,
-      reviews: 0,
-      powerOutput: "",
-      fuelType: "",
-      primaryUsage: "",
-      specs: {},
-      about: "",
-      variant: "",
-      trendPoints: [1, 1, 1, 1, 1, 1],
-      isActive: true,
+      title: "", category: "machines", brand: "", model: "", market: "India",
+      imageUrl: "", gallery: [], minPrice: 0, maxPrice: 0, discount: 0,
+      horsePower: "", engine: "", fuelType: "diesel", attachments: [],
+      dealer: "", dealerPhone: "", dealerWebsite: "", location: "",
+      lat: 20.5937, lng: 78.9629, manualPdf: "", youtubeDemo: "",
+      about: "", isActive: true, rating: 0, reviews: 0,
     },
+    formFields: [
+      { key: "title", label: "Machine Name", type: "text", required: true },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "Tractors", value: "tractors" }, { label: "Machines", value: "machines" },
+        { label: "Implements", value: "implements" }, { label: "Harvesters", value: "harvesters" },
+        { label: "Pumps", value: "pumps" }, { label: "Sprayers", value: "sprayers" },
+      ]},
+      { key: "brand", label: "Brand", type: "text" },
+      { key: "model", label: "Model", type: "text" },
+      { key: "imageUrl", label: "Main Image URL", type: "text" },
+      { key: "gallery", label: "Gallery Images (JSON array)", type: "json" },
+      { key: "minPrice", label: "Min Price (INR)", type: "number" },
+      { key: "maxPrice", label: "Max Price (INR)", type: "number" },
+      { key: "discount", label: "Discount (%)", type: "number" },
+      { key: "horsePower", label: "Horse Power", type: "text" },
+      { key: "engine", label: "Engine", type: "text" },
+      { key: "fuelType", label: "Fuel Type", type: "select", options: [
+        { label: "Diesel", value: "diesel" }, { label: "Petrol", value: "petrol" },
+        { label: "Electric", value: "electric" }, { label: "CNG", value: "cng" },
+      ]},
+      { key: "attachments", label: "Attachments (JSON array)", type: "json" },
+      { key: "dealer", label: "Dealer Name", type: "text" },
+      { key: "dealerPhone", label: "Dealer Phone", type: "text" },
+      { key: "dealerWebsite", label: "Dealer Website", type: "text" },
+      { key: "location", label: "Location", type: "text" },
+      { key: "manualPdf", label: "Manual PDF URL", type: "text" },
+      { key: "youtubeDemo", label: "YouTube Demo URL", type: "text" },
+      { key: "about", label: "Description", type: "textarea" },
+      { key: "isActive", label: "Active", type: "boolean" },
+    ],
     fields: [
-      { key: "name", label: "Machine" },
-      { key: "brand", label: "Brand" },
-      { key: "category", label: "Category" },
-      { key: "price", label: "Price", render: (row) => money(row.price ?? row.basePrice) },
-      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? row.isActive} /> },
+      { key: "title", label: "Machine", render: (row) => (
+        <div className="flex items-center gap-2">
+          {row.imageUrl ? (
+            <img src={row.imageUrl as string} alt="" className="w-10 h-10 rounded-lg object-cover" />
+          ) : (
+            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-xs">🚜</div>
+          )}
+          <div>
+            <p className="font-medium text-sm">{String(row.title ?? "Untitled")}</p>
+            <p className="text-[10px] text-muted-foreground">{String(row.brand ?? "")} {String(row.model ?? "")}</p>
+          </div>
+        </div>
+      )},
+      { key: "category", label: "Category", render: (row) => <span className="text-xs capitalize">{String(row.category ?? "-")}</span> },
+      { key: "minPrice", label: "Price Range", render: (row) => (
+        <span className="font-medium">{money(row.minPrice ?? row.price ?? row.basePrice)} - {money(row.maxPrice)}</span>
+      )},
+      { key: "horsePower", label: "HP" },
+      { key: "fuelType", label: "Fuel", render: (row) => <span className="text-xs capitalize">{String(row.fuelType ?? "-")}</span> },
+      { key: "dealer", label: "Dealer", render: (row) => <span className="text-xs">{String(row.dealer ?? "-")}</span> },
+      { key: "isActive", label: "Status", render: (row) => <StatusBadge value={row.isActive ?? row.status} /> },
     ],
   },
   weather: {
@@ -357,12 +789,35 @@ export const resources: Record<string, ResourceConfig> = {
     queryKey: "weather",
     listPath: "/weather/alerts",
     searchParam: "location",
+    filterOptions: [
+      { label: "All Severity", value: "all" },
+      { label: "Extreme", value: "extreme" },
+      { label: "Severe", value: "severe" },
+      { label: "Moderate", value: "moderate" },
+      { label: "Minor", value: "minor" },
+    ],
+    filterParam: "severity",
     fields: [
-      { key: "title", label: "Alert" },
-      { key: "severity", label: "Severity", render: (row) => <StatusBadge value={row.severity} /> },
-      { key: "location", label: "Location" },
-      { key: "message", label: "Message" },
+      { key: "title", label: "Alert", render: (row) => (
+        <div>
+          <p className="font-medium">{String(row.title ?? "Weather Alert")}</p>
+          {String(row.location ?? "") && <p className="text-[10px] text-muted-foreground">📍 {String(row.location)}</p>}
+        </div>
+      )},
+      { key: "severity", label: "Severity", render: (row) => {
+        const s = String(row.severity ?? "info").toLowerCase();
+        const colors: Record<string, string> = {
+          extreme: "bg-red-100 text-red-700 border-red-200",
+          severe: "bg-orange-100 text-orange-700 border-orange-200",
+          moderate: "bg-amber-100 text-amber-700 border-amber-200",
+          minor: "bg-yellow-100 text-yellow-700 border-yellow-200",
+          info: "bg-blue-100 text-blue-700 border-blue-200",
+        };
+        return <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${colors[s] ?? "bg-accent"}`}>{s}</span>;
+      }},
+      { key: "message", label: "Message", render: (row) => <span className="text-xs truncate max-w-[200px] block">{String(row.message ?? "")}</span> },
       { key: "validUntil", label: "Valid Until" },
+      { key: "createdAt", label: "Issued" },
     ],
   },
   banners: {
@@ -375,70 +830,168 @@ export const resources: Record<string, ResourceConfig> = {
     deletePath: (id) => `/news/${id}`,
     updateMethod: "PATCH",
     defaultCreate: {
-      title: "",
-      content: "",
-      category: "government",
-      source: "Admin Panel",
-      sourceUrl: "",
-      publishedDate: "",
-      summary: "",
-      cropRelevance: [],
-      actionableAdvice: [],
-      impactType: "neutral",
-      urgencyScore: 50,
+      title: "", content: "", category: "government", source: "Admin Panel",
+      sourceUrl: "", publishedDate: "", summary: "", coverImage: "",
+      thumbnail: "", seoTitle: "", seoDescription: "", tags: [],
+      cropRelevance: [], actionableAdvice: [], impactType: "neutral", urgencyScore: 50,
     },
     formFields: [
-      { key: "title", label: "Title / Banner Heading", type: "text", required: true },
-      { key: "content", label: "Content / Banner Text", type: "textarea", required: true },
-      { key: "category", label: "Category", type: "select", options: [{ label: "Government", value: "government" }, { label: "Weather", value: "weather" }, { label: "Mandi Rates", value: "mandi" }, { label: "Pest / Disease Alert", value: "pest" }] },
-      { key: "source", label: "Source Name", type: "text" },
+      { key: "title", label: "Title", type: "text", required: true },
+      { key: "content", label: "Content", type: "textarea", required: true },
+      { key: "summary", label: "Summary", type: "textarea" },
+      { key: "coverImage", label: "Cover Image URL", type: "text" },
+      { key: "thumbnail", label: "Thumbnail URL", type: "text" },
+      { key: "category", label: "Category", type: "select", options: [
+        { label: "Government", value: "government" }, { label: "Weather", value: "weather" },
+        { label: "Mandi Rates", value: "mandi" }, { label: "Pest / Disease", value: "pest" },
+        { label: "Success Story", value: "success_story" },
+      ]},
+      { key: "source", label: "Source", type: "text" },
       { key: "sourceUrl", label: "Source URL", type: "text" },
-      { key: "publishedDate", label: "Published Date (YYYY-MM-DD)", type: "text" },
-      { key: "cropRelevance", label: "Crop Relevance (JSON array)", type: "json" },
-      { key: "actionableAdvice", label: "Actionable Advice (JSON array)", type: "json" },
-      { key: "impactType", label: "Impact", type: "select", options: [{ label: "Neutral", value: "neutral" }, { label: "Price Up", value: "price_up" }, { label: "Price Down", value: "price_down" }, { label: "Crop Risk", value: "crop_risk" }] },
-      { key: "urgencyScore", label: "Urgency Score (0 - 100)", type: "number" },
+      { key: "publishedDate", label: "Published Date", type: "text" },
+      { key: "seoTitle", label: "SEO Title", type: "text" },
+      { key: "seoDescription", label: "SEO Description", type: "textarea" },
+      { key: "tags", label: "Tags (comma separated)", type: "text" },
+      { key: "impactType", label: "Impact", type: "select", options: [
+        { label: "Neutral", value: "neutral" }, { label: "Price Up", value: "price_up" },
+        { label: "Price Down", value: "price_down" }, { label: "Crop Risk", value: "crop_risk" },
+      ]},
+      { key: "urgencyScore", label: "Urgency Score (0-100)", type: "number" },
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Draft", value: "draft" }, { label: "Published", value: "published" },
+        { label: "Archived", value: "archived" },
+      ]},
     ],
     fields: [
       { key: "title", label: "Title" },
       { key: "category", label: "Category" },
       { key: "source", label: "Source" },
       { key: "urgencyScore", label: "Urgency" },
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? "draft"} /> },
       { key: "publishedDate", label: "Published" },
     ],
   },
-  advisory: {
-    title: "Advisory",
-    description: "AI-powered crop advisories based on weather, soil, pest, and market data.",
-    queryKey: "advisory",
-    listPath: "/advisory",
-    searchParam: "crop",
-    filterParam: "severity",
+  community: {
+    title: "Community Posts",
+    description: "Manage farmer community posts, engagement counts, and moderation.",
+    queryKey: "community-posts",
+    listPath: "/community/admin/posts",
+    createPath: "/community/admin/posts",
+    updatePath: (id) => `/community/posts/${id}`,
+    deletePath: (id) => `/community/posts/${id}`,
+    updateMethod: "PATCH",
+    sortOptions: [{ label: "Newest", value: "-createdAt" }, { label: "Most Liked", value: "-likeCount" }],
     filterOptions: [
-      { label: "All severity", value: "all" },
-      { label: "Critical", value: "critical" },
-      { label: "High", value: "high" },
-      { label: "Medium", value: "medium" },
-      { label: "Low", value: "low" },
+      { label: "All", value: "all" }, { label: "Published", value: "published" },
+      { label: "Hidden", value: "hidden" }, { label: "Reported", value: "reported" },
+    ],
+    filterParam: "status",
+    defaultCreate: {
+      type: "question", body: "", topicTag: "", location: "",
+      authorName: "iAgrin Admin", status: "published", imageUrls: [], videoUrl: "",
+    },
+    formFields: [
+      { key: "authorName", label: "Author Name", type: "text" },
+      { key: "type", label: "Type", type: "select", options: [
+        { label: "Question", value: "question" }, { label: "Solution", value: "solution" },
+        { label: "Success Story", value: "success_story" },
+      ]},
+      { key: "body", label: "Post Body", type: "textarea", required: true },
+      { key: "topicTag", label: "Topic Tag", type: "text" },
+      { key: "location", label: "Location", type: "text" },
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Published", value: "published" }, { label: "Hidden", value: "hidden" },
+        { label: "Reported", value: "reported" },
+      ]},
+      { key: "imageUrls", label: "Image URLs (JSON array)", type: "json" },
+      { key: "videoUrl", label: "Video URL", type: "text" },
+      { key: "isPinned", label: "Pinned Post", type: "boolean" },
+      { key: "isFeatured", label: "Featured Post", type: "boolean" },
     ],
     fields: [
-      { key: "crop", label: "Crop" },
-      { key: "severity", label: "Severity", render: (row) => <StatusBadge value={row.severity} /> },
-      { key: "category", label: "Category" },
-      { key: "alertsSnapshot.messages", label: "Alerts", render: (row) => {
-        const alerts = row.alertsSnapshot as { messages?: string[] } | undefined;
-        return <div className="text-xs text-muted-foreground">{Array.isArray(alerts?.messages) ? alerts.messages.slice(0, 2).join(", ") : "-"}</div>;
-      }},
-      { key: "generatedAt", label: "Generated" },
+      { key: "authorName", label: "Author" },
+      { key: "type", label: "Type", render: (row) => <StatusBadge value={row.type} /> },
+      { key: "topicTag", label: "Topic" },
+      { key: "likeCount", label: "Likes" },
+      { key: "commentCount", label: "Comments" },
+      { key: "viewCount", label: "Views" },
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },
+      { key: "isFeatured", label: "Featured", render: (row) => row.isFeatured ? "⭐" : "-" },
+      { key: "createdAt", label: "Created" },
+    ],
+    actions: [
+      { label: "Hide", path: (row) => `/community/posts/${row.id ?? row._id}`, method: "PATCH", body: () => ({ status: "hidden" }) },
+      { label: "Approve", path: (row) => `/community/posts/${row.id ?? row._id}`, method: "PATCH", body: () => ({ status: "published" }) },
+    ],
+  },
+  communityTopics: {
+    title: "Community Topics",
+    description: "Manage popular topic chips shown in the community feed.",
+    queryKey: "community-topics",
+    listPath: "/community/admin/topics",
+    createPath: "/community/admin/topics",
+    updatePath: (id) => `/community/admin/topics/${id}`,
+    deletePath: (id) => `/community/admin/topics/${id}`,
+    updateMethod: "PATCH",
+    defaultCreate: {
+      title: "", iconKey: "eco", colorHex: "#43A047",
+      discussionCount: 0, sortOrder: 0, isActive: true,
+    },
+    formFields: [
+      { key: "title", label: "Title", type: "text", required: true },
+      { key: "iconKey", label: "Icon Key", type: "text" },
+      { key: "colorHex", label: "Color Hex", type: "text" },
+      { key: "discussionCount", label: "Discussion Count", type: "number" },
+      { key: "sortOrder", label: "Sort Order", type: "number" },
+      { key: "isActive", label: "Active", type: "boolean" },
+    ],
+    fields: [
+      { key: "title", label: "Topic" },
+      { key: "discussionCount", label: "Discussions" },
+      { key: "sortOrder", label: "Order" },
+      { key: "isActive", label: "Active", render: (row) => <StatusBadge value={row.isActive ? "active" : "inactive"} /> },
+    ],
+  },
+  communityExperts: {
+    title: "Community Experts",
+    description: "Manage online experts shown in the community screen.",
+    queryKey: "community-experts",
+    listPath: "/community/admin/experts",
+    createPath: "/community/admin/experts",
+    updatePath: (id) => `/community/admin/experts/${id}`,
+    deletePath: (id) => `/community/admin/experts/${id}`,
+    updateMethod: "PATCH",
+    defaultCreate: {
+      name: "", specialty: "", initials: "", avatarUrl: "",
+      isOnline: true, sortOrder: 0, isActive: true,
+    },
+    formFields: [
+      { key: "name", label: "Name", type: "text", required: true },
+      { key: "specialty", label: "Specialty", type: "text", required: true },
+      { key: "initials", label: "Initials", type: "text" },
+      { key: "avatarUrl", label: "Avatar URL", type: "text" },
+      { key: "isOnline", label: "Online", type: "boolean" },
+      { key: "sortOrder", label: "Sort Order", type: "number" },
+      { key: "isActive", label: "Active", type: "boolean" },
+    ],
+    fields: [
+      { key: "name", label: "Expert" },
+      { key: "specialty", label: "Specialty" },
+      { key: "isOnline", label: "Online", render: (row) => <StatusBadge value={row.isOnline ? "active" : "inactive"} /> },
+      { key: "sortOrder", label: "Order" },
+      { key: "isActive", label: "Active", render: (row) => <StatusBadge value={row.isActive ? "active" : "inactive"} /> },
     ],
   },
   support: {
     title: "Support",
-    description: "Operational support inbox wired to backend notifications until support APIs are available.",
+    description: "Operational support inbox wired to backend notifications.",
     queryKey: "support",
     listPath: "/notifications",
     filterParam: "type",
-    filterOptions: [{ label: "Info", value: "info" }, { label: "Warning", value: "warning" }, { label: "Alert", value: "alert" }],
+    filterOptions: [
+      { label: "Info", value: "info" }, { label: "Warning", value: "warning" },
+      { label: "Alert", value: "alert" },
+    ],
     fields: [
       { key: "title", label: "Subject" },
       { key: "body", label: "Message" },
@@ -448,14 +1001,13 @@ export const resources: Record<string, ResourceConfig> = {
   },
   marketplace: {
     title: "Marketplace",
-    description: "Marketplace catalogue currently maps to machinery listings exposed by backend.",
+    description: "Marketplace catalogue currently maps to machinery listings.",
     queryKey: "marketplace",
     listPath: "/machinery/list",
     createPath: "/machinery/listing",
     defaultCreate: { title: "", description: "", price: 0, location: "", contactPhone: "" },
     fields: [
       { key: "title", label: "Listing" },
-      { key: "name", label: "Name" },
       { key: "price", label: "Price", render: (row) => money(row.price ?? row.rentPerDay) },
       { key: "location", label: "Location" },
       { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },

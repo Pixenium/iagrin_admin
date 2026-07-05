@@ -6,6 +6,11 @@ import { LayoutWrapper } from "@/components/layout-wrapper";
 export const metadata: Metadata = {
   title: "iAgrin Admin - AI Agriculture Admin Dashboard",
   description: "Next-generation futuristic AI agriculture administration, analytics, crop diagnostics, and satellite monitoring dashboard.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

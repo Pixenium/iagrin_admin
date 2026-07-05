@@ -15,6 +15,8 @@ import {
   Settings,
   LifeBuoy,
   LogOut,
+  Globe,
+  ChevronDown
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -130,33 +132,15 @@ export function Topbar({ onOpenCommandPalette, onOpenNotifications }: TopbarProp
             onClick={onOpenNotifications}
             className="relative p-2 rounded-lg hover:bg-accent/50 transition-colors"
           >
-            <Bell className="w-5 h-5" />
+            <Bell className="w-5 h-5 text-foreground" />
             {unreadCount > 0 && (
-              <span className="absolute top-1 right-1 min-w-[10px] h-2.5 px-0.5 bg-error rounded-full border-2 border-background animate-pulse text-[8px] font-bold text-white flex items-center justify-center">
-                {unreadCount > 9 ? "9+" : unreadCount}
+              <span className="absolute top-0.5 right-0.5 min-w-[15px] h-3.5 px-0.5 bg-red-600 rounded-full border border-white text-[8px] font-black text-white flex items-center justify-center shadow-sm">
+                {unreadCount > 99 ? "99+" : unreadCount}
               </span>
             )}
           </button>
 
-          {/* Live status */}
-          {status === "connected" && (
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 border border-success/20 text-xs font-medium text-success">
-              <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-              Live
-            </div>
-          )}
-          {status === "connecting" && (
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-warning/10 border border-warning/20 text-xs font-medium text-warning">
-              <span className="w-2 h-2 rounded-full bg-warning animate-pulse" />
-              Connecting
-            </div>
-          )}
-          {status === "disconnected" && (
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-error/10 border border-error/20 text-xs font-medium text-error">
-              <span className="w-2 h-2 rounded-full bg-error" />
-              Offline
-            </div>
-          )}
+
 
           {/* User avatar with interactive dropdown */}
           <div className="relative">
