@@ -225,14 +225,22 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
     URL.revokeObjectURL(url);
   }, [config, filteredRows]);
 
-  const stats = useMemo(
-    () => [
+  const stats = useMemo(() => {
+    if (query.data?.stats && typeof query.data.stats === "object") {
+      return Object.entries(query.data.stats).map(([key, val]) => {
+        const label = key.charAt(0).toUpperCase() + key.slice(1);
+        return {
+          label: label === "Unread" ? "Unread Receipts" : label,
+          value: Number(val ?? 0).toLocaleString("en-IN")
+        };
+      });
+    }
+    return [
       { label: "Records", value: (query.data?.total ?? rows.length).toLocaleString("en-IN") },
       { label: "Loaded", value: rows.length.toLocaleString("en-IN") },
       { label: "Selected", value: selected.size.toLocaleString("en-IN") },
-    ],
-    [query.data?.total, rows.length, selected.size]
-  );
+    ];
+  }, [query.data?.total, query.data?.stats, rows.length, selected.size]);
 
   const invalidate = useCallback(async () => {
     await queryClient.invalidateQueries({ queryKey: [config.queryKey] });
@@ -386,7 +394,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-${Math.min(4, stats.length)} xl:grid-cols-${Math.min(7, stats.length)} gap-4`}>
         {stats.map((item) => (
           <Card key={item.label} className="glass-card">
             <CardHeader className="pb-1.5">

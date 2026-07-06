@@ -404,90 +404,93 @@ export const resources: Record<string, ResourceConfig> = {
     title: "Notifications",
     description: "Send push notifications to Flutter app users via live FCM backend.",
     queryKey: "notifications",
-    listPath: "/notifications",
-    createPath: "/notifications/send",
-    deletePath: (id) => `/notifications/${id}`,
+    listPath: "/admin/notifications",
+    createPath: "/admin/notifications/send",
+    deletePath: (id) => `/admin/notifications/${id}`,
     defaultCreate: {
-      target: "all", title: "", message: "", type: "advisory",
-      priority: "high", image: "", icon: "", deepLink: "", scheduleAt: "",
+      targetType: "all_users", title: "", message: "", type: "admin_broadcast",
+      priority: "high", image: "", deepLink: "", userId: "", state: "", district: "", crop: "", language: "en"
     },
     createPayload: (body) => {
       const payload: Record<string, unknown> = {
-        target: body.target ?? "all",
+        targetType: body.targetType ?? "all_users",
         title: body.title,
-        message: body.message ?? body.body,
-        type: body.type === "general" ? "advisory" : body.type,
+        message: body.message,
+        type: body.type ?? "admin_broadcast",
         priority: body.priority ?? "high",
       };
       if (body.image) payload.image = body.image;
-      if (body.icon) payload.icon = body.icon;
       if (body.deepLink) payload.deepLink = body.deepLink;
-      if (body.scheduleAt) payload.scheduleAt = body.scheduleAt;
-      if (body.metadata && typeof body.metadata === "object") payload.metadata = body.metadata;
-      if (payload.target === "user" && body.userId) payload.userId = body.userId;
-      else if (payload.target === "segment" && body.segment) payload.segment = body.segment;
-      else if (payload.target === "token" && body.token) payload.token = body.token;
+      if (payload.targetType === "single_user") payload.userId = body.userId;
+      else if (payload.targetType === "by_state") payload.state = body.state;
+      else if (payload.targetType === "by_district") payload.district = body.district;
+      else if (payload.targetType === "by_crop") payload.crop = body.crop;
+      else if (payload.targetType === "by_language") payload.language = body.language;
       return payload;
     },
     formFields: [
-      { key: "target", label: "Target Audience", type: "select", options: [
-        { label: "All Users (Flutter app)", value: "all" },
-        { label: "Specific User ID", value: "user" },
-        { label: "User Segment", value: "segment" },
-        { label: "FCM Device Token", value: "token" },
+      { key: "targetType", label: "Target Segment", type: "select", options: [
+        { label: "All Users (Broadcast)", value: "all_users" },
+        { label: "Specific User ID", value: "single_user" },
+        { label: "By Region State", value: "by_state" },
+        { label: "By Region District", value: "by_district" },
+        { label: "By Crop Interest", value: "by_crop" },
+        { label: "By Preferred Language", value: "by_language" },
       ]},
-      { key: "userId", label: "User ID", type: "text", condition: (v) => v.target === "user" },
-      { key: "segment", label: "Segment", type: "select", condition: (v) => v.target === "segment", options: [
-        { label: "All Farmers", value: "farmers" },
-        { label: "Premium Users", value: "premium" },
-        { label: "Hindi Speakers", value: "hi" },
-        { label: "Gujarati Speakers", value: "gu" },
-        { label: "Marathi Speakers", value: "mr" },
+      { key: "userId", label: "User ID (24-char Hex)", type: "text", condition: (v) => v.targetType === "single_user" },
+      { key: "state", label: "State (e.g. Gujarat)", type: "text", condition: (v) => v.targetType === "by_state" },
+      { key: "district", label: "District (e.g. Rajkot)", type: "text", condition: (v) => v.targetType === "by_district" },
+      { key: "crop", label: "Crop (e.g. Cotton)", type: "text", condition: (v) => v.targetType === "by_crop" },
+      { key: "language", label: "Language", type: "select", condition: (v) => v.targetType === "by_language", options: [
+        { label: "English", value: "en" },
+        { label: "Hindi", value: "hi" },
+        { label: "Gujarati", value: "gu" },
       ]},
-      { key: "token", label: "FCM Token", type: "text", condition: (v) => v.target === "token" },
-      { key: "title", label: "Title", type: "text", required: true },
-      { key: "message", label: "Message / Body", type: "textarea", required: true },
-      { key: "type", label: "Type", type: "select", options: [
-        { label: "Advisory", value: "advisory" }, { label: "Weather Alert", value: "weather" },
-        { label: "Market Update", value: "market" }, { label: "Task Reminder", value: "tasks" },
-        { label: "Soil Alert", value: "soil" }, { label: "Machinery", value: "machinery" },
-        { label: "Schemes", value: "schemes" }, { label: "News", value: "news" },
-        { label: "Events", value: "events" }, { label: "Promotional", value: "promotional" },
+      { key: "title", label: "Notification Title", type: "text", required: true },
+      { key: "message", label: "Message Body", type: "textarea", required: true },
+      { key: "type", label: "Category Type", type: "select", options: [
+        { label: "Admin Broadcast", value: "admin_broadcast" },
+        { label: "Advisory", value: "advisory" },
+        { label: "Weather Alert", value: "weather" },
+        { label: "Market Update", value: "market" },
+        { label: "Tasks Alert", value: "tasks" },
+        { label: "Schemes Alert", value: "schemes" },
       ]},
-      { key: "priority", label: "Priority", type: "select", options: [
-        { label: "Critical", value: "critical" }, { label: "High", value: "high" },
-        { label: "Normal", value: "normal" }, { label: "Low", value: "low" },
+      { key: "priority", label: "Priority Level", type: "select", options: [
+        { label: "Critical (Instant Push)", value: "critical" },
+        { label: "High Priority", value: "high" },
+        { label: "Normal Priority", value: "normal" },
       ]},
-      { key: "image", label: "Image URL", type: "text" },
-      { key: "icon", label: "Icon URL", type: "text" },
-      { key: "deepLink", label: "Deep Link (app://path)", type: "text" },
-      { key: "scheduleAt", label: "Schedule (ISO datetime, empty = send now)", type: "text" },
-      { key: "metadata", label: "Metadata (JSON, optional)", type: "json" },
+      { key: "image", label: "Image URL (Optional)", type: "text" },
+      { key: "deepLink", label: "Deep Link (e.g. app://tasks) (Optional)", type: "text" },
     ],
     filterParam: "status",
     filterOptions: [
-      { label: "All status", value: "all" }, { label: "Sent", value: "sent" },
-      { label: "Scheduled", value: "scheduled" }, { label: "Failed", value: "failed" },
+      { label: "All Status", value: "all" }, { label: "Sent", value: "sent" },
+      { label: "Failed", value: "failed" },
     ],
     fields: [
       { key: "title", label: "Title" },
-      { key: "message", label: "Message" },
+      { key: "message", label: "Message", render: (row) => <span className="max-w-[200px] block truncate">{row.message}</span> },
       { key: "type", label: "Type", render: (row) => <StatusBadge value={row.type} /> },
       { key: "priority", label: "Priority", render: (row) => {
         const p = String(row.priority ?? "normal");
         const colors: Record<string, string> = {
-          critical: "bg-red-100 text-red-700", high: "bg-orange-100 text-orange-700",
-          normal: "bg-blue-100 text-blue-700", low: "bg-gray-100 text-gray-700",
+          critical: "bg-red-500/10 text-red-600 border border-red-500/20",
+          high: "bg-amber-500/10 text-amber-600 border border-amber-500/20",
+          normal: "bg-blue-500/10 text-blue-600 border border-blue-500/20",
         };
         return <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors[p] ?? "bg-accent"}`}>{p}</span>;
       }},
-      { key: "status", label: "Delivery", render: (row) => <StatusBadge value={row.status} /> },
-      { key: "read", label: "Read", render: (row) => <StatusBadge value={row.read ? "read" : "unread"} /> },
-      { key: "sentAt", label: "Sent" },
+      { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },
+      { key: "totalUsers", label: "Target" },
+      { key: "successfulUsers", label: "Sent" },
+      { key: "failedUsers", label: "Failed" },
+      { key: "readCount", label: "Read" },
+      { key: "clickCount", label: "Clicks" },
+      { key: "sentAt", label: "Sent At", render: (row) => row.sentAt ? new Date(row.sentAt).toLocaleString() : "N/A" },
     ],
-    actions: [
-      { label: "Mark Read", path: () => "/notifications/read", method: "PATCH", body: (row) => ({ notificationIds: [row.id ?? row._id] }) },
-    ],
+    actions: [],
   },
   tasks: {
     title: "Tasks",
