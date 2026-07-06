@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:provider/provider.dart';
+import 'providers/data_provider.dart';
+import 'screens/news_screen.dart';
+import 'screens/events_screen.dart';
+import 'screens/schemes_screen.dart';
+import 'screens/machinery_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DataProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,104 +28,72 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const SocketHomePage(title: 'iAgrin Dynamic Realtime Data'),
+      home: const MainScreen(),
     );
   }
 }
 
-class SocketHomePage extends StatefulWidget {
-  const SocketHomePage({super.key, required this.title});
-
-  final String title;
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<SocketHomePage> createState() => _SocketHomePageState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _SocketHomePageState extends State<SocketHomePage> {
-  late IO.Socket socket;
-  List<String> logs = [];
+class _MainScreenState extends State<MainScreen> {
+  int _currentIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    initSocket();
-  }
+  final List<Widget> _screens = [
+    const NewsScreen(),
+    const EventsScreen(),
+    const SchemesScreen(),
+    const MachineryScreen(),
+  ];
 
-  void initSocket() {
-    socket = IO.io('http://localhost:4000', <String, dynamic>{
-      'transports': ['websocket'],
-      'autoConnect': true,
-    });
-
-    socket.onConnect((_) {
-      print('Connected to Backend');
-      setState(() {
-        logs.add('✅ Connected to backend');
-      });
-    });
-
-    // Listen to various generic events
-    const events = [
-      'users:changed', 'farms:changed', 'soil:changed', 'weather:changed',
-      'market:changed', 'notifications:changed', 'news:changed',
-      'schemes:changed', 'tasks:changed', 'events:changed',
-      'machinery:changed', 'videos:published'
-    ];
-
-    for (final event in events) {
-      socket.on(event, (data) {
-        setState(() {
-          logs.add('🔄 Event received: $event');
-        });
-        print('Event received: $event');
-      });
-    }
-
-    socket.onDisconnect((_) {
-      print('Disconnected from backend');
-      setState(() {
-        logs.add('❌ Disconnected');
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    socket.dispose();
-    super.dispose();
-  }
+  final List<String> _titles = [
+    'Agriculture News',
+    'Events',
+    'Gov Schemes',
+    'Machinery'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(_titles[_currentIndex]),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Realtime Event Logs:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
-                itemCount: logs.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: const Icon(Icons.sync, color: Colors.blue),
-                    title: Text(logs[index]),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
+      body: _screens[_currentIndex],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.article_outlined),
+            selectedIcon: Icon(Icons.article),
+            label: 'News',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.event_outlined),
+            selectedIcon: Icon(Icons.event),
+            label: 'Events',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.account_balance_outlined),
+            selectedIcon: Icon(Icons.account_balance),
+            label: 'Schemes',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.agriculture_outlined),
+            selectedIcon: Icon(Icons.agriculture),
+            label: 'Machinery',
+          ),
+        ],
       ),
     );
   }
