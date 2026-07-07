@@ -43,6 +43,7 @@ const eventToQueryKey: Record<string, unknown[]> = {
   "videos:saved": ["videos"],
   "videos:shared": ["videos"],
   "videos:commented": ["videos"],
+  "videos:comment-deleted": ["videos"],
   "videos:deleted": ["videos"],
   "crop-doctor:changed": ["crop-doctor"],
   "disease-master:changed": ["disease-master"],

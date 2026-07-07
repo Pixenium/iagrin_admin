@@ -128,6 +128,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
     "videos:liked": ["videos"],
     "videos:saved": ["videos"],
     "videos:commented": ["videos"],
+    "videos:comment-deleted": ["videos"],
   };
 
   const queryKeyToEvent = useMemo(() => {
