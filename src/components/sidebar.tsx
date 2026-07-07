@@ -124,25 +124,8 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* User Profile Card */}
-      {!collapsed && (
-        <div className="mx-3 my-2 p-3 rounded-xl border border-sidebar-border bg-accent/25 dark:bg-[#1E2E26] flex items-center justify-between shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-primary to-emerald-500 flex items-center justify-center text-white text-sm font-bold shadow-inner">
-              {(user?.name?.[0] ?? user?.email?.[0] ?? "S").toUpperCase()}
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-white dark:border-background" />
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-xs font-bold truncate text-foreground leading-none">
-                {user?.name || "System Admin"}
-              </span>
-              <span className="text-[10px] text-muted-foreground truncate uppercase font-extrabold tracking-wider mt-1.5">
-                {user?.role === "admin" ? "Super Admin" : "User"}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+
+
 
       {/* Collapse Toggle */}
       <div className="hidden lg:block border-t border-sidebar-border p-3 shrink-0">

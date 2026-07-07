@@ -471,7 +471,7 @@ export const resources: Record<string, ResourceConfig> = {
     ],
     fields: [
       { key: "title", label: "Title" },
-      { key: "message", label: "Message", render: (row) => <span className="max-w-[200px] block truncate">{row.message}</span> },
+      { key: "message", label: "Message", render: (row) => <span className="max-w-[200px] block truncate">{String(row.message ?? "")}</span> },
       { key: "type", label: "Type", render: (row) => <StatusBadge value={row.type} /> },
       { key: "priority", label: "Priority", render: (row) => {
         const p = String(row.priority ?? "normal");
@@ -488,7 +488,7 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "failedUsers", label: "Failed" },
       { key: "readCount", label: "Read" },
       { key: "clickCount", label: "Clicks" },
-      { key: "sentAt", label: "Sent At", render: (row) => row.sentAt ? new Date(row.sentAt).toLocaleString() : "N/A" },
+      { key: "sentAt", label: "Sent At", render: (row) => row.sentAt ? new Date(row.sentAt as string).toLocaleString() : "N/A" },
     ],
     actions: [],
   },
@@ -717,16 +717,17 @@ export const resources: Record<string, ResourceConfig> = {
     listPath: "/machinery",
     createPath: "/machinery",
     updatePath: (id) => `/machinery/${id}`,
+    updateMethod: "PUT",
     deletePath: (id) => `/machinery/${id}`,
     sortOptions: [{ label: "Price Low", value: "minPrice" }, { label: "Price High", value: "-minPrice" }],
     filterOptions: [
-      { label: "All", value: "all" }, { label: "Tractors", value: "Tractor" },
-      { label: "Harvesters", value: "Harvester" }, { label: "Sprayers", value: "Sprayer" },
-      { label: "Smart Farming", value: "Smart Farming" }, { label: "Irrigation", value: "Irrigation" },
+      { label: "All", value: "all" }, { label: "Tractors", value: "Tractors Machinery" },
+      { label: "Harvesters", value: "Harvesting Machinery" }, { label: "Sprayers", value: "Crop Protection (Sprayers)" },
+      { label: "Smart Farming", value: "Smart Farming Machinery" }, { label: "Irrigation", value: "Irrigation Machinery" },
     ],
     filterParam: "category",
     defaultCreate: {
-      title: "", category: "Tractor", mainCategory: "Tractor", subcategory: "Utility Tractor",
+      title: "", category: "Tractors Machinery", mainCategory: "Tractors Machinery", subcategory: "Utility Tractor",
       company: "", variant: "Standard", market: "Anand Agri Market", imageUrl: "",
       minPrice: 0, maxPrice: 0, trendPercent: 0, rating: 4.5, reviews: 10,
       powerOutput: "50 HP", fuelType: "Diesel", primaryUsage: "Primary tillage and haulage operations",
@@ -736,10 +737,6 @@ export const resources: Record<string, ResourceConfig> = {
       compatibleCrops: ["Wheat", "Rice", "Cotton", "Maize"],
       usageRecommendations: ["Change engine oil every 250 hours", "Check tire pressure weekly"],
       maintenanceInfo: ["Keep air filter clean", "Inspect battery water level monthly"],
-      variantsDetailed: [
-        { name: "Standard 2WD", power: "50 HP", priceFrom: "550000" },
-        { name: "Pro 4WD", power: "55 HP", priceFrom: "720000" }
-      ],
       dealerAvailability: [
         { dealerName: "Sonalika Motors Anand", city: "Anand", state: "Gujarat", availability: "In Stock" }
       ],
@@ -775,7 +772,6 @@ export const resources: Record<string, ResourceConfig> = {
       };
 
       payload.specs = parseJson(payload.specs, {});
-      payload.variantsDetailed = parseJson(payload.variantsDetailed, []);
       payload.dealerAvailability = parseJson(payload.dealerAvailability, []);
       payload.trendPoints = parseJson(payload.trendPoints, [0.3, 0.32, 0.35, 0.37, 0.4, 0.42]);
 
@@ -788,9 +784,10 @@ export const resources: Record<string, ResourceConfig> = {
     formFields: [
       { key: "title", label: "Machine Name", type: "text", required: true },
       { key: "category", label: "Main Category", type: "select", options: [
-        { label: "Tractors", value: "Tractor" }, { label: "Harvesting", value: "Harvester" },
-        { label: "Sprayers & Implements", value: "Sprayer" }, { label: "Smart Farming", value: "Smart Farming" },
-        { label: "Irrigation & Pumps", value: "Irrigation" }, { label: "Soil Testing", value: "Soil Testing" },
+        { label: "Tractors", value: "Tractors Machinery" }, { label: "Harvesting", value: "Harvesting Machinery" },
+        { label: "Sprayers & Crop Protection", value: "Crop Protection (Sprayers)" }, { label: "Smart Farming", value: "Smart Farming Machinery" },
+        { label: "Irrigation", value: "Irrigation Machinery" }, { label: "Planting & Sowing", value: "Planting & Sowing Machinery" },
+        { label: "Land Preparation", value: "Land Preparation Machinery" }, { label: "Transport & Trolley", value: "Transport & Trolley Machinery" },
       ]},
       { key: "subcategory", label: "Subcategory", type: "text" },
       { key: "company", label: "Company / Brand", type: "text" },
@@ -815,7 +812,6 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "compatibleCrops", label: "Compatible Crops (comma separated list)", type: "text" },
       { key: "usageRecommendations", label: "Usage Recommendations (comma separated list)", type: "text" },
       { key: "maintenanceInfo", label: "Maintenance Info (comma separated list)", type: "text" },
-      { key: "variantsDetailed", label: "Detailed Variants (JSON list)", type: "json" },
       { key: "dealerAvailability", label: "Dealers (JSON list)", type: "json" },
       { key: "trendPoints", label: "Trend Points (6 decimal points, JSON list)", type: "json" },
       { key: "isActive", label: "Active", type: "boolean" },

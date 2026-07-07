@@ -17,6 +17,7 @@ export type ListPayload<T = Record<string, unknown>> = {
   page: number;
   limit: number;
   totalPages: number;
+  stats?: Record<string, unknown>;
   raw: unknown;
 };
 
