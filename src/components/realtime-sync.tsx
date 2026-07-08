@@ -98,12 +98,19 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
       });
     });
 
+    const knownEvents = new Set(Object.keys(eventToQueryKey));
+
     s.onAny((event, payload) => {
-      if (String(event).includes(":")) {
-        setLastEvent({ event: String(event), payload });
+      const eventName = String(event);
+      if (!eventName.includes(":")) return;
+
+      setLastEvent({ event: eventName, payload });
+
+      // Only handle unknown events here — known events are handled above
+      if (!knownEvents.has(eventName)) {
         void queryClient.invalidateQueries({ queryKey: ["dashboard"] });
 
-        const module = String(event).split(":")[0];
+        const module = eventName.split(":")[0];
         const moduleKeys: Record<string, string[]> = {
           videos: ["videos"],
           news: ["news", "banners"],
