@@ -660,10 +660,25 @@ export const resources: Record<string, ResourceConfig> = {
       banner: "", pdfUrl: "", logo: "", status: "draft",
       eligibilityRules: { minLandSizeAcres: 0, crops: [], states: [] },
     },
+    updatePayload: (body) => {
+      const config = resources.schemes;
+      return config.createPayload!(body);
+    },
     createPayload: (body) => {
       const payload = { ...body };
+      if (typeof payload.benefits === "string") {
+        payload.benefits = { description: payload.benefits || "See details" };
+      } else if (!payload.benefits) {
+        payload.benefits = { description: "See details" };
+      }
+      
+      if (typeof payload.requiredDocuments === "string") {
+        payload.requiredDocuments = payload.requiredDocuments.split(",").map((s: string) => s.trim()).filter(Boolean);
+      }
+      if (Array.isArray(payload.requiredDocuments) && payload.requiredDocuments.length === 0) {
+        delete payload.requiredDocuments;
+      }
       if (!payload.sourceUrl) delete payload.sourceUrl;
-      if (Array.isArray(payload.requiredDocuments) && payload.requiredDocuments.length === 0) delete payload.requiredDocuments;
       return payload;
     },
     formFields: [
@@ -721,17 +736,24 @@ export const resources: Record<string, ResourceConfig> = {
     deletePath: (id) => `/machinery/${id}`,
     sortOptions: [{ label: "Price Low", value: "minPrice" }, { label: "Price High", value: "-minPrice" }],
     filterOptions: [
-      { label: "All", value: "all" }, { label: "Tractors", value: "Tractors Machinery" },
-      { label: "Harvesters", value: "Harvesting Machinery" }, { label: "Sprayers", value: "Crop Protection (Sprayers)" },
-      { label: "Smart Farming", value: "Smart Farming Machinery" }, { label: "Irrigation", value: "Irrigation Machinery" },
+      { label: "All", value: "all" },
+      { label: "Tractors", value: "Tractors" },
+      { label: "Harvesting", value: "Harvesting" },
+      { label: "Sprayers & Crop Protection", value: "Crop Protection (Sprayers)" },
+      { label: "Smart Farming", value: "Smart Farming Machinery" },
+      { label: "Irrigation", value: "Irrigation" },
+      { label: "Planting & Sowing", value: "Planting & Sowing" },
+      { label: "Land Preparation", value: "Land Preparation" },
+      { label: "Transport & Trolley", value: "Transport & Trolley" },
     ],
     filterParam: "category",
     defaultCreate: {
-      title: "", category: "Tractors Machinery", mainCategory: "Tractors Machinery", subcategory: "Utility Tractor",
+      title: "", category: "Tractors Machinery", mainCategory: "Tractors", subcategory: "Utility Tractor",
       company: "", variant: "Standard", market: "Anand Agri Market", imageUrl: "",
       minPrice: 0, maxPrice: 0, trendPercent: 0, rating: 4.5, reviews: 10,
       powerOutput: "50 HP", fuelType: "Diesel", primaryUsage: "Primary tillage and haulage operations",
       specs: { horsepower: "50 HP", transmission: "8F + 2R", pto: "540 RPM" },
+      about: "Detailed description of the machinery goes here.",
       features: ["Power Steering", "Dual Clutch", "Oil Immersed Brakes"],
       applications: ["Ploughing", "Sowing", "Haulage"],
       compatibleCrops: ["Wheat", "Rice", "Cotton", "Maize"],
@@ -745,7 +767,18 @@ export const resources: Record<string, ResourceConfig> = {
     },
     createPayload: (body) => {
       const payload = { ...body };
-      payload.mainCategory = payload.category;
+      
+      const categoryToMainCategory: Record<string, string> = {
+        "Tractors Machinery": "Tractors",
+        "Harvesting Machinery": "Harvesting",
+        "Crop Protection (Sprayers)": "Crop Protection (Sprayers)",
+        "Smart Farming Machinery": "Smart Farming Machinery",
+        "Irrigation Machinery": "Irrigation",
+        "Planting & Sowing Machinery": "Planting & Sowing",
+        "Land Preparation Machinery": "Land Preparation",
+        "Transport & Trolley Machinery": "Transport & Trolley",
+      };
+      payload.mainCategory = categoryToMainCategory[payload.category as string] || payload.category;
       
       const parseArray = (val: any) => {
         if (typeof val === "string") {
@@ -773,7 +806,23 @@ export const resources: Record<string, ResourceConfig> = {
 
       payload.specs = parseJson(payload.specs, {});
       payload.dealerAvailability = parseJson(payload.dealerAvailability, []);
-      payload.trendPoints = parseJson(payload.trendPoints, [0.3, 0.32, 0.35, 0.37, 0.4, 0.42]);
+      let tp = parseJson(payload.trendPoints, [0.3, 0.32, 0.35, 0.37, 0.4, 0.42]);
+      if (Array.isArray(tp)) {
+        tp = tp.map((v: any) => {
+          const n = Number(v);
+          if (isNaN(n)) return 0.5;
+          if (n > 1.5) return 1.5;
+          if (n < 0) return 0;
+          return n;
+        });
+        if (tp.length < 6) {
+          const padding = new Array(6 - tp.length).fill(tp.length > 0 ? tp[tp.length - 1] : 0.5);
+          tp = tp.concat(padding);
+        }
+      } else {
+        tp = [0.3, 0.32, 0.35, 0.37, 0.4, 0.42];
+      }
+      payload.trendPoints = tp;
 
       return payload;
     },
@@ -844,7 +893,7 @@ export const resources: Record<string, ResourceConfig> = {
     title: "Weather Alerts",
     description: "Read weather alerts and forecast signals consumed by the app.",
     queryKey: "weather",
-    listPath: "/weather/alerts",
+    listPath: "/weather/alerts?lat=22.5645&lng=72.9289",
     searchParam: "location",
     filterOptions: [
       { label: "All Severity", value: "all" },

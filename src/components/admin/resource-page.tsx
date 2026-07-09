@@ -776,7 +776,7 @@ export function ResourcePage({ config }: { config: ResourceConfig }) {
               <Button type="button" variant="outline" className="border-border/50" onClick={closeForm}>
                 Cancel
               </Button>
-              <Button disabled={busy || (!editing && !config.createPath) || (Boolean(editing) && !config.updatePath)} className="bg-primary text-primary-foreground hover:bg-primary-hover">
+              <Button type="submit" disabled={busy || (!editing && !config.createPath) || (Boolean(editing) && !config.updatePath)} className="bg-primary text-primary-foreground hover:bg-primary-hover">
                 {busy ? "Saving..." : "Save"}
               </Button>
             </div>

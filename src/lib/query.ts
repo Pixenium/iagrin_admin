@@ -14,7 +14,13 @@ export function useApiList<T = Record<string, unknown>>(
 
   return useQuery<ListPayload<T>>({
     queryKey: [...key, params],
-    queryFn: async () => normalizeList<T>(await apiFetch<unknown>(`${path}${buildQuery(params)}`), page, limit),
+    queryFn: async () => {
+      const q = buildQuery(params);
+      const separator = path.includes("?") ? "&" : "?";
+      const cleanQ = q.startsWith("?") ? q.slice(1) : q;
+      const fullPath = cleanQ ? `${path}${separator}${cleanQ}` : path;
+      return normalizeList<T>(await apiFetch<unknown>(fullPath), page, limit);
+    },
     enabled,
     refetchInterval: 15_000,
     refetchOnWindowFocus: true,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Plus, Search, Filter, RefreshCw, Edit3, Trash2,
@@ -30,6 +30,51 @@ export default function VideosPage() {
   const params = { page, limit: 20, ...(search ? { search } : {}), ...(filter !== "all" ? { status: filter } : {}), sort };
   const query = useApiList<Record<string, unknown>>(["videos"], "/videos/admin-list", params);
   const rows = query.data?.rows ?? [];
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const updateVideo = (videoId: string, updates: Record<string, unknown>) => {
+      queryClient.setQueriesData({ queryKey: ["videos"] }, (oldData: any) => {
+        if (!oldData || !oldData.rows) return oldData;
+        return {
+          ...oldData,
+          rows: oldData.rows.map((row: any) => {
+            if (row.id === videoId || row._id === videoId) {
+              return { ...row, ...updates };
+            }
+            return row;
+          }),
+        };
+      });
+    };
+
+    const onLiked = (data: any) => data?.videoId && data.likeCount !== undefined && updateVideo(data.videoId, { likeCount: data.likeCount });
+    const onCommented = (data: any) => data?.videoId && data.commentCount !== undefined && updateVideo(data.videoId, { commentCount: data.commentCount });
+    const onCommentDeleted = (data: any) => data?.videoId && data.commentCount !== undefined && updateVideo(data.videoId, { commentCount: data.commentCount });
+    const onShared = (data: any) => data?.videoId && data.shareCount !== undefined && updateVideo(data.videoId, { shareCount: data.shareCount });
+    const onSaved = (data: any) => data?.videoId && data.savesCount !== undefined && updateVideo(data.videoId, { savesCount: data.savesCount });
+    const onViewed = (data: any) => data?.videoId && data.viewsCount !== undefined && updateVideo(data.videoId, { viewsCount: data.viewsCount });
+    const onPublished = () => queryClient.invalidateQueries({ queryKey: ["videos"] });
+
+    socket.on("videos:liked", onLiked);
+    socket.on("videos:commented", onCommented);
+    socket.on("videos:comment-deleted", onCommentDeleted);
+    socket.on("videos:shared", onShared);
+    socket.on("videos:saved", onSaved);
+    socket.on("videos:viewed", onViewed);
+    socket.on("videos:published", onPublished);
+
+    return () => {
+      socket.off("videos:liked", onLiked);
+      socket.off("videos:commented", onCommented);
+      socket.off("videos:comment-deleted", onCommentDeleted);
+      socket.off("videos:shared", onShared);
+      socket.off("videos:saved", onSaved);
+      socket.off("videos:viewed", onViewed);
+      socket.off("videos:published", onPublished);
+    };
+  }, [socket, queryClient]);
 
   const stats = useMemo(() => [
     { label: "Total Videos", value: (query.data?.total ?? 0).toLocaleString("en-IN") },

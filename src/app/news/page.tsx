@@ -40,6 +40,7 @@ export default function NewsPage() {
 
   const openCreate = () => {
     setEditing(null);
+    setNotice("");
     setFormData({
       title: "", content: "", category: "government", source: "Admin Panel",
       sourceUrl: "", publishedDate: new Date().toISOString().split("T")[0],
@@ -51,14 +52,47 @@ export default function NewsPage() {
 
   const openEdit = (row: Record<string, unknown>) => {
     setEditing(row);
+    setNotice("");
     setFormData({ ...row });
     setShowEditor(true);
   };
 
+  const closeEditor = () => {
+    setShowEditor(false);
+    setNotice("");
+  };
+
   const saveArticle = async () => {
+    if (!formData.title || !String(formData.title).trim()) {
+      setNotice("Title is required");
+      return;
+    }
+    if (!formData.content || !String(formData.content).trim()) {
+      setNotice("Content is required");
+      return;
+    }
+
     setSaving(true);
     try {
       const body = { ...formData };
+      
+      // Map tags to cropRelevance expected by backend schema
+      if (typeof body.tags === "string") {
+        body.cropRelevance = body.tags.split(",").map((s) => s.trim()).filter(Boolean);
+      } else if (Array.isArray(body.tags)) {
+        body.cropRelevance = body.tags.filter(Boolean);
+      } else {
+        body.cropRelevance = [];
+      }
+      delete body.tags;
+
+      // Clean empty fields to avoid schema validation issues
+      if (!body.summary) delete body.summary;
+      if (!body.sourceUrl) delete body.sourceUrl;
+      if (!body.coverImage) delete body.coverImage;
+      if (!body.thumbnail) delete body.thumbnail;
+      if (!body.source) delete body.source;
+
       if (editing) {
         const id = recordId(editing);
         await apiFetch(`/news/${id}`, { method: "PATCH", body: JSON.stringify(body) });
@@ -67,7 +101,10 @@ export default function NewsPage() {
       }
       await queryClient.invalidateQueries({ queryKey: ["news"] });
       await queryClient.invalidateQueries({ queryKey: ["dashboard"] });
-      if (socket) socket.emit("news:changed");
+      if (socket) {
+        socket.emit("news:changed");
+        socket.emit("banners:changed");
+      }
       setNotice("Article saved successfully");
       setShowEditor(false);
     } catch (e) {
@@ -83,7 +120,10 @@ export default function NewsPage() {
     try {
       await apiFetch(`/news/${id}`, { method: "DELETE" });
       await queryClient.invalidateQueries({ queryKey: ["news"] });
-      if (socket) socket.emit("news:changed");
+      if (socket) {
+        socket.emit("news:changed");
+        socket.emit("banners:changed");
+      }
     } catch (e) {
       setNotice(e instanceof Error ? e.message : "Delete failed");
     }
@@ -95,7 +135,10 @@ export default function NewsPage() {
     try {
       await apiFetch(`/news/${id}`, { method: "PATCH", body: JSON.stringify({ status }) });
       await queryClient.invalidateQueries({ queryKey: ["news"] });
-      if (socket) socket.emit("news:changed");
+      if (socket) {
+        socket.emit("news:changed");
+        socket.emit("banners:changed");
+      }
     } catch (e) {
       setNotice(e instanceof Error ? e.message : "Update failed");
     }
@@ -131,8 +174,6 @@ export default function NewsPage() {
           <option value="weather">Weather</option>
           <option value="mandi">Mandi Rates</option>
           <option value="pest">Pest / Disease</option>
-          <option value="technology">Technology</option>
-          <option value="success_story">Success Story</option>
         </select>
         <Button variant="outline" onClick={() => query.refetch()}>
           <RefreshCw className={cn("w-4 h-4", query.isFetching && "animate-spin")} />
@@ -240,21 +281,23 @@ export default function NewsPage() {
         {showEditor && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50" onClick={() => setShowEditor(false)} />
-            <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-2xl bg-background border-l border-border p-6 shadow-2xl overflow-y-auto">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-bold">{editing ? "Edit Article" : "Create Article"}</h2>
-                <Button variant="ghost" size="icon" onClick={() => setShowEditor(false)}><X className="w-5 h-5" /></Button>
-              </div>
+               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50" onClick={closeEditor} />
+             <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+               transition={{ type: "spring", damping: 25, stiffness: 200 }}
+               className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-2xl bg-background border-l border-border p-6 shadow-2xl overflow-y-auto">
+               <div className="flex items-center justify-between mb-6">
+                 <h2 className="text-lg font-bold">{editing ? "Edit Article" : "Create Article"}</h2>
+                 <Button variant="ghost" size="icon" onClick={closeEditor}><X className="w-5 h-5" /></Button>
+               </div>
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5 col-span-2">
-                    <label className="text-xs font-bold text-muted-foreground uppercase">Title</label>
-                    <Input value={String(formData.title ?? "")} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
-                  </div>
+                     <label className="text-xs font-bold text-muted-foreground uppercase flex items-center gap-1">
+                       Title <span className="text-red-500">*</span>
+                     </label>
+                     <Input value={String(formData.title ?? "")} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+                   </div>
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-muted-foreground uppercase">Category</label>
@@ -264,8 +307,6 @@ export default function NewsPage() {
                       <option value="weather">Weather</option>
                       <option value="mandi">Mandi Rates</option>
                       <option value="pest">Pest / Disease</option>
-                      <option value="technology">Technology</option>
-                      <option value="success_story">Success Story</option>
                     </select>
                   </div>
 
@@ -310,10 +351,12 @@ export default function NewsPage() {
                   </div>
 
                   <div className="space-y-1.5 col-span-2">
-                    <label className="text-xs font-bold text-muted-foreground uppercase">Content (HTML / Rich Text)</label>
-                    <textarea value={String(formData.content ?? "")} onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                      className="w-full min-h-[200px] rounded-lg bg-background border border-border/50 p-3 text-sm font-mono" />
-                  </div>
+                     <label className="text-xs font-bold text-muted-foreground uppercase flex items-center gap-1">
+                       Content (HTML / Rich Text) <span className="text-red-500">*</span>
+                     </label>
+                     <textarea value={String(formData.content ?? "")} onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                       className="w-full min-h-[200px] rounded-lg bg-background border border-border/50 p-3 text-sm font-mono" />
+                   </div>
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-muted-foreground uppercase">SEO Title</label>
@@ -344,11 +387,11 @@ export default function NewsPage() {
               </div>
 
               <div className="mt-6 flex justify-end gap-3">
-                <Button variant="outline" onClick={() => setShowEditor(false)}>Cancel</Button>
-                <Button disabled={saving} onClick={saveArticle} className="gap-2 bg-primary text-primary-foreground">
-                  <Save className="w-4 h-4" /> {saving ? "Saving..." : editing ? "Update Article" : "Create Article"}
-                </Button>
-              </div>
+                 <Button variant="outline" onClick={closeEditor}>Cancel</Button>
+                 <Button disabled={saving} onClick={saveArticle} className="gap-2 bg-primary text-primary-foreground">
+                   <Save className="w-4 h-4" /> {saving ? "Saving..." : editing ? "Update Article" : "Create Article"}
+                 </Button>
+               </div>
             </motion.div>
           </>
         )}

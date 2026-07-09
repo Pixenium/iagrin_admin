@@ -94,7 +94,13 @@ export async function apiFetch<T>(path: string, init: RequestInit = {}): Promise
           }
         }
       } catch (e) {
-        console.error("Silent refresh error:", e);
+        console.warn("Silent refresh error:", e);
+        localStorage.removeItem("iagrin_access_token");
+        localStorage.removeItem("iagrin_refresh_token");
+        localStorage.removeItem("iagrin_user");
+        if (typeof window !== "undefined") {
+          window.location.href = "/login";
+        }
       }
     } else {
       if (typeof window !== "undefined") {

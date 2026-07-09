@@ -33,6 +33,7 @@ const eventToQueryKey: Record<string, unknown[]> = {
   "marketplace:changed": ["marketplace"],
   "settings:changed": ["settings"],
   "news:changed": ["news", "banners"],
+  "banners:changed": ["news", "banners"],
   "community:changed": ["community-posts", "community-topics", "community-experts"],
   "roles:changed": ["roles"],
   "activities:changed": ["activities"],
@@ -61,6 +62,11 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
   const [lastEvent, setLastEvent] = useState<{ event: string; payload: unknown } | null>(null);
 
   useEffect(() => {
+    const token = typeof window !== "undefined" ? (
+      localStorage.getItem("iagrin_access_token") ||
+      localStorage.getItem("accessToken") ||
+      localStorage.getItem("token")
+    ) : null;
     const base = getApiBase().replace(/\/api\/v1$/, "").replace(/\/api$/, "");
     const s = io(base, {
       transports: ["websocket", "polling"],
@@ -68,6 +74,7 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,
+      query: token ? { token } : undefined,
     });
 
     Promise.resolve().then(() => {
@@ -114,6 +121,8 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
         const moduleKeys: Record<string, string[]> = {
           videos: ["videos"],
           news: ["news", "banners"],
+          banners: ["news", "banners"],
+          banner: ["news", "banners"],
           users: ["users"],
           user: ["users"],
           farms: ["farms"],

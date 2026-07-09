@@ -1,0 +1,6972 @@
+[
+  {
+    "_id": "6a4f5e717a55c6a797d3cc14",
+    "title": "Swaraj 735 FE",
+    "variant": "Base",
+    "__v": 0,
+    "about": "Swaraj 735 FE is the most preferred tractor.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Swaraj",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.716Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYoPYF_kaJ9mah0C8IKdqrsTUWJDux4W9Hw53Fe5Wwg&s=10",
+    "isActive": true,
+    "mainCategory": "Tractors Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 620000,
+    "minPrice": 580000,
+    "powerOutput": "39 HP",
+    "primaryUsage": "Farming, Haulage",
+    "rating": 4.8,
+    "reviews": 320,
+    "specs": {
+      "Engine": "2734 cc",
+      "Cylinders": "3",
+      "PTO_HP": "32.6 HP",
+      "LiftingCapacity": "1000 kg"
+    },
+    "subcategory": "Tractor",
+    "trendPercent": 2,
+    "trendPoints": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "updatedAt": "2026-07-09T08:43:32.730Z",
+    "usageRecommendations": [
+      "Ideal for 39 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e717a55c6a797d3cc15",
+    "title": "Mahindra Jivo 225 DI",
+    "variant": "2WD",
+    "__v": 0,
+    "about": "Mahindra Jivo 225 DI is a powerful mini tractor.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.738Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/jivo-225.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 460000,
+    "minPrice": 415000,
+    "powerOutput": "20 HP",
+    "primaryUsage": "Orchard, Interculture",
+    "rating": 4.6,
+    "reviews": 210,
+    "specs": {
+      "Engine": "1366 cc",
+      "Cylinders": "2",
+      "PTO_HP": "18.4 HP"
+    },
+    "subcategory": "Mini Tractor",
+    "trendPercent": 1.5,
+    "trendPoints": [
+      4.15,
+      4.24,
+      4.33,
+      4.42,
+      4.51,
+      4.6
+    ],
+    "updatedAt": "2026-07-09T08:40:17.738Z",
+    "usageRecommendations": [
+      "Ideal for 20 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e717a55c6a797d3cc16",
+    "variant": "4WD",
+    "title": "John Deere 3028 EN",
+    "__v": 0,
+    "about": "John Deere 3028 EN is specially designed for orchard.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.757Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5VjxJ9u1I55YKnDDP0PJ9yyXgyWrUlUYBOUrlpA3KZg&s=10",
+    "isActive": true,
+    "mainCategory": "Tractors Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 650000,
+    "minPrice": 610000,
+    "powerOutput": "28 HP",
+    "primaryUsage": "Orchard, Puddling",
+    "rating": 4.7,
+    "reviews": 180,
+    "specs": {
+      "Engine": "3 Cylinder",
+      "PTO_HP": "22.4 HP"
+    },
+    "subcategory": "Mini Tractor",
+    "trendPercent": 3,
+    "trendPoints": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "updatedAt": "2026-07-09T08:45:05.219Z",
+    "usageRecommendations": [
+      "Ideal for 28 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e717a55c6a797d3cc17",
+    "variant": "Base",
+    "title": "Sonalika DI 35",
+    "__v": 0,
+    "about": "Sonalika DI 35 comes with advanced features.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Sonalika",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.776Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/sonalika-35.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 550000,
+    "minPrice": 520000,
+    "powerOutput": "39 HP",
+    "primaryUsage": "Cultivation",
+    "rating": 4.5,
+    "reviews": 150,
+    "specs": {
+      "Engine": "2780 cc",
+      "Cylinders": "3"
+    },
+    "subcategory": "Tractor",
+    "trendPercent": -1,
+    "trendPoints": [
+      5.2,
+      5.26,
+      5.32,
+      5.38,
+      5.44,
+      5.5
+    ],
+    "updatedAt": "2026-07-09T08:40:17.776Z",
+    "usageRecommendations": [
+      "Ideal for 39 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e717a55c6a797d3cc18",
+    "variant": "Maha Shakti",
+    "title": "Massey Ferguson 1035 DI",
+    "__v": 0,
+    "about": "Reliable and durable Massey Ferguson tractor.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Massey Ferguson",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.797Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/mf-1035.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 570000,
+    "minPrice": 540000,
+    "powerOutput": "36 HP",
+    "primaryUsage": "Farming",
+    "rating": 4.6,
+    "reviews": 200,
+    "specs": {
+      "Engine": "2400 cc",
+      "Cylinders": "3",
+      "PTO_HP": "30 HP"
+    },
+    "subcategory": "Tractor",
+    "trendPercent": 1.2,
+    "trendPoints": [
+      5.4,
+      5.46,
+      5.52,
+      5.58,
+      5.64,
+      5.7
+    ],
+    "updatedAt": "2026-07-09T08:40:17.797Z",
+    "usageRecommendations": [
+      "Ideal for 36 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc19",
+    "title": "New Holland 3230 NX",
+    "variant": "Base",
+    "__v": 0,
+    "about": "New Holland 3230 NX delivers high performance.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "New Holland",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.821Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/nh-3230.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 650000,
+    "minPrice": 620000,
+    "powerOutput": "42 HP",
+    "primaryUsage": "Multi-purpose",
+    "rating": 4.7,
+    "reviews": 140,
+    "specs": {
+      "Engine": "2500 cc",
+      "Cylinders": "3",
+      "PTO_HP": "39 HP"
+    },
+    "subcategory": "Tractor",
+    "trendPercent": 0.5,
+    "trendPoints": [
+      6.2,
+      6.26,
+      6.32,
+      6.38,
+      6.44,
+      6.5
+    ],
+    "updatedAt": "2026-07-09T08:40:17.821Z",
+    "usageRecommendations": [
+      "Ideal for 42 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1a",
+    "variant": "4WD",
+    "title": "Kubota Neostar A211N",
+    "__v": 0,
+    "about": "Kubota Neostar is perfect for narrow width farming.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Kubota",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.854Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/kubota-a211n.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 440000,
+    "minPrice": 420000,
+    "powerOutput": "21 HP",
+    "primaryUsage": "Inter-culture",
+    "rating": 4.8,
+    "reviews": 110,
+    "specs": {
+      "Engine": "1001 cc",
+      "Cylinders": "3",
+      "PTO_HP": "15.4 HP"
+    },
+    "subcategory": "Mini Tractor",
+    "trendPercent": 2.5,
+    "trendPoints": [
+      4.2,
+      4.24,
+      4.28,
+      4.32,
+      4.36,
+      4.4
+    ],
+    "updatedAt": "2026-07-09T08:40:17.854Z",
+    "usageRecommendations": [
+      "Ideal for 21 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1b",
+    "variant": "Base",
+    "title": "Eicher 333",
+    "__v": 0,
+    "about": "Eicher 333 offers great mileage and durability.",
+    "applications": [
+      "Primary and secondary tillage",
+      "Sowing and planting",
+      "Harvesting operations support",
+      "Heavy haulage and transportation"
+    ],
+    "capacity": {},
+    "category": "Tractors Machinery",
+    "company": "Eicher",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.881Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Powerful & fuel-efficient engine",
+      "High lifting capacity hydraulics",
+      "Ergonomic operator station with comfortable seat",
+      "Dual clutch with smooth gear shifting",
+      "Multi-speed PTO for versatile implements"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/eicher-333.jpg",
+    "isActive": true,
+    "mainCategory": "Tractors",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 530000,
+    "minPrice": 500000,
+    "powerOutput": "36 HP",
+    "primaryUsage": "Farming",
+    "rating": 4.5,
+    "reviews": 180,
+    "specs": {
+      "Engine": "2365 cc",
+      "Cylinders": "3",
+      "PTO_HP": "28 HP"
+    },
+    "subcategory": "Tractor",
+    "trendPercent": -0.5,
+    "trendPoints": [
+      5,
+      5.06,
+      5.12,
+      5.18,
+      5.24,
+      5.3
+    ],
+    "updatedAt": "2026-07-09T08:40:17.881Z",
+    "usageRecommendations": [
+      "Ideal for 36 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1c",
+    "title": "John Deere W50",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "John Deere W50 ensures minimal grain loss.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.911Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/jd-w50.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2700000,
+    "minPrice": 2500000,
+    "powerOutput": "75 HP",
+    "primaryUsage": "Multi-crop Harvesting",
+    "rating": 4.9,
+    "reviews": 80,
+    "specs": {
+      "CutterBarWidth": "14 ft"
+    },
+    "subcategory": "Combine Harvester",
+    "trendPercent": 5,
+    "trendPoints": [
+      25,
+      25.4,
+      25.8,
+      26.2,
+      26.6,
+      27
+    ],
+    "updatedAt": "2026-07-09T08:40:17.911Z",
+    "usageRecommendations": [
+      "Ideal for 75 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1d",
+    "variant": "Standard",
+    "title": "New Holland TC5.30",
+    "__v": 0,
+    "about": "High-capacity combine harvester.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "New Holland",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.941Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/nh-tc530.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2600000,
+    "minPrice": 2400000,
+    "powerOutput": "130 HP",
+    "primaryUsage": "Multi-crop Harvesting",
+    "rating": 4.7,
+    "reviews": 60,
+    "specs": {
+      "GrainTank": "3000 L"
+    },
+    "subcategory": "Combine Harvester",
+    "trendPercent": 3,
+    "trendPoints": [
+      24,
+      24.4,
+      24.8,
+      25.2,
+      25.6,
+      26
+    ],
+    "updatedAt": "2026-07-09T08:40:17.941Z",
+    "usageRecommendations": [
+      "Ideal for 130 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1e",
+    "title": "Kartar 4000",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Trusted Kartar 4000 combine harvester.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Kartar",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:17.963Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/kartar-4000.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2400000,
+    "minPrice": 2200000,
+    "powerOutput": "101 HP",
+    "primaryUsage": "Wheat/Paddy",
+    "rating": 4.6,
+    "reviews": 100,
+    "specs": {
+      "CutterBarWidth": "14 ft"
+    },
+    "subcategory": "Combine Harvester",
+    "trendPercent": 1,
+    "trendPoints": [
+      22,
+      22.4,
+      22.8,
+      23.2,
+      23.6,
+      24
+    ],
+    "updatedAt": "2026-07-09T08:40:17.963Z",
+    "usageRecommendations": [
+      "Ideal for 101 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc1f",
+    "title": "Kubota DC-70",
+    "variant": "Crawler",
+    "__v": 0,
+    "about": "Kubota DC-70 is the top choice for paddy.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Kubota",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.020Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/kubota-dc70.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2850000,
+    "minPrice": 2600000,
+    "powerOutput": "69 HP",
+    "primaryUsage": "Paddy Harvesting",
+    "rating": 4.8,
+    "reviews": 140,
+    "specs": {
+      "CuttingWidth": "2075 mm"
+    },
+    "subcategory": "Paddy Harvester",
+    "trendPercent": 2,
+    "trendPoints": [
+      26,
+      26.5,
+      27,
+      27.5,
+      28,
+      28.5
+    ],
+    "updatedAt": "2026-07-09T08:40:18.020Z",
+    "usageRecommendations": [
+      "Ideal for 69 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc20",
+    "title": "Yanmar AW70",
+    "variant": "Crawler",
+    "__v": 0,
+    "about": "Yanmar AW70 offers efficient mud-field performance.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Yanmar",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.040Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/yanmar-aw70.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2700000,
+    "minPrice": 2500000,
+    "powerOutput": "70 HP",
+    "primaryUsage": "Paddy Harvesting",
+    "rating": 4.7,
+    "reviews": 90,
+    "specs": {
+      "CuttingWidth": "2000 mm"
+    },
+    "subcategory": "Paddy Harvester",
+    "trendPercent": 1.5,
+    "trendPoints": [
+      25,
+      25.4,
+      25.8,
+      26.2,
+      26.6,
+      27
+    ],
+    "updatedAt": "2026-07-09T08:40:18.040Z",
+    "usageRecommendations": [
+      "Ideal for 70 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc21",
+    "variant": "Track",
+    "title": "Claas Crop Tiger Maize",
+    "__v": 0,
+    "about": "Claas Crop Tiger specialized for maize.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Claas",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.064Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/claas-tiger.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 3200000,
+    "minPrice": 2800000,
+    "powerOutput": "75 HP",
+    "primaryUsage": "Maize Harvesting",
+    "rating": 4.8,
+    "reviews": 75,
+    "specs": {
+      "Rows": "3 or 4"
+    },
+    "subcategory": "Maize Harvester",
+    "trendPercent": 4,
+    "trendPoints": [
+      28,
+      28.8,
+      29.6,
+      30.4,
+      31.2,
+      32
+    ],
+    "updatedAt": "2026-07-09T08:40:18.064Z",
+    "usageRecommendations": [
+      "Ideal for 75 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc22",
+    "title": "New Holland Maize Harvester",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "New Holland Maize Harvester.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "New Holland",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.083Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/nh-maize.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2900000,
+    "minPrice": 2600000,
+    "powerOutput": "100 HP",
+    "primaryUsage": "Maize Harvesting",
+    "rating": 4.6,
+    "reviews": 50,
+    "specs": {
+      "Output": "High Capacity"
+    },
+    "subcategory": "Maize Harvester",
+    "trendPercent": 2,
+    "trendPoints": [
+      26,
+      26.6,
+      27.2,
+      27.8,
+      28.4,
+      29
+    ],
+    "updatedAt": "2026-07-09T08:40:18.083Z",
+    "usageRecommendations": [
+      "Ideal for 100 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc23",
+    "variant": "Standard",
+    "title": "Preet Maize Harvester",
+    "__v": 0,
+    "about": "Preet Maize Harvester offers value for money.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Preet",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.102Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/preet-maize.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2300000,
+    "minPrice": 2100000,
+    "powerOutput": "110 HP",
+    "primaryUsage": "Maize Harvesting",
+    "rating": 4.5,
+    "reviews": 110,
+    "specs": {
+      "Header": "Maize specific"
+    },
+    "subcategory": "Maize Harvester",
+    "trendPercent": 0,
+    "trendPoints": [
+      21,
+      21.4,
+      21.8,
+      22.2,
+      22.6,
+      23
+    ],
+    "updatedAt": "2026-07-09T08:40:18.102Z",
+    "usageRecommendations": [
+      "Ideal for 110 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc24",
+    "title": "John Deere CH330",
+    "variant": "Crawler",
+    "__v": 0,
+    "about": "John Deere CH330 for large scale sugarcane farming.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.120Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/jd-ch330.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 9000000,
+    "minPrice": 8000000,
+    "powerOutput": "198 HP",
+    "primaryUsage": "Sugarcane Harvesting",
+    "rating": 4.9,
+    "reviews": 30,
+    "specs": {
+      "Capacity": "High"
+    },
+    "subcategory": "Sugarcane Harvester",
+    "trendPercent": 2,
+    "trendPoints": [
+      80,
+      82,
+      84,
+      86,
+      88,
+      90
+    ],
+    "updatedAt": "2026-07-09T08:40:18.120Z",
+    "usageRecommendations": [
+      "Ideal for 198 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc25",
+    "title": "Case IH Austoft 4000",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Case IH Austoft 4000 is compact and powerful.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Case IH",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.138Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/case-4000.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 8500000,
+    "minPrice": 7500000,
+    "powerOutput": "174 HP",
+    "primaryUsage": "Sugarcane Harvesting",
+    "rating": 4.7,
+    "reviews": 45,
+    "specs": {
+      "BaseCutter": "Disk"
+    },
+    "subcategory": "Sugarcane Harvester",
+    "trendPercent": 3,
+    "trendPoints": [
+      75,
+      77,
+      79,
+      81,
+      83,
+      85
+    ],
+    "updatedAt": "2026-07-09T08:40:18.138Z",
+    "usageRecommendations": [
+      "Ideal for 174 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc26",
+    "variant": "Pro",
+    "title": "Case IH Austoft 8000",
+    "__v": 0,
+    "about": "Case IH Austoft 8000 is the highest capacity cane harvester.",
+    "applications": [
+      "Crop cutting and threshing",
+      "Grain collection",
+      "Stubble management"
+    ],
+    "capacity": {},
+    "category": "Harvesting Machinery",
+    "company": "Case IH",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.157Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Large cutter bar with adjustable height",
+      "High capacity grain tank with quick unload",
+      "Minimal grain damage threshing system",
+      "Comfortable cabin with easy-to-use controls",
+      "Powerful diesel engine for heavy crop loads"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/case-8000.jpg",
+    "isActive": true,
+    "mainCategory": "Harvesting",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 14000000,
+    "minPrice": 12000000,
+    "powerOutput": "353 HP",
+    "primaryUsage": "Sugarcane Harvesting",
+    "rating": 4.9,
+    "reviews": 20,
+    "specs": {
+      "Output": "Ultra High"
+    },
+    "subcategory": "Sugarcane Harvester",
+    "trendPercent": 4,
+    "trendPoints": [
+      120,
+      124,
+      128,
+      132,
+      136,
+      140
+    ],
+    "updatedAt": "2026-07-09T08:40:18.157Z",
+    "usageRecommendations": [
+      "Ideal for 353 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc27",
+    "title": "Fieldking FKSD-9",
+    "variant": "9 Tyne",
+    "__v": 0,
+    "about": "Fieldking Seed Drill FKSD-9 is highly efficient.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.174Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/fk-s-drill.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 65000,
+    "minPrice": 55000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.5,
+    "reviews": 90,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.55,
+      0.57,
+      0.59,
+      0.61,
+      0.63,
+      0.65
+    ],
+    "updatedAt": "2026-07-09T08:40:18.174Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc28",
+    "variant": "11 Tyne",
+    "title": "Farmking FKSFD-A/11",
+    "__v": 0,
+    "about": "Farmking 11 Tyne drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Farmking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.207Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/farmking-11.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 70000,
+    "minPrice": 60000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.4,
+    "reviews": 50,
+    "specs": {
+      "Tynes": "11"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.6,
+      0.62,
+      0.64,
+      0.66,
+      0.68,
+      0.7
+    ],
+    "updatedAt": "2026-07-09T08:40:18.207Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc29",
+    "variant": "13 Tyne",
+    "title": "Farmking FKSFD-C/13",
+    "__v": 0,
+    "about": "Farmking 13 Tyne drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Farmking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.225Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/farmking-13.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 85000,
+    "minPrice": 70000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.6,
+    "reviews": 40,
+    "specs": {
+      "Tynes": "13"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": -1,
+    "trendPoints": [
+      0.7,
+      0.73,
+      0.76,
+      0.79,
+      0.82,
+      0.85
+    ],
+    "updatedAt": "2026-07-09T08:40:18.225Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2a",
+    "variant": "9 Tyne",
+    "title": "John Deere SD1009",
+    "__v": 0,
+    "about": "Premium JD seed drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.243Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/jd-sd1009.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 95000,
+    "minPrice": 85000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.7,
+    "reviews": 110,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.85,
+      0.87,
+      0.89,
+      0.91,
+      0.93,
+      0.95
+    ],
+    "updatedAt": "2026-07-09T08:40:18.243Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2b",
+    "variant": "13 Tyne",
+    "title": "John Deere SD1013",
+    "__v": 0,
+    "about": "Premium JD seed drill 13 tyne.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.263Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/jd-sd1013.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 120000,
+    "minPrice": 105000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.8,
+    "reviews": 90,
+    "specs": {
+      "Tynes": "13"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": 2,
+    "trendPoints": [
+      1.05,
+      1.08,
+      1.11,
+      1.14,
+      1.17,
+      1.2
+    ],
+    "updatedAt": "2026-07-09T08:40:18.263Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2c",
+    "title": "Landforce Seed Drill 9 Tyne",
+    "variant": "9 Tyne",
+    "__v": 0,
+    "about": "Economical seed drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Landforce",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.280Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/landforce-9.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 60000,
+    "minPrice": 50000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed Sowing",
+    "rating": 4.3,
+    "reviews": 120,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Seed Drill",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.5,
+      0.52,
+      0.54,
+      0.56,
+      0.58,
+      0.6
+    ],
+    "updatedAt": "2026-07-09T08:40:18.280Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2d",
+    "variant": "11 Tyne",
+    "title": "Mahindra Seed Cum Fertilizer Drill",
+    "__v": 0,
+    "about": "Mahindra Seed Cum Fertilizer drill saves time.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.299Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/m-drill.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 75000,
+    "minPrice": 65000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed & Fert",
+    "rating": 4.6,
+    "reviews": 65,
+    "specs": {
+      "Tynes": "11"
+    },
+    "subcategory": "Seed Cum Fertilizer Drill",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.65,
+      0.67,
+      0.69,
+      0.71,
+      0.73,
+      0.75
+    ],
+    "updatedAt": "2026-07-09T08:40:18.299Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2e",
+    "title": "John Deere GreenSystem SD1009",
+    "variant": "9 Tyne",
+    "__v": 0,
+    "about": "GreenSystem seed fert drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.317Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/jd-green.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 110000,
+    "minPrice": 90000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed & Fert",
+    "rating": 4.8,
+    "reviews": 85,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Seed Cum Fertilizer Drill",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.9,
+      0.94,
+      0.98,
+      1.02,
+      1.06,
+      1.1
+    ],
+    "updatedAt": "2026-07-09T08:40:18.317Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc2f",
+    "variant": "9 Tyne",
+    "title": "Farmking Seed Cum Fertilizer Drill",
+    "__v": 0,
+    "about": "Farmking dual drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Farmking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.429Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/fk-cum.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 65000,
+    "minPrice": 55000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seed & Fert",
+    "rating": 4.4,
+    "reviews": 55,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Seed Cum Fertilizer Drill",
+    "trendPercent": -1,
+    "trendPoints": [
+      0.55,
+      0.57,
+      0.59,
+      0.61,
+      0.63,
+      0.65
+    ],
+    "updatedAt": "2026-07-09T08:40:18.429Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc30",
+    "variant": "11 Tyne",
+    "title": "Dasmesh 911 Zero Till Drill",
+    "__v": 0,
+    "about": "Dasmesh Zero Till saves soil moisture.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Dasmesh",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.452Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/dasmesh-911.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 85000,
+    "minPrice": 70000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Zero Till",
+    "rating": 4.7,
+    "reviews": 100,
+    "specs": {
+      "Tynes": "11"
+    },
+    "subcategory": "Zero Till Seed Drill",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.7,
+      0.73,
+      0.76,
+      0.79,
+      0.82,
+      0.85
+    ],
+    "updatedAt": "2026-07-09T08:40:18.452Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc31",
+    "variant": "9 Tyne",
+    "title": "Fieldking FKZSFD-9",
+    "__v": 0,
+    "about": "Fieldking zero till drill.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.471Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/fk-zero.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 75000,
+    "minPrice": 60000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Zero Till",
+    "rating": 4.6,
+    "reviews": 80,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Zero Till Seed Drill",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.6,
+      0.63,
+      0.66,
+      0.69,
+      0.72,
+      0.75
+    ],
+    "updatedAt": "2026-07-09T08:40:18.471Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc32",
+    "variant": "7 Feet",
+    "title": "Shaktiman Super Seeder 7",
+    "__v": 0,
+    "about": "Shaktiman Super Seeder solves crop residue burning.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Shaktiman",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.489Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/shakti-super.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 240000,
+    "minPrice": 220000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Stubble Sowing",
+    "rating": 4.9,
+    "reviews": 125,
+    "specs": {
+      "Size": "7 Feet"
+    },
+    "subcategory": "Happy Seeder / Super Seeder",
+    "trendPercent": 8,
+    "trendPoints": [
+      2.2,
+      2.24,
+      2.28,
+      2.32,
+      2.36,
+      2.4
+    ],
+    "updatedAt": "2026-07-09T08:40:18.489Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc33",
+    "variant": "7 Feet",
+    "title": "Jagatjit JSSTGG-07",
+    "__v": 0,
+    "about": "Jagatjit super seeder.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Jagatjit",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.507Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/jagat-super.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 230000,
+    "minPrice": 210000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Stubble Sowing",
+    "rating": 4.7,
+    "reviews": 90,
+    "specs": {
+      "Size": "7 Feet"
+    },
+    "subcategory": "Happy Seeder / Super Seeder",
+    "trendPercent": 5,
+    "trendPoints": [
+      2.1,
+      2.14,
+      2.18,
+      2.22,
+      2.26,
+      2.3
+    ],
+    "updatedAt": "2026-07-09T08:40:18.507Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc34",
+    "variant": "7 Feet",
+    "title": "Dasmesh 620 Super Seeder",
+    "__v": 0,
+    "about": "Dasmesh 620 Super Seeder.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Dasmesh",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.541Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/dasmesh-super.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 235000,
+    "minPrice": 215000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Stubble Sowing",
+    "rating": 4.8,
+    "reviews": 110,
+    "specs": {
+      "Size": "7 Feet"
+    },
+    "subcategory": "Happy Seeder / Super Seeder",
+    "trendPercent": 6,
+    "trendPoints": [
+      2.15,
+      2.19,
+      2.23,
+      2.27,
+      2.31,
+      2.35
+    ],
+    "updatedAt": "2026-07-09T08:40:18.541Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc35",
+    "title": "Kubota NSP-4W",
+    "variant": "Walk-behind",
+    "__v": 0,
+    "about": "Kubota walk behind transplanter.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Kubota",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.559Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Petrol",
+    "imageUrl": "https://example.com/kubota-4w.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 280000,
+    "minPrice": 250000,
+    "powerOutput": "4.3 HP",
+    "primaryUsage": "Paddy Transplanter",
+    "rating": 4.9,
+    "reviews": 140,
+    "specs": {
+      "Rows": "4"
+    },
+    "subcategory": "Rice Transplanter",
+    "trendPercent": 3,
+    "trendPoints": [
+      2.5,
+      2.56,
+      2.62,
+      2.68,
+      2.74,
+      2.8
+    ],
+    "updatedAt": "2026-07-09T08:40:18.559Z",
+    "usageRecommendations": [
+      "Ideal for 4.3 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc36",
+    "variant": "Ride-on",
+    "title": "Kubota NSPU-68C",
+    "__v": 0,
+    "about": "Kubota ride on 6 row transplanter.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Kubota",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.577Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/kubota-68c.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 1700000,
+    "minPrice": 1500000,
+    "powerOutput": "17 HP",
+    "primaryUsage": "Paddy Transplanter",
+    "rating": 4.9,
+    "reviews": 80,
+    "specs": {
+      "Rows": "6"
+    },
+    "subcategory": "Rice Transplanter",
+    "trendPercent": 4,
+    "trendPoints": [
+      15,
+      15.4,
+      15.8,
+      16.2,
+      16.6,
+      17
+    ],
+    "updatedAt": "2026-07-09T08:40:18.577Z",
+    "usageRecommendations": [
+      "Ideal for 17 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc37",
+    "title": "Mahindra Planting Master Paddy 4RO",
+    "variant": "Walk-behind",
+    "__v": 0,
+    "about": "Mahindra paddy transplanter.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.595Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Petrol",
+    "imageUrl": "https://example.com/mah-paddy.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 260000,
+    "minPrice": 220000,
+    "powerOutput": "4 HP",
+    "primaryUsage": "Paddy Transplanter",
+    "rating": 4.6,
+    "reviews": 60,
+    "specs": {
+      "Rows": "4"
+    },
+    "subcategory": "Rice Transplanter",
+    "trendPercent": 2,
+    "trendPoints": [
+      2.2,
+      2.28,
+      2.36,
+      2.44,
+      2.52,
+      2.6
+    ],
+    "updatedAt": "2026-07-09T08:40:18.595Z",
+    "usageRecommendations": [
+      "Ideal for 4 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc38",
+    "variant": "Ride-on",
+    "title": "Mahindra MP461",
+    "__v": 0,
+    "about": "Mahindra high tech transplanter.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.613Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/mah-mp461.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 1600000,
+    "minPrice": 1400000,
+    "powerOutput": "16 HP",
+    "primaryUsage": "Paddy Transplanter",
+    "rating": 4.7,
+    "reviews": 40,
+    "specs": {
+      "Rows": "6"
+    },
+    "subcategory": "Rice Transplanter",
+    "trendPercent": 3,
+    "trendPoints": [
+      14,
+      14.4,
+      14.8,
+      15.2,
+      15.6,
+      16
+    ],
+    "updatedAt": "2026-07-09T08:40:18.613Z",
+    "usageRecommendations": [
+      "Ideal for 16 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc39",
+    "variant": "Multi-row",
+    "title": "Checchi & Magli Transplanter",
+    "__v": 0,
+    "about": "World class vegetable transplanter.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Checchi & Magli",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.632Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/checchi.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 600000,
+    "minPrice": 400000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Vegetable Planting",
+    "rating": 4.8,
+    "reviews": 50,
+    "specs": {
+      "Rows": "2-4"
+    },
+    "subcategory": "Vegetable Planter",
+    "trendPercent": 2,
+    "trendPoints": [
+      4,
+      4.4,
+      4.8,
+      5.2,
+      5.6,
+      6
+    ],
+    "updatedAt": "2026-07-09T08:40:18.632Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3a",
+    "variant": "4 Row",
+    "title": "John Deere Precision Planter",
+    "__v": 0,
+    "about": "JD Precision Planter for exact spacing.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.650Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/jd-precision.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 700000,
+    "minPrice": 500000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Precision Seed Placement",
+    "rating": 4.9,
+    "reviews": 30,
+    "specs": {
+      "Rows": "4"
+    },
+    "subcategory": "Precision Planter",
+    "trendPercent": 5,
+    "trendPoints": [
+      5,
+      5.4,
+      5.8,
+      6.2,
+      6.6,
+      7
+    ],
+    "updatedAt": "2026-07-09T08:40:18.650Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3b",
+    "variant": "Custom per acre",
+    "title": "Netafim UniRam",
+    "__v": 0,
+    "about": "Netafim UniRam.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Netafim",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.668Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/uniram.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 60000,
+    "minPrice": 35000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Precision Irrigation",
+    "rating": 4.8,
+    "reviews": 300,
+    "specs": {
+      "Type": "Anti-Siphon"
+    },
+    "subcategory": "Drip Irrigation System",
+    "trendPercent": -2,
+    "trendPoints": [
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "updatedAt": "2026-07-09T08:40:18.668Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3c",
+    "title": "Rivulis D1000",
+    "variant": "Custom per acre",
+    "__v": 0,
+    "about": "Rivulis D1000 drip tape.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Rivulis",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.688Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/rivulis.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 55000,
+    "minPrice": 30000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Precision Irrigation",
+    "rating": 4.7,
+    "reviews": 200,
+    "specs": {
+      "Type": "Thin Wall"
+    },
+    "subcategory": "Drip Irrigation System",
+    "trendPercent": -1,
+    "trendPoints": [
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55
+    ],
+    "updatedAt": "2026-07-09T08:40:18.688Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3d",
+    "title": "Kisan Mini Sprinkler",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Kisan mini sprinkler.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Kisan Irrigation",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.706Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/kisan-sprink.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 15000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Sprinkler Irrigation",
+    "rating": 4.5,
+    "reviews": 120,
+    "specs": {
+      "Radius": "10m"
+    },
+    "subcategory": "Sprinkler System",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.15,
+      0.17,
+      0.19,
+      0.21,
+      0.23,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:18.706Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3e",
+    "variant": "Standard",
+    "title": "Captain Mini Sprinkler",
+    "__v": 0,
+    "about": "Captain mini sprinkler.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Captain Polyplast",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.724Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/captain.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 24000,
+    "minPrice": 14000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Sprinkler Irrigation",
+    "rating": 4.4,
+    "reviews": 90,
+    "specs": {
+      "Radius": "8m"
+    },
+    "subcategory": "Sprinkler System",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.14,
+      0.16,
+      0.18,
+      0.2,
+      0.22,
+      0.24
+    ],
+    "updatedAt": "2026-07-09T08:40:18.724Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc3f",
+    "title": "Netafim SuperNet",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Netafim SuperNet sprinkler.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Netafim",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.746Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/supernet.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 30000,
+    "minPrice": 18000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Sprinkler Irrigation",
+    "rating": 4.8,
+    "reviews": 210,
+    "specs": {
+      "Radius": "12m"
+    },
+    "subcategory": "Sprinkler System",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.18,
+      0.2,
+      0.23,
+      0.25,
+      0.28,
+      0.3
+    ],
+    "updatedAt": "2026-07-09T08:40:18.746Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc40",
+    "title": "Komet Twin 101",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Komet Twin 101 Rain Gun.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Komet",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.764Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/komet.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 50000,
+    "minPrice": 35000,
+    "powerOutput": "High Pressure Pump",
+    "primaryUsage": "Wide Area Irrigation",
+    "rating": 4.9,
+    "reviews": 150,
+    "specs": {
+      "Radius": "40m+"
+    },
+    "subcategory": "Rain Gun",
+    "trendPercent": 5,
+    "trendPoints": [
+      0.35,
+      0.38,
+      0.41,
+      0.44,
+      0.47,
+      0.5
+    ],
+    "updatedAt": "2026-07-09T08:40:18.764Z",
+    "usageRecommendations": [
+      "Ideal for High Pressure Pump setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc41",
+    "title": "Sime Explorer",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Sime Explorer Rain Gun.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Sime",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.782Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/sime.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 45000,
+    "minPrice": 30000,
+    "powerOutput": "High Pressure Pump",
+    "primaryUsage": "Wide Area Irrigation",
+    "rating": 4.7,
+    "reviews": 110,
+    "specs": {
+      "Radius": "35m+"
+    },
+    "subcategory": "Rain Gun",
+    "trendPercent": 4,
+    "trendPoints": [
+      0.3,
+      0.33,
+      0.36,
+      0.39,
+      0.42,
+      0.45
+    ],
+    "updatedAt": "2026-07-09T08:40:18.782Z",
+    "usageRecommendations": [
+      "Ideal for High Pressure Pump setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e727a55c6a797d3cc42",
+    "title": "Netafim SuperNet Micro",
+    "variant": "Micro",
+    "__v": 0,
+    "about": "SuperNet Micro for orchards.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Netafim",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.801Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/micro-sprink.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 35000,
+    "minPrice": 20000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Orchard Irrigation",
+    "rating": 4.8,
+    "reviews": 160,
+    "specs": {
+      "Flow": "20-90 L/h"
+    },
+    "subcategory": "Micro Sprinkler",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.2,
+      0.23,
+      0.26,
+      0.29,
+      0.32,
+      0.35
+    ],
+    "updatedAt": "2026-07-09T08:40:18.801Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc43",
+    "variant": "Standard",
+    "title": "Netafim GyroNet",
+    "__v": 0,
+    "about": "GyroNet micro sprinkler.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Netafim",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.834Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/gyronet.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 32000,
+    "minPrice": 18000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Orchard Irrigation",
+    "rating": 4.7,
+    "reviews": 130,
+    "specs": {
+      "Flow": "30-120 L/h"
+    },
+    "subcategory": "Micro Sprinkler",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.18,
+      0.21,
+      0.24,
+      0.26,
+      0.29,
+      0.32
+    ],
+    "updatedAt": "2026-07-09T08:40:18.834Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc44",
+    "title": "Jain Micro Sprinkler",
+    "variant": "Standard",
+    "__v": 0,
+    "about": "Jain Micro Sprinkler.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Jain",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.864Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/jain-micro.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 28000,
+    "minPrice": 15000,
+    "powerOutput": "N/A",
+    "primaryUsage": "Orchard Irrigation",
+    "rating": 4.6,
+    "reviews": 200,
+    "specs": {
+      "Flow": "25-100 L/h"
+    },
+    "subcategory": "Micro Sprinkler",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.15,
+      0.18,
+      0.2,
+      0.23,
+      0.25,
+      0.28
+    ],
+    "updatedAt": "2026-07-09T08:40:18.864Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc45",
+    "title": "Finolex HDPE Pipe",
+    "variant": "Per Meter",
+    "__v": 0,
+    "about": "Finolex HDPE pipe.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Finolex",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.895Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/hdpe.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 500,
+    "minPrice": 100,
+    "powerOutput": "N/A",
+    "primaryUsage": "Water Transport",
+    "rating": 4.9,
+    "reviews": 500,
+    "specs": {
+      "Size": "Various"
+    },
+    "subcategory": "HDPE / PVC Pipe",
+    "trendPercent": 2,
+    "trendPoints": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.01
+    ],
+    "updatedAt": "2026-07-09T08:40:18.895Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc46",
+    "variant": "Per Meter",
+    "title": "Finolex PVC Pipe",
+    "__v": 0,
+    "about": "Finolex PVC pipe.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Finolex",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.917Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "N/A",
+    "imageUrl": "https://example.com/pvc.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 400,
+    "minPrice": 80,
+    "powerOutput": "N/A",
+    "primaryUsage": "Water Transport",
+    "rating": 4.8,
+    "reviews": 600,
+    "specs": {
+      "Size": "Various"
+    },
+    "subcategory": "HDPE / PVC Pipe",
+    "trendPercent": 1,
+    "trendPoints": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "updatedAt": "2026-07-09T08:40:18.917Z",
+    "usageRecommendations": [
+      "Ideal for N/A setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc47",
+    "title": "Kirloskar KDS-123",
+    "variant": "1 HP",
+    "__v": 0,
+    "about": "Kirloskar KDS-123.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Kirloskar",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.940Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/kds123.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 15000,
+    "minPrice": 12000,
+    "powerOutput": "1 HP",
+    "primaryUsage": "Water Pumping",
+    "rating": 4.7,
+    "reviews": 400,
+    "specs": {
+      "Head": "10-20m"
+    },
+    "subcategory": "Water Pump",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.12,
+      0.13,
+      0.13,
+      0.14,
+      0.14,
+      0.15
+    ],
+    "updatedAt": "2026-07-09T08:40:18.940Z",
+    "usageRecommendations": [
+      "Ideal for 1 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc48",
+    "variant": "Submersible",
+    "title": "Kirloskar KU4",
+    "__v": 0,
+    "about": "Kirloskar KU4 Submersible.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Kirloskar",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.958Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/ku4.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 20000,
+    "powerOutput": "5 HP",
+    "primaryUsage": "Water Pumping",
+    "rating": 4.8,
+    "reviews": 350,
+    "specs": {
+      "Head": "30-50m"
+    },
+    "subcategory": "Water Pump",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:18.958Z",
+    "usageRecommendations": [
+      "Ideal for 5 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc49",
+    "title": "Crompton Mini Master",
+    "variant": "0.5 HP",
+    "__v": 0,
+    "about": "Crompton Mini Master.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Crompton",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.976Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/crompton.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 12000,
+    "minPrice": 8000,
+    "powerOutput": "0.5 HP",
+    "primaryUsage": "Water Pumping",
+    "rating": 4.5,
+    "reviews": 280,
+    "specs": {
+      "Head": "5-15m"
+    },
+    "subcategory": "Water Pump",
+    "trendPercent": -1,
+    "trendPoints": [
+      0.08,
+      0.09,
+      0.1,
+      0.1,
+      0.11,
+      0.12
+    ],
+    "updatedAt": "2026-07-09T08:40:18.976Z",
+    "usageRecommendations": [
+      "Ideal for 0.5 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4a",
+    "title": "CRI 4R Series",
+    "variant": "Submersible",
+    "__v": 0,
+    "about": "CRI 4R Series.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "CRI",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:18.995Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/cri.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 28000,
+    "minPrice": 18000,
+    "powerOutput": "3 HP",
+    "primaryUsage": "Water Pumping",
+    "rating": 4.7,
+    "reviews": 310,
+    "specs": {
+      "Head": "20-40m"
+    },
+    "subcategory": "Water Pump",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.18,
+      0.2,
+      0.22,
+      0.24,
+      0.26,
+      0.28
+    ],
+    "updatedAt": "2026-07-09T08:40:18.995Z",
+    "usageRecommendations": [
+      "Ideal for 3 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4b",
+    "title": "Shakti Solar Pump 3 HP",
+    "variant": "3 HP",
+    "__v": 0,
+    "about": "Shakti 3 HP Solar Pump.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Shakti Pumps",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.014Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Solar",
+    "imageUrl": "https://example.com/shakti-3hp.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 180000,
+    "minPrice": 150000,
+    "powerOutput": "3 HP",
+    "primaryUsage": "Off-grid Irrigation",
+    "rating": 4.8,
+    "reviews": 150,
+    "specs": {
+      "Panels": "3 kW Array"
+    },
+    "subcategory": "Solar Water Pump",
+    "trendPercent": 8,
+    "trendPoints": [
+      1.5,
+      1.56,
+      1.62,
+      1.68,
+      1.74,
+      1.8
+    ],
+    "updatedAt": "2026-07-09T08:40:19.014Z",
+    "usageRecommendations": [
+      "Ideal for 3 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4c",
+    "title": "Shakti Solar Pump 5 HP",
+    "variant": "5 HP",
+    "__v": 0,
+    "about": "Shakti 5 HP Solar Pump.",
+    "applications": [
+      "Field flooding",
+      "Drip and sprinkler water supply",
+      "Borewell water extraction"
+    ],
+    "capacity": {},
+    "category": "Irrigation Machinery",
+    "company": "Shakti Pumps",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.035Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Corrosion-resistant robust build",
+      "High-efficiency motor for continuous running",
+      "Self-priming feature for quick starts",
+      "Low maintenance and power consumption",
+      "Overload protection guard"
+    ],
+    "fuelType": "Solar",
+    "imageUrl": "https://example.com/shakti-solar.jpg",
+    "isActive": true,
+    "mainCategory": "Irrigation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 250000,
+    "minPrice": 200000,
+    "powerOutput": "5 HP",
+    "primaryUsage": "Off-grid Irrigation",
+    "rating": 4.8,
+    "reviews": 200,
+    "specs": {
+      "Panels": "5 kW Array"
+    },
+    "subcategory": "Solar Water Pump",
+    "trendPercent": 10,
+    "trendPoints": [
+      2,
+      2.1,
+      2.2,
+      2.3,
+      2.4,
+      2.5
+    ],
+    "updatedAt": "2026-07-09T08:40:19.035Z",
+    "usageRecommendations": [
+      "Ideal for 5 HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4d",
+    "title": "MB Plough 1 Bottom",
+    "variant": "1 Bottom",
+    "__v": 0,
+    "about": "MB Plough 1 Bottom.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.066Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/mb-plough1.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 35000,
+    "minPrice": 25000,
+    "powerOutput": "25+ HP Tractor",
+    "primaryUsage": "Deep Ploughing",
+    "rating": 4.4,
+    "reviews": 80,
+    "specs": {
+      "Bottoms": "1"
+    },
+    "subcategory": "Plough",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.25,
+      0.27,
+      0.29,
+      0.31,
+      0.33,
+      0.35
+    ],
+    "updatedAt": "2026-07-09T08:40:19.066Z",
+    "usageRecommendations": [
+      "Ideal for 25+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4e",
+    "variant": "Mounted",
+    "title": "Mounted Disc Harrow",
+    "__v": 0,
+    "about": "Mounted Disc Harrow.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.090Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/harrow-mount.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 60000,
+    "minPrice": 45000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Soil Clod Breaking",
+    "rating": 4.6,
+    "reviews": 120,
+    "specs": {
+      "Discs": "12-16"
+    },
+    "subcategory": "Disc Harrow",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.45,
+      0.48,
+      0.51,
+      0.54,
+      0.57,
+      0.6
+    ],
+    "updatedAt": "2026-07-09T08:40:19.090Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc4f",
+    "title": "Trailed Disc Harrow",
+    "variant": "Trailed",
+    "__v": 0,
+    "about": "Trailed Disc Harrow.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.108Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/harrow-trail.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 110000,
+    "minPrice": 85000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Soil Clod Breaking",
+    "rating": 4.7,
+    "reviews": 90,
+    "specs": {
+      "Discs": "16-24"
+    },
+    "subcategory": "Disc Harrow",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.85,
+      0.9,
+      0.95,
+      1,
+      1.05,
+      1.1
+    ],
+    "updatedAt": "2026-07-09T08:40:19.108Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc50",
+    "variant": "Standard",
+    "title": "Spring Cultivator",
+    "__v": 0,
+    "about": "Spring Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Mahindra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.127Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/cultivator-spring.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 42000,
+    "minPrice": 35000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.5,
+    "reviews": 110,
+    "specs": {
+      "Type": "Spring"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.35,
+      0.36,
+      0.38,
+      0.39,
+      0.41,
+      0.42
+    ],
+    "updatedAt": "2026-07-09T08:40:19.127Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc51",
+    "variant": "Standard",
+    "title": "Rigid Cultivator",
+    "__v": 0,
+    "about": "Rigid Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Sonalika",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.145Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/cultivator-rigid.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 35000,
+    "minPrice": 25000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.3,
+    "reviews": 85,
+    "specs": {
+      "Type": "Rigid"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.25,
+      0.27,
+      0.29,
+      0.31,
+      0.33,
+      0.35
+    ],
+    "updatedAt": "2026-07-09T08:40:19.145Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc52",
+    "title": "Duck Foot Cultivator",
+    "variant": "Heavy Duty",
+    "__v": 0,
+    "about": "Duck Foot Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.161Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/duck-foot.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 55000,
+    "minPrice": 40000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Weed Eradication",
+    "rating": 4.6,
+    "reviews": 140,
+    "specs": {
+      "Type": "Duck Foot"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.4,
+      0.43,
+      0.46,
+      0.49,
+      0.52,
+      0.55
+    ],
+    "updatedAt": "2026-07-09T08:40:19.161Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc53",
+    "variant": "Heavy Duty",
+    "title": "Heavy Duty Cultivator",
+    "__v": 0,
+    "about": "Heavy Duty Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.180Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/hd-cultivator.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 65000,
+    "minPrice": 50000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Deep Seedbed Prep",
+    "rating": 4.8,
+    "reviews": 130,
+    "specs": {
+      "Type": "Heavy Duty"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.5,
+      0.53,
+      0.56,
+      0.59,
+      0.62,
+      0.65
+    ],
+    "updatedAt": "2026-07-09T08:40:19.180Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc54",
+    "title": "Mini Cultivator",
+    "variant": "Mini",
+    "__v": 0,
+    "about": "Mini Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Farmking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.435Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/mini-cultivator.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 15000,
+    "powerOutput": "15-25 HP Tractor",
+    "primaryUsage": "Orchard Prep",
+    "rating": 4.4,
+    "reviews": 100,
+    "specs": {
+      "Tynes": "5"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.15,
+      0.17,
+      0.19,
+      0.21,
+      0.23,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:19.435Z",
+    "usageRecommendations": [
+      "Ideal for 15-25 HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc55",
+    "title": "7 Tyne Cultivator",
+    "variant": "7 Tyne",
+    "__v": 0,
+    "about": "7 Tyne Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.453Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/7-tyne.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 30000,
+    "minPrice": 20000,
+    "powerOutput": "25+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.2,
+    "reviews": 60,
+    "specs": {
+      "Tynes": "7"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": -1,
+    "trendPoints": [
+      0.2,
+      0.22,
+      0.24,
+      0.26,
+      0.28,
+      0.3
+    ],
+    "updatedAt": "2026-07-09T08:40:19.453Z",
+    "usageRecommendations": [
+      "Ideal for 25+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc56",
+    "title": "9 Tyne Cultivator",
+    "variant": "9 Tyne",
+    "__v": 0,
+    "about": "9 Tyne Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.474Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/9-tyne.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 35000,
+    "minPrice": 25000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.4,
+    "reviews": 120,
+    "specs": {
+      "Tynes": "9"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.25,
+      0.27,
+      0.29,
+      0.31,
+      0.33,
+      0.35
+    ],
+    "updatedAt": "2026-07-09T08:40:19.474Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc57",
+    "title": "11 Tyne Cultivator",
+    "variant": "11 Tyne",
+    "__v": 0,
+    "about": "11 Tyne Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.493Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/11-tyne.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 40000,
+    "minPrice": 30000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.5,
+    "reviews": 90,
+    "specs": {
+      "Tynes": "11"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.3,
+      0.32,
+      0.34,
+      0.36,
+      0.38,
+      0.4
+    ],
+    "updatedAt": "2026-07-09T08:40:19.493Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc58",
+    "variant": "13 Tyne",
+    "title": "13 Tyne Cultivator",
+    "__v": 0,
+    "about": "13 Tyne Cultivator.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.510Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/13-tyne.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 45000,
+    "minPrice": 35000,
+    "powerOutput": "55+ HP Tractor",
+    "primaryUsage": "Seedbed Prep",
+    "rating": 4.6,
+    "reviews": 70,
+    "specs": {
+      "Tynes": "13"
+    },
+    "subcategory": "Cultivator",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.35,
+      0.37,
+      0.39,
+      0.41,
+      0.43,
+      0.45
+    ],
+    "updatedAt": "2026-07-09T08:40:19.510Z",
+    "usageRecommendations": [
+      "Ideal for 55+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc59",
+    "variant": "Single",
+    "title": "Single Leg Subsoiler",
+    "__v": 0,
+    "about": "Single Leg Subsoiler.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.535Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/subsoiler1.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 45000,
+    "minPrice": 30000,
+    "powerOutput": "50+ HP Tractor",
+    "primaryUsage": "Hardpan breaking",
+    "rating": 4.7,
+    "reviews": 60,
+    "specs": {
+      "Legs": "1"
+    },
+    "subcategory": "Subsoiler",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.3,
+      0.33,
+      0.36,
+      0.39,
+      0.42,
+      0.45
+    ],
+    "updatedAt": "2026-07-09T08:40:19.535Z",
+    "usageRecommendations": [
+      "Ideal for 50+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5a",
+    "variant": "Double",
+    "title": "Double Leg Subsoiler",
+    "__v": 0,
+    "about": "Double Leg Subsoiler.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.556Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/subsoiler2.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 70000,
+    "minPrice": 50000,
+    "powerOutput": "75+ HP Tractor",
+    "primaryUsage": "Hardpan breaking",
+    "rating": 4.8,
+    "reviews": 40,
+    "specs": {
+      "Legs": "2"
+    },
+    "subcategory": "Subsoiler",
+    "trendPercent": 4,
+    "trendPoints": [
+      0.5,
+      0.54,
+      0.58,
+      0.62,
+      0.66,
+      0.7
+    ],
+    "updatedAt": "2026-07-09T08:40:19.556Z",
+    "usageRecommendations": [
+      "Ideal for 75+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5b",
+    "variant": "Standard",
+    "title": "Standard Power Harrow",
+    "__v": 0,
+    "about": "Standard Power Harrow.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Maschio",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.575Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/ph-std.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 150000,
+    "minPrice": 120000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Fine Seedbed",
+    "rating": 4.8,
+    "reviews": 90,
+    "specs": {
+      "Width": "1.5m"
+    },
+    "subcategory": "Power Harrow",
+    "trendPercent": 5,
+    "trendPoints": [
+      1.2,
+      1.26,
+      1.32,
+      1.38,
+      1.44,
+      1.5
+    ],
+    "updatedAt": "2026-07-09T08:40:19.575Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5c",
+    "title": "Heavy Duty Power Harrow",
+    "variant": "Heavy Duty",
+    "__v": 0,
+    "about": "Heavy Duty Power Harrow.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Land Preparation Machinery",
+    "company": "Maschio",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.595Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/ph-hd.jpg",
+    "isActive": true,
+    "mainCategory": "Land Preparation",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 220000,
+    "minPrice": 180000,
+    "powerOutput": "65+ HP Tractor",
+    "primaryUsage": "Fine Seedbed",
+    "rating": 4.9,
+    "reviews": 60,
+    "specs": {
+      "Width": "2.5m"
+    },
+    "subcategory": "Power Harrow",
+    "trendPercent": 6,
+    "trendPoints": [
+      1.8,
+      1.88,
+      1.96,
+      2.04,
+      2.12,
+      2.2
+    ],
+    "updatedAt": "2026-07-09T08:40:19.595Z",
+    "usageRecommendations": [
+      "Ideal for 65+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5d",
+    "variant": "Manual",
+    "title": "Manual Boom Sprayer",
+    "__v": 0,
+    "about": "Manual Boom Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.616Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Manual",
+    "imageUrl": "https://example.com/manual-boom.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 15000,
+    "powerOutput": "Manual",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.2,
+    "reviews": 50,
+    "specs": {
+      "BoomLength": "5m"
+    },
+    "subcategory": "Boom Sprayer",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.15,
+      0.17,
+      0.19,
+      0.21,
+      0.23,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:19.616Z",
+    "usageRecommendations": [
+      "Ideal for Manual setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5e",
+    "title": "Tractor Mounted Boom Sprayer",
+    "variant": "Tractor",
+    "__v": 0,
+    "about": "Tractor Mounted Boom Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Mitra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.640Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/boom-sprayer.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 120000,
+    "minPrice": 85000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.6,
+    "reviews": 80,
+    "specs": {
+      "TankCapacity": "400 L"
+    },
+    "subcategory": "Boom Sprayer",
+    "trendPercent": 5,
+    "trendPoints": [
+      0.85,
+      0.92,
+      0.99,
+      1.06,
+      1.13,
+      1.2
+    ],
+    "updatedAt": "2026-07-09T08:40:19.640Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc5f",
+    "variant": "Portable",
+    "title": "Portable Power Sprayer",
+    "__v": 0,
+    "about": "Portable Power Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Aspee",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.658Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Petrol",
+    "imageUrl": "https://example.com/port-power.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 15000,
+    "minPrice": 8000,
+    "powerOutput": "2 Stroke Engine",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.5,
+    "reviews": 150,
+    "specs": {
+      "Pressure": "High"
+    },
+    "subcategory": "Power Sprayer",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.08,
+      0.09,
+      0.11,
+      0.12,
+      0.14,
+      0.15
+    ],
+    "updatedAt": "2026-07-09T08:40:19.658Z",
+    "usageRecommendations": [
+      "Ideal for 2 Stroke Engine setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc60",
+    "variant": "Knapsack",
+    "title": "Knapsack Power Sprayer",
+    "__v": 0,
+    "about": "Knapsack Power Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Aspee",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.677Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Petrol",
+    "imageUrl": "https://example.com/knap-power.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 18000,
+    "minPrice": 12000,
+    "powerOutput": "2 Stroke Engine",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.6,
+    "reviews": 200,
+    "specs": {
+      "Capacity": "16L"
+    },
+    "subcategory": "Power Sprayer",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.12,
+      0.13,
+      0.14,
+      0.16,
+      0.17,
+      0.18
+    ],
+    "updatedAt": "2026-07-09T08:40:19.677Z",
+    "usageRecommendations": [
+      "Ideal for 2 Stroke Engine setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc61",
+    "variant": "Manual",
+    "title": "Manual Knapsack Sprayer",
+    "__v": 0,
+    "about": "Manual Knapsack Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.698Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Manual",
+    "imageUrl": "https://example.com/manual-knap.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 3000,
+    "minPrice": 1500,
+    "powerOutput": "Manual",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.3,
+    "reviews": 500,
+    "specs": {
+      "Capacity": "16L"
+    },
+    "subcategory": "Knapsack Sprayer",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.01,
+      0.02,
+      0.02,
+      0.02,
+      0.03,
+      0.03
+    ],
+    "updatedAt": "2026-07-09T08:40:19.698Z",
+    "usageRecommendations": [
+      "Ideal for Manual setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc62",
+    "title": "Battery Knapsack Sprayer",
+    "variant": "Battery",
+    "__v": 0,
+    "about": "Battery Knapsack Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Balwaan",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.715Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/batt-knap.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 4500,
+    "minPrice": 2500,
+    "powerOutput": "12V Battery",
+    "primaryUsage": "Pesticide Spray",
+    "rating": 4.7,
+    "reviews": 600,
+    "specs": {
+      "Capacity": "16L"
+    },
+    "subcategory": "Knapsack Sprayer",
+    "trendPercent": 4,
+    "trendPoints": [
+      0.03,
+      0.03,
+      0.03,
+      0.04,
+      0.04,
+      0.04
+    ],
+    "updatedAt": "2026-07-09T08:40:19.715Z",
+    "usageRecommendations": [
+      "Ideal for 12V Battery setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc63",
+    "variant": "Backpack",
+    "title": "Backpack Mist Blower",
+    "__v": 0,
+    "about": "Backpack Mist Blower.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Stihl",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.736Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Petrol",
+    "imageUrl": "https://example.com/mist-blow.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 18000,
+    "powerOutput": "2 Stroke Engine",
+    "primaryUsage": "Orchard Spraying",
+    "rating": 4.8,
+    "reviews": 100,
+    "specs": {
+      "Range": "10m"
+    },
+    "subcategory": "Mist Blower",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.18,
+      0.19,
+      0.21,
+      0.22,
+      0.24,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:19.736Z",
+    "usageRecommendations": [
+      "Ideal for 2 Stroke Engine setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc64",
+    "title": "Orchard Mist Blower",
+    "variant": "Tractor Mounted",
+    "__v": 0,
+    "about": "Orchard Mist Blower.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Mitra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.755Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/orchard-mist.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 220000,
+    "minPrice": 150000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Orchard Spraying",
+    "rating": 4.9,
+    "reviews": 80,
+    "specs": {
+      "Tank": "600L"
+    },
+    "subcategory": "Mist Blower",
+    "trendPercent": 6,
+    "trendPoints": [
+      1.5,
+      1.64,
+      1.78,
+      1.92,
+      2.06,
+      2.2
+    ],
+    "updatedAt": "2026-07-09T08:40:19.755Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc65",
+    "variant": "Hand",
+    "title": "Hand Duster",
+    "__v": 0,
+    "about": "Hand Duster.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.775Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Manual",
+    "imageUrl": "https://example.com/hand-dust.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 1500,
+    "minPrice": 800,
+    "powerOutput": "Manual",
+    "primaryUsage": "Powder Application",
+    "rating": 4.1,
+    "reviews": 100,
+    "specs": {
+      "Capacity": "5L"
+    },
+    "subcategory": "Duster",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ],
+    "updatedAt": "2026-07-09T08:40:19.775Z",
+    "usageRecommendations": [
+      "Ideal for Manual setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e737a55c6a797d3cc66",
+    "variant": "Rotary",
+    "title": "Rotary Duster",
+    "__v": 0,
+    "about": "Rotary Duster.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Aspee",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.794Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Manual",
+    "imageUrl": "https://example.com/rotary-dust.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 3500,
+    "minPrice": 2000,
+    "powerOutput": "Manual",
+    "primaryUsage": "Powder Application",
+    "rating": 4.4,
+    "reviews": 120,
+    "specs": {
+      "Capacity": "8L"
+    },
+    "subcategory": "Duster",
+    "trendPercent": 1,
+    "trendPoints": [
+      0.02,
+      0.02,
+      0.03,
+      0.03,
+      0.03,
+      0.04
+    ],
+    "updatedAt": "2026-07-09T08:40:19.794Z",
+    "usageRecommendations": [
+      "Ideal for Manual setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc67",
+    "variant": "Handheld",
+    "title": "Handheld ULV Sprayer",
+    "__v": 0,
+    "about": "Handheld ULV Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.812Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/ulv-hand.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 8000,
+    "minPrice": 5000,
+    "powerOutput": "Electric",
+    "primaryUsage": "Fogging",
+    "rating": 4.5,
+    "reviews": 90,
+    "specs": {
+      "DropletSize": "Small"
+    },
+    "subcategory": "ULV Sprayer",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.05,
+      0.06,
+      0.06,
+      0.07,
+      0.07,
+      0.08
+    ],
+    "updatedAt": "2026-07-09T08:40:19.812Z",
+    "usageRecommendations": [
+      "Ideal for Electric setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc68",
+    "variant": "Battery",
+    "title": "Battery ULV Sprayer",
+    "__v": 0,
+    "about": "Battery ULV Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.830Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/ulv-batt.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 12000,
+    "minPrice": 8000,
+    "powerOutput": "Battery",
+    "primaryUsage": "Fogging",
+    "rating": 4.6,
+    "reviews": 80,
+    "specs": {
+      "DropletSize": "Small"
+    },
+    "subcategory": "ULV Sprayer",
+    "trendPercent": 3,
+    "trendPoints": [
+      0.08,
+      0.09,
+      0.1,
+      0.1,
+      0.11,
+      0.12
+    ],
+    "updatedAt": "2026-07-09T08:40:19.830Z",
+    "usageRecommendations": [
+      "Ideal for Battery setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc69",
+    "variant": "10L",
+    "title": "Agriculture Spray Drone",
+    "__v": 0,
+    "about": "Agriculture Spray Drone.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "Garuda Aerospace",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.849Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/drone-sprayer.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 550000,
+    "minPrice": 450000,
+    "powerOutput": "Battery Operated",
+    "primaryUsage": "Aerial Spraying",
+    "rating": 4.9,
+    "reviews": 60,
+    "specs": {
+      "Capacity": "10L"
+    },
+    "subcategory": "Agriculture Drone",
+    "trendPercent": 15,
+    "trendPoints": [
+      4.5,
+      4.7,
+      4.9,
+      5.1,
+      5.3,
+      5.5
+    ],
+    "updatedAt": "2026-07-09T08:40:19.849Z",
+    "usageRecommendations": [
+      "Ideal for Battery Operated setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6a",
+    "title": "Mapping + Spray Drone",
+    "variant": "Advanced",
+    "__v": 0,
+    "about": "Mapping + Spray Drone.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "IoTechWorld",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.869Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/drone-map.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 800000,
+    "minPrice": 650000,
+    "powerOutput": "Battery Operated",
+    "primaryUsage": "Mapping & Spraying",
+    "rating": 4.8,
+    "reviews": 40,
+    "specs": {
+      "Camera": "Multispectral"
+    },
+    "subcategory": "Agriculture Drone",
+    "trendPercent": 12,
+    "trendPoints": [
+      6.5,
+      6.8,
+      7.1,
+      7.4,
+      7.7,
+      8
+    ],
+    "updatedAt": "2026-07-09T08:40:19.869Z",
+    "usageRecommendations": [
+      "Ideal for Battery Operated setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6b",
+    "variant": "Pro",
+    "title": "Variable Rate Spray Drone",
+    "__v": 0,
+    "about": "Variable Rate Spray Drone.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "Syngenta",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.886Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/drone-var.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 700000,
+    "minPrice": 550000,
+    "powerOutput": "Battery Operated",
+    "primaryUsage": "Precision Spraying",
+    "rating": 4.9,
+    "reviews": 30,
+    "specs": {
+      "Spray": "Variable Rate"
+    },
+    "subcategory": "Agriculture Drone",
+    "trendPercent": 14,
+    "trendPoints": [
+      5.5,
+      5.8,
+      6.1,
+      6.4,
+      6.7,
+      7
+    ],
+    "updatedAt": "2026-07-09T08:40:19.886Z",
+    "usageRecommendations": [
+      "Ideal for Battery Operated setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6c",
+    "variant": "20L",
+    "title": "Autonomous Spray Drone",
+    "__v": 0,
+    "about": "Autonomous Spray Drone.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "XAG",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.907Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/drone-auto.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 900000,
+    "minPrice": 700000,
+    "powerOutput": "Battery Operated",
+    "primaryUsage": "Autonomous Spraying",
+    "rating": 4.9,
+    "reviews": 20,
+    "specs": {
+      "Capacity": "20L"
+    },
+    "subcategory": "Agriculture Drone",
+    "trendPercent": 18,
+    "trendPoints": [
+      7,
+      7.4,
+      7.8,
+      8.2,
+      8.6,
+      9
+    ],
+    "updatedAt": "2026-07-09T08:40:19.907Z",
+    "usageRecommendations": [
+      "Ideal for Battery Operated setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6d",
+    "title": "PTO Broadcaster",
+    "variant": "PTO",
+    "__v": 0,
+    "about": "PTO Broadcaster.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Fieldking",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.942Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/pto-broad.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 35000,
+    "minPrice": 25000,
+    "powerOutput": "Tractor PTO",
+    "primaryUsage": "Fertilizer Spreading",
+    "rating": 4.5,
+    "reviews": 70,
+    "specs": {
+      "Capacity": "300L"
+    },
+    "subcategory": "Fertilizer Broadcaster",
+    "trendPercent": 2,
+    "trendPoints": [
+      0.25,
+      0.27,
+      0.29,
+      0.31,
+      0.33,
+      0.35
+    ],
+    "updatedAt": "2026-07-09T08:40:19.942Z",
+    "usageRecommendations": [
+      "Ideal for Tractor PTO setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6e",
+    "title": "Manual Broadcaster",
+    "variant": "Manual",
+    "__v": 0,
+    "about": "Manual Broadcaster.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Planting & Sowing Machinery",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.968Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Robust heavy-duty steel frame",
+      "Rust-resistant powder coat finish",
+      "Easy hitching mechanism with tractors",
+      "Low maintenance cost",
+      "Designed for Indian soil conditions"
+    ],
+    "fuelType": "Manual",
+    "imageUrl": "https://example.com/man-broad.jpg",
+    "isActive": true,
+    "mainCategory": "Planting & Sowing",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 3000,
+    "minPrice": 1500,
+    "powerOutput": "Manual",
+    "primaryUsage": "Fertilizer Spreading",
+    "rating": 4.1,
+    "reviews": 200,
+    "specs": {
+      "Capacity": "10kg"
+    },
+    "subcategory": "Fertilizer Broadcaster",
+    "trendPercent": 0,
+    "trendPoints": [
+      0.01,
+      0.02,
+      0.02,
+      0.02,
+      0.03,
+      0.03
+    ],
+    "updatedAt": "2026-07-09T08:40:19.968Z",
+    "usageRecommendations": [
+      "Ideal for Manual setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc6f",
+    "title": "Battery Electrostatic Sprayer",
+    "variant": "Battery",
+    "__v": 0,
+    "about": "Battery Electrostatic Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:19.987Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/elec-batt.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 25000,
+    "minPrice": 15000,
+    "powerOutput": "Battery",
+    "primaryUsage": "Precision Spray",
+    "rating": 4.7,
+    "reviews": 50,
+    "specs": {
+      "Charge": "Electrostatic"
+    },
+    "subcategory": "Electrostatic Sprayer",
+    "trendPercent": 8,
+    "trendPoints": [
+      0.15,
+      0.17,
+      0.19,
+      0.21,
+      0.23,
+      0.25
+    ],
+    "updatedAt": "2026-07-09T08:40:19.987Z",
+    "usageRecommendations": [
+      "Ideal for Battery setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc70",
+    "variant": "Backpack",
+    "title": "Backpack Electrostatic Sprayer",
+    "__v": 0,
+    "about": "Backpack Electrostatic Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Local",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:20.015Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://example.com/elec-back.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 30000,
+    "minPrice": 20000,
+    "powerOutput": "Battery",
+    "primaryUsage": "Precision Spray",
+    "rating": 4.8,
+    "reviews": 40,
+    "specs": {
+      "Charge": "Electrostatic"
+    },
+    "subcategory": "Electrostatic Sprayer",
+    "trendPercent": 7,
+    "trendPoints": [
+      0.2,
+      0.22,
+      0.24,
+      0.26,
+      0.28,
+      0.3
+    ],
+    "updatedAt": "2026-07-09T08:40:20.015Z",
+    "usageRecommendations": [
+      "Ideal for Battery setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc71",
+    "title": "Tractor PTO Air Assisted Sprayer",
+    "variant": "Tractor",
+    "__v": 0,
+    "about": "Tractor PTO Air Assisted Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Mitra",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:20.033Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/air-pto.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 180000,
+    "minPrice": 120000,
+    "powerOutput": "35+ HP Tractor",
+    "primaryUsage": "Canopy Spraying",
+    "rating": 4.8,
+    "reviews": 60,
+    "specs": {
+      "Fan": "Air Assist"
+    },
+    "subcategory": "Air Assisted Sprayer",
+    "trendPercent": 5,
+    "trendPoints": [
+      1.2,
+      1.32,
+      1.44,
+      1.56,
+      1.68,
+      1.8
+    ],
+    "updatedAt": "2026-07-09T08:40:20.033Z",
+    "usageRecommendations": [
+      "Ideal for 35+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc72",
+    "title": "Orchard Air Assisted Sprayer",
+    "variant": "Orchard",
+    "__v": 0,
+    "about": "Orchard Air Assisted Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Crop Protection (Sprayers)",
+    "company": "Cima",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:20.056Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Tractor Driven",
+    "imageUrl": "https://example.com/air-orchard.jpg",
+    "isActive": true,
+    "mainCategory": "Crop Protection (Sprayers)",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 350000,
+    "minPrice": 250000,
+    "powerOutput": "45+ HP Tractor",
+    "primaryUsage": "Orchard Canopy Spraying",
+    "rating": 4.9,
+    "reviews": 30,
+    "specs": {
+      "Fan": "High Volume"
+    },
+    "subcategory": "Air Assisted Sprayer",
+    "trendPercent": 4,
+    "trendPoints": [
+      2.5,
+      2.7,
+      2.9,
+      3.1,
+      3.3,
+      3.5
+    ],
+    "updatedAt": "2026-07-09T08:40:20.056Z",
+    "usageRecommendations": [
+      "Ideal for 45+ HP Tractor setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc73",
+    "variant": "Robot",
+    "title": "Robotic Sprayer",
+    "__v": 0,
+    "about": "Robotic Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "AutoSpray",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:20.087Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Electric",
+    "imageUrl": "https://cdn.wikifarmer.com/images/detailed/2024/02/Untitled-design-3.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 2000000,
+    "minPrice": 1500000,
+    "powerOutput": "Battery/Hybrid",
+    "primaryUsage": "Autonomous Ground Spray",
+    "rating": 4.9,
+    "reviews": 10,
+    "specs": {
+      "Nav": "LiDAR/GPS"
+    },
+    "subcategory": "Robotic Sprayer",
+    "trendPercent": 20,
+    "trendPoints": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "updatedAt": "2026-07-09T11:22:25.829Z",
+    "usageRecommendations": [
+      "Ideal for Battery/Hybrid setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  },
+  {
+    "_id": "6a4f5e747a55c6a797d3cc74",
+    "title": "GPS Guided Sprayer",
+    "variant": "Pro",
+    "__v": 0,
+    "about": "GPS Guided Sprayer.",
+    "applications": [
+      "Soil preparation",
+      "Seedbed creation",
+      "Weed control",
+      "Crop residue management"
+    ],
+    "capacity": {},
+    "category": "Smart Farming Machinery",
+    "company": "John Deere",
+    "compatibleCrops": [
+      "Wheat",
+      "Paddy (Rice)",
+      "Maize (Corn)",
+      "Cotton",
+      "Sugarcane",
+      "Potato",
+      "Vegetables"
+    ],
+    "createdAt": "2026-07-09T08:40:20.117Z",
+    "dealerAvailability": [],
+    "dimensions": {},
+    "features": [
+      "Even chemical distribution nozzle system",
+      "Corrosion-proof chemical tank",
+      "Adjustable pressure regulator",
+      "Comfortable shoulder straps / tractor mount support",
+      "Leak-proof hose and valves"
+    ],
+    "fuelType": "Diesel",
+    "imageUrl": "https://example.com/gps-spray.jpg",
+    "isActive": true,
+    "mainCategory": "Smart Farming Machinery",
+    "maintenanceInfo": [
+      "Check and tighten all bolts before operation",
+      "Grease all moving joints and bearings every 50 hours of use",
+      "Inspect gearboxes and oil levels regularly",
+      "Store in dry, covered area during off-season"
+    ],
+    "market": "India",
+    "maxPrice": 4000000,
+    "minPrice": 3000000,
+    "powerOutput": "100+ HP",
+    "primaryUsage": "Precision Ground Spray",
+    "rating": 4.9,
+    "reviews": 15,
+    "specs": {
+      "Nav": "RTK GPS"
+    },
+    "subcategory": "Smart Sprayer",
+    "trendPercent": 12,
+    "trendPoints": [
+      30,
+      32,
+      34,
+      36,
+      38,
+      40
+    ],
+    "updatedAt": "2026-07-09T08:40:20.117Z",
+    "usageRecommendations": [
+      "Ideal for 100+ HP setups",
+      "Operate at recommended tractor speed and PTO RPM",
+      "Clean implement thoroughly after daily operations"
+    ],
+    "variantsDetailed": []
+  }
+]
