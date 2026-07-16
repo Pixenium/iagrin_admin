@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { StatusBadge, type ResourceConfig } from "@/components/admin/resource-page";
-import { cn } from "@/lib/utils";
+import { cn, formatDate, formatDateTime } from "@/lib/utils";
 import { Film } from "lucide-react";
 
 const text = (value: unknown) => String(value ?? "-");
@@ -48,7 +48,18 @@ export const resources: Record<string, ResourceConfig> = {
     fields: [
       { key: "name", label: "Name", render: (row) => (
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary shrink-0">
+          {row.photoUrl || row.avatarUrl ? (
+            <img 
+              src={String(row.photoUrl ?? row.avatarUrl).startsWith('http') ? String(row.photoUrl ?? row.avatarUrl) : `${process.env.NEXT_PUBLIC_API_URL?.replace('/api/v1', '') ?? 'http://localhost:4000'}${row.photoUrl ?? row.avatarUrl}`}
+              alt="Avatar" 
+              className="w-8 h-8 rounded-full object-cover shrink-0 border border-border"
+              onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.removeAttribute('style'); }}
+            />
+          ) : null}
+          <div 
+            className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary shrink-0"
+            style={{ display: row.photoUrl || row.avatarUrl ? 'none' : 'flex' }}
+          >
             {String(row.name ?? row.email ?? "U").charAt(0).toUpperCase()}
           </div>
           <div>
@@ -73,7 +84,7 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "language", label: "Language" },
       { key: "createdAt", label: "Joined", render: (row) => {
         const d = row.createdAt ? new Date(String(row.createdAt)) : null;
-        return <span className="text-xs text-muted-foreground">{d ? d.toLocaleDateString() : "-"}</span>;
+        return <span className="text-xs text-muted-foreground">{d ? formatDate(d) : "-"}</span>;
       }},
     ],
     actions: [
@@ -392,7 +403,7 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "shareCount", label: "Shares", render: (row) => <span className="font-medium">{(row.shareCount ?? 0).toLocaleString()}</span> },
       { key: "createdAt", label: "Created", render: (row) => {
         const d = row.createdAt ? new Date(String(row.createdAt)) : null;
-        return <span className="text-xs text-muted-foreground">{d ? d.toLocaleDateString() : "-"}</span>;
+        return <span className="text-xs text-muted-foreground">{d ? formatDate(d) : "-"}</span>;
       }},
     ],
     actions: [
@@ -488,7 +499,7 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "failedUsers", label: "Failed" },
       { key: "readCount", label: "Read" },
       { key: "clickCount", label: "Clicks" },
-      { key: "sentAt", label: "Sent At", render: (row) => row.sentAt ? new Date(row.sentAt as string).toLocaleString() : "N/A" },
+      { key: "sentAt", label: "Sent At", render: (row) => row.sentAt ? formatDateTime(new Date(row.sentAt as string)) : "N/A" },
     ],
     actions: [],
   },
@@ -590,7 +601,7 @@ export const resources: Record<string, ResourceConfig> = {
     formFields: [
       { key: "title", label: "Event Title", type: "text", required: true },
       { key: "description", label: "Description (Rich Text)", type: "textarea", required: true },
-      { key: "banner", label: "Banner Image URL", type: "text" },
+      { key: "banner", label: "Banner Image", type: "image" },
       { key: "category", label: "Category", type: "select", options: [
         { label: "Training", value: "training" }, { label: "Agri Expo", value: "expo" },
         { label: "Buyer Meet", value: "buyer_meet" }, { label: "Government Meet", value: "government" },
@@ -632,7 +643,7 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "location.state", label: "State" },
       { key: "date", label: "Date", render: (row) => {
         const d = row.date ? new Date(String(row.date)) : null;
-        return <span className="text-xs">{d ? d.toLocaleDateString() : "-"}</span>;
+        return <span className="text-xs">{d ? formatDate(d) : "-"}</span>;
       }},
       { key: "organizer", label: "Organizer" },
       { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status ?? "draft"} /> },
@@ -696,9 +707,9 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "officialWebsite", label: "Official Website URL", type: "text" },
       { key: "applyUrl", label: "Apply URL", type: "text" },
       { key: "deadline", label: "Deadline (YYYY-MM-DD)", type: "text" },
-      { key: "banner", label: "Banner Image URL", type: "text" },
+      { key: "banner", label: "Banner Image", type: "image" },
       { key: "pdfUrl", label: "PDF Detail URL", type: "text" },
-      { key: "logo", label: "Government Logo URL", type: "text" },
+      { key: "logo", label: "Government Logo", type: "image" },
       { key: "status", label: "Status", type: "select", options: [
         { label: "Active", value: "active" }, { label: "Draft", value: "draft" },
         { label: "Expired", value: "expired" },
@@ -945,8 +956,8 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "title", label: "Title", type: "text", required: true },
       { key: "content", label: "Content", type: "textarea", required: true },
       { key: "summary", label: "Summary", type: "textarea" },
-      { key: "coverImage", label: "Cover Image URL", type: "text" },
-      { key: "thumbnail", label: "Thumbnail URL", type: "text" },
+      { key: "coverImage", label: "Cover Image", type: "image" },
+      { key: "thumbnail", label: "Thumbnail Image", type: "image" },
       { key: "category", label: "Category", type: "select", options: [
         { label: "Government", value: "government" }, { label: "Weather", value: "weather" },
         { label: "Mandi Rates", value: "mandi" }, { label: "Pest / Disease", value: "pest" },
@@ -1117,6 +1128,66 @@ export const resources: Record<string, ResourceConfig> = {
       { key: "price", label: "Price", render: (row) => money(row.price ?? row.rentPerDay) },
       { key: "location", label: "Location" },
       { key: "status", label: "Status", render: (row) => <StatusBadge value={row.status} /> },
+    ],
+  },
+  reports: {
+    title: "Reports",
+    description: "User submitted reports for videos and community posts.",
+    queryKey: "reports",
+    listPath: "/admin/reports",
+    updatePath: (id) => `/admin/reports/${id}/status`,
+    deletePath: (id) => `/admin/reports/${id}`,
+    updateMethod: "PATCH",
+    sortOptions: [
+      { label: "Newest first", value: "-createdAt" },
+      { label: "Oldest first", value: "createdAt" },
+    ],
+    filterParam: "status",
+    filterOptions: [
+      { label: "Pending", value: "pending" },
+      { label: "Reviewed", value: "reviewed" },
+      { label: "Resolved", value: "resolved" },
+      { label: "Dismissed", value: "dismissed" },
+    ],
+    formFields: [
+      { key: "status", label: "Status", type: "select", options: [
+        { label: "Pending", value: "pending" },
+        { label: "Reviewed", value: "reviewed" },
+        { label: "Resolved", value: "resolved" },
+        { label: "Dismissed", value: "dismissed" },
+      ] },
+    ],
+    fields: [
+      { key: "targetType", label: "Reported Item", render: (row: any) => (
+        <div>
+          <span className="text-[10px] font-bold uppercase tracking-wider bg-[#0F5132]/10 text-[#0F5132] dark:text-[#81C784] dark:bg-[#81C784]/10 px-1.5 py-0.5 rounded border border-[#0F5132]/20">{String(row.targetType)}</span>
+          {row.targetDetail && (
+            <div className="mt-1 flex items-center gap-2">
+              {row.targetDetail.thumbnail && (
+                <img src={String(row.targetDetail.thumbnail)} className="w-8 h-8 rounded object-cover border border-border" />
+              )}
+              <span className="text-xs max-w-[200px] truncate block text-muted-foreground">{String(row.targetDetail.title || "No preview")}</span>
+            </div>
+          )}
+        </div>
+      )},
+      { key: "reporterId", label: "Reporter", render: (row: any) => (
+        row.reporterId ? (
+          <div>
+            <p className="text-xs font-semibold">{String(row.reporterId.name || "Unknown")}</p>
+            <p className="text-[10px] text-muted-foreground">{String(row.reporterId.email || "")}</p>
+          </div>
+        ) : <span className="text-xs text-muted-foreground">-</span>
+      )},
+      { key: "reason", label: "Reason" },
+      { key: "additionalDetails", label: "Description", render: (row: any) => (
+        <span className="text-xs text-muted-foreground max-w-[250px] block truncate">{String(row.additionalDetails || row.description || "-")}</span>
+      )},
+      { key: "status", label: "Status", render: (row: any) => <StatusBadge value={String(row.status)} /> },
+      { key: "createdAt", label: "Reported At", render: (row: any) => {
+        const d = row.createdAt ? new Date(String(row.createdAt)) : null;
+        return <span className="text-xs text-muted-foreground">{d ? formatDate(d) : "-"}</span>;
+      }},
     ],
   },
 };

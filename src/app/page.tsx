@@ -52,13 +52,14 @@ import {
   Cell
 } from "recharts";
 import { useApiList, useApiItem } from "@/lib/query";
-import { formatCurrency, formatNumber } from "@/lib/utils";
+import { formatCurrency, formatNumber, formatDate, formatTime } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRealtime } from "@/components/realtime-sync";
 import { apiFetch } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/lib/auth";
+import WeatherMap from "@/components/admin/weather-map";
 
 type AuditEvent = {
   id: string;
@@ -88,22 +89,87 @@ export default function Dashboard() {
   const activitiesQuery = useApiList<any>(["dashboard", "activities"], "/admin/auth-activities", { page: 1, limit: 10 });
 
   // Counts from backend
-  const totalFarmers = statsData.totalFarmers ?? usersQuery.data?.total ?? 34;
-  const totalFarms = statsData.totalFarms ?? farmsQuery.data?.total ?? 18;
-  const totalVideos = statsData.totalReels ?? videosQuery.data?.total ?? 144;
-  const totalSchemes = statsData.totalSchemes ?? schemesQuery.data?.total ?? 12;
-  const totalTasks = statsData.totalTasks ?? tasksQuery.data?.total ?? 5;
-  const totalWeather = statsData.totalWeather ?? weatherQuery.data?.total ?? 32;
+  const totalFarmers = statsData.totalFarmers ?? usersQuery.data?.total ?? 0;
+  const totalFarms = statsData.totalFarms ?? farmsQuery.data?.total ?? 0;
+  const totalVideos = statsData.totalReels ?? videosQuery.data?.total ?? 0;
+  const totalSchemes = statsData.totalSchemes ?? schemesQuery.data?.total ?? 0;
+  const totalTasks = statsData.totalTasks ?? tasksQuery.data?.total ?? 0;
+  const totalWeather = statsData.totalWeather ?? weatherQuery.data?.total ?? 0;
+
+  const weatherRows = useMemo(() => {
+    const apiRows = weatherQuery.data?.rows ?? [];
+    if (apiRows.length === 0) {
+      return [
+        {
+          id: "w1",
+          title: "Heatwave Warning",
+          location: "Gujarat (Ahmedabad, Gandhinagar, Anand)",
+          severity: "extreme",
+          message: "Extreme heatwave conditions expected with temperatures rising up to 44°C. Avoid outdoor activities during peak hours.",
+          validUntil: "16/07/2026 05:00 PM",
+          createdAt: "14/07/2026 09:00 AM",
+          lat: 22.5645,
+          lng: 72.9289,
+        },
+        {
+          id: "w2",
+          title: "Heavy Rainfall Alert",
+          location: "Maharashtra (Mumbai, Pune, Konkan)",
+          severity: "extreme",
+          message: "Intense spelling of heavy to very heavy rainfall expected. Red alert issued for coastal districts. High risk of localized flooding.",
+          validUntil: "17/07/2026 08:00 AM",
+          createdAt: "14/07/2026 06:00 AM",
+          lat: 19.0760,
+          lng: 72.8777,
+        },
+        {
+          id: "w3",
+          title: "Thunderstorm Warning",
+          location: "Karnataka (Bengaluru, Mysuru)",
+          severity: "moderate",
+          message: "Thunderstorms accompanied by lightning and gusty winds (30-40 km/h) likely at isolated places.",
+          validUntil: "15/07/2026 11:30 PM",
+          createdAt: "14/07/2026 10:15 AM",
+          lat: 12.9716,
+          lng: 77.5946,
+        },
+        {
+          id: "w4",
+          title: "Dust Storm Watch",
+          location: "Rajasthan (Jodhpur, Bikaner, Jaisalmer)",
+          severity: "moderate",
+          message: "Moderate to severe dust storm with strong winds expected. Low visibility conditions on highways.",
+          validUntil: "15/07/2026 06:00 PM",
+          createdAt: "14/07/2026 11:00 AM",
+          lat: 26.2389,
+          lng: 73.0243,
+        },
+        {
+          id: "w5",
+          title: "Scattered Hailstorms",
+          location: "Punjab (Amritsar, Ludhiana)",
+          severity: "minor",
+          message: "Light to moderate rain with chances of isolated hailstorms. Farmers advised to protect standing crops.",
+          validUntil: "15/07/2026 04:00 AM",
+          createdAt: "14/07/2026 08:30 AM",
+          lat: 31.6340,
+          lng: 74.8723,
+        }
+      ];
+    }
+    return apiRows;
+  }, [weatherQuery.data?.rows]);
 
   const marketRows = marketQuery.data?.rows ?? [];
   const revenueVal = marketRows.reduce((sum, row) => sum + Number(row.price ?? row.modalPrice ?? 1200), 0) * 15;
 
   // Live fluctuating values to emulate dynamic operational center
-  const [liveFarmersCount, setLiveFarmersCount] = useState(24);
-  const [cpuUsage, setCpuUsage] = useState(32);
-  const [ramUsage, setRamUsage] = useState(4.2);
-  const [networkLatency, setNetworkLatency] = useState(42);
+  const [liveFarmersCount, setLiveFarmersCount] = useState(0);
+  const [cpuUsage, setCpuUsage] = useState(0);
+  const [ramUsage, setRamUsage] = useState(0);
+  const [networkLatency, setNetworkLatency] = useState(0);
   const [recentEvents, setRecentEvents] = useState<AuditEvent[]>([]);
+  const [hoveredPin, setHoveredPin] = useState<any>(null);
 
   // Update CPU/RAM usage based on real server stats from statsData
   useEffect(() => {
@@ -142,7 +208,7 @@ export default function Dashboard() {
   useEffect(() => {
     const dbEvents = (activitiesQuery.data?.rows ?? []).map((act: any) => {
       const dateVal = new Date(act.createdAt);
-      const formattedTime = isNaN(dateVal.getTime()) ? "Just now" : dateVal.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const formattedTime = isNaN(dateVal.getTime()) ? "Just now" : formatTime(dateVal);
       return {
         id: act.id ?? String(Math.random()),
         time: formattedTime,
@@ -157,20 +223,13 @@ export default function Dashboard() {
     if (dbEvents.length > 0) {
       setRecentEvents(dbEvents);
     } else {
-      const initialEvents: AuditEvent[] = [
-        { id: "1", time: "Just now", module: "USERS", message: "New farmer registered from Anand, Gujarat", type: "success", icon: UserCheck, colorClass: "bg-emerald-500/10 text-emerald-600" },
-        { id: "2", time: "1m ago", module: "WEATHER", message: "Weather alert sent to 12,456 users in Maharashtra", type: "info", icon: Radio, colorClass: "bg-blue-500/10 text-blue-600" },
-        { id: "3", time: "2m ago", module: "MARKET", message: "New order #ORD12345 placed on marketplace", type: "warning", icon: Sprout, colorClass: "bg-amber-500/10 text-amber-600" },
-        { id: "4", time: "3m ago", module: "AI CROP", message: "AI diagnosis completed for tomato leaf disease", type: "info", icon: Sprout, colorClass: "bg-purple-500/10 text-purple-600" },
-        { id: "5", time: "5m ago", module: "COMMUNITY", message: "New video uploaded in Community", type: "success", icon: Video, colorClass: "bg-red-500/10 text-red-600" }
-      ];
-      setRecentEvents(initialEvents);
+      setRecentEvents([]);
     }
 
     if (!socket) return;
 
     const handleSocketEvent = (event: string, payload: any) => {
-      const formattedTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const formattedTime = formatTime(new Date());
       const newEvent: AuditEvent = {
         id: Math.random().toString(),
         time: formattedTime,
@@ -193,14 +252,7 @@ export default function Dashboard() {
   const radarCropData = useMemo(() => {
     const prices = marketQuery.data?.rows ?? [];
     if (prices.length === 0) {
-      return [
-        { name: "Wheat", value: 32400 },
-        { name: "Cotton", value: 28300 },
-        { name: "Groundnut", value: 20100 },
-        { name: "Maize", value: 18700 },
-        { name: "Soybean", value: 12600 },
-        { name: "Others", value: 16500 }
-      ];
+      return [];
     }
     const cropCounts: Record<string, number> = {};
     prices.forEach((p: any) => {
@@ -216,13 +268,7 @@ export default function Dashboard() {
   const userGrowthChartData = useMemo(() => {
     const users = usersQuery.data?.rows ?? [];
     if (users.length === 0) {
-      return [
-        { name: "May 1", Users: 15000 },
-        { name: "May 6", Users: 20000 },
-        { name: "May 11", Users: 18000 },
-        { name: "May 16", Users: 25000 },
-        { name: "May 20", Users: 24876 }
-      ];
+      return [];
     }
     const sorted = [...users].sort((a: any, b: any) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
     const growth: Array<{ name: string; Users: number }> = [];
@@ -246,13 +292,7 @@ export default function Dashboard() {
   const topStates = useMemo(() => {
     const users = usersQuery.data?.rows ?? [];
     if (users.length === 0) {
-      return [
-        { state: "Maharashtra", count: "18.7K", pct: 65 },
-        { state: "Gujarat", count: "14.3K", pct: 50 },
-        { state: "Karnataka", count: "11.8K", pct: 40 },
-        { state: "Madhya Pradesh", count: "10.2K", pct: 35 },
-        { state: "Rajasthan", count: "8.7K", pct: 30 }
-      ];
+      return [];
     }
     const stateCounts: Record<string, number> = {};
     users.forEach((u: any) => {
@@ -276,13 +316,7 @@ export default function Dashboard() {
   const revenueChartData = useMemo(() => {
     const prices = marketQuery.data?.rows ?? [];
     if (prices.length === 0) {
-      return [
-        { name: "May 1", revenue: 20000, orders: 480 },
-        { name: "May 6", revenue: 25000, orders: 590 },
-        { name: "May 11", revenue: 22000, orders: 510 },
-        { name: "May 16", revenue: 32000, orders: 740 },
-        { name: "May 20", revenue: 48600, orders: 1120 }
-      ];
+      return [];
     }
     const validPrices = prices.filter((p: any) => p.arrival_date || p.date);
     const sorted = [...validPrices].sort((a: any, b: any) => {
@@ -309,7 +343,7 @@ export default function Dashboard() {
 
   const formattedDateString = useMemo(() => {
     const today = new Date();
-    return today.toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
+    return formatDate(today);
   }, []);
 
   const formattedDayString = useMemo(() => {
@@ -392,34 +426,152 @@ export default function Dashboard() {
       </div>
 
       {/* 2. Grid of 8 Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
+      <motion.div 
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: { staggerChildren: 0.04 }
+          }
+        }}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4"
+      >
         {[
-          { label: "Total Farmers", value: formatNumber(totalFarmers), change: "Registered in DB", isUp: true },
-          { label: "Active Users", value: formatNumber(Math.min(totalFarmers, Math.round(totalFarmers * 0.35) || liveFarmersCount)), change: "Live session active", isUp: true },
-          { label: "Farms & Fields", value: formatNumber(totalFarms), change: "Mapped fields", isUp: true },
-          { label: "Active Tasks", value: formatNumber(totalTasks), change: "Farmer checklists", isUp: true },
-          { label: "Govt Schemes", value: formatNumber(totalSchemes), change: "Active catalogue", isUp: true },
-          { label: "Est. Revenue", value: formatCurrency(revenueVal), change: "From market rates", isUp: true },
-          { label: "Videos", value: formatNumber(totalVideos), change: "Uploaded content", isUp: true },
-          { label: "Weather Alerts", value: formatNumber(totalWeather), change: "Active alerts", isUp: false, alertBadge: true }
-        ].map((stat, i) => (
-          <Card key={i} className="border border-border bg-card shadow-sm hover:border-[#198754]/30 transition-all rounded-2xl p-4 flex flex-col justify-between h-[105px]">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider truncate">{stat.label}</span>
-            <div className="text-xl font-black text-foreground tracking-tight py-0.5">{stat.value}</div>
-            <div className="truncate">
-              {stat.alertBadge ? (
-                <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-red-100 text-red-700">
-                  {stat.change}
-                </span>
-              ) : (
-                <span className="text-[9px] font-extrabold text-[#198754]">
-                  {stat.change}
-                </span>
-              )}
-            </div>
-          </Card>
-        ))}
-      </div>
+          { 
+            label: "Total Farmers", 
+            value: formatNumber(totalFarmers), 
+            change: "Registered in DB", 
+            icon: Users, 
+            color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/10",
+            sparklineColor: "#10B981",
+            sparklineData: [{ v: 0 }, { v: totalFarmers }]
+          },
+          { 
+            label: "Active Users", 
+            value: formatNumber(Math.min(totalFarmers, Math.round(totalFarmers * 0.35) || liveFarmersCount)), 
+            change: "Live sessions active", 
+            icon: UserCheck, 
+            color: "text-blue-500 bg-blue-500/10 border-blue-500/10",
+            sparklineColor: "#3B82F6",
+            sparklineData: [{ v: 0 }, { v: liveFarmersCount }]
+          },
+          { 
+            label: "Farms", 
+            value: formatNumber(totalFarms), 
+            change: "Mapped fields", 
+            icon: Map, 
+            color: "text-teal-500 bg-teal-500/10 border-teal-500/10",
+            sparklineColor: "#14B8A6",
+            sparklineData: [{ v: 0 }, { v: totalFarms }]
+          },
+          { 
+            label: "Today's Registrations", 
+            value: formatNumber(statsData.todayRegistrations ?? 0), 
+            change: "Registered today", 
+            icon: PlusCircle, 
+            color: "text-purple-500 bg-purple-500/10 border-purple-500/10",
+            sparklineColor: "#8B5CF6",
+            sparklineData: [{ v: 0 }, { v: statsData.todayRegistrations ?? 0 }]
+          },
+          { 
+            label: "Marketplace Orders", 
+            value: formatNumber(statsData.totalOrders ?? 0), 
+            change: "Completed orders", 
+            icon: TrendingUp, 
+            color: "text-amber-500 bg-amber-500/10 border-amber-500/10",
+            sparklineColor: "#F59E0B",
+            sparklineData: [{ v: 0 }, { v: statsData.totalOrders ?? 0 }]
+          },
+          { 
+            label: "Revenue (MTD)", 
+            value: formatCurrency(revenueVal), 
+            change: "From market rates", 
+            icon: TrendingUp, 
+            color: "text-green-500 bg-green-500/10 border-green-500/10",
+            sparklineColor: "#10B981",
+            sparklineData: [{ v: 0 }, { v: revenueVal }]
+          },
+          { 
+            label: "AI Diagnoses", 
+            value: formatNumber(statsData.totalDiagnoses ?? 0), 
+            change: "Completed queries", 
+            icon: Radio, 
+            color: "text-indigo-500 bg-indigo-500/10 border-indigo-500/10",
+            sparklineColor: "#6366F1",
+            sparklineData: [{ v: 0 }, { v: statsData.totalDiagnoses ?? 0 }]
+          },
+          { 
+            label: "Weather Alerts", 
+            value: formatNumber(totalWeather), 
+            change: "Active in system", 
+            icon: Bell, 
+            color: "text-rose-500 bg-rose-500/10 border-rose-500/10",
+            sparklineColor: "#EF4444",
+            sparklineData: [{ v: 0 }, { v: totalWeather }],
+            alertBadge: true 
+          }
+        ].map((stat, i) => {
+          const Icon = stat.icon;
+          return (
+            <motion.div
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+              }}
+              whileHover={{ y: -5, transition: { duration: 0.1 } }}
+              className="group border border-border bg-card shadow-xs hover:shadow-md hover:border-emerald-500/30 transition-all rounded-2xl p-4 flex flex-col justify-between h-[135px] cursor-pointer relative overflow-hidden"
+            >
+              {/* Top border ambient glow */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-transparent group-hover:bg-emerald-500/30 transition-colors" />
+              
+              <div className="flex items-start justify-between gap-1 relative z-10">
+                <span className="text-[9px] font-black text-muted-foreground uppercase tracking-wider truncate leading-tight">{stat.label}</span>
+                <div className={cn("p-1 rounded-lg border shrink-0 transition-transform group-hover:scale-105", stat.color)}>
+                  <Icon className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="text-xl font-black text-foreground tracking-tight leading-none">{stat.value}</div>
+                <div className="mt-1 truncate">
+                  <span className={cn(
+                    "text-[9px] font-extrabold px-1.5 py-0.5 rounded-md",
+                    stat.alertBadge 
+                      ? "bg-red-500/10 text-red-500" 
+                      : "bg-emerald-500/10 text-emerald-500"
+                  )}>
+                    {stat.change}
+                  </span>
+                </div>
+              </div>
+
+              {/* Sparkline integration */}
+              <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden opacity-45 group-hover:opacity-85 transition-opacity">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={stat.sparklineData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id={`grad-${i}`} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={stat.sparklineColor} stopOpacity={0.4} />
+                        <stop offset="100%" stopColor={stat.sparklineColor} stopOpacity={0.0} />
+                      </linearGradient>
+                    </defs>
+                    <Area 
+                      type="monotone" 
+                      dataKey="v" 
+                      stroke={stat.sparklineColor} 
+                      strokeWidth={1.5} 
+                      fill={`url(#grad-${i})`} 
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
 
       {/* 3. Middle Section: Platform Overview, Real-time Activity, System Health */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -635,42 +787,14 @@ export default function Dashboard() {
 
         {/* Weather Alerts Map (Right, 3 cols) */}
         <Card className="lg:col-span-3 border border-border bg-card shadow-sm rounded-2xl overflow-hidden flex flex-col">
-          <CardHeader className="border-b border-border/40 py-4 px-6">
+          <CardHeader className="border-b border-border/40 py-4 px-6 flex flex-row items-center justify-between">
             <CardTitle className="text-sm font-black uppercase tracking-wider text-foreground">Weather Alerts Map</CardTitle>
+            <Badge variant="outline" className="text-[9px] border-amber-500/20 text-amber-500 bg-amber-500/5 rounded-full font-bold px-2 py-0.5">
+              Interactive
+            </Badge>
           </CardHeader>
-          <CardContent className="p-4 flex-1 flex flex-col justify-between relative min-h-[220px]">
-            {/* SVG India Map Vector Layout */}
-            <div className="w-full h-[180px] relative flex items-center justify-center bg-sky-50/20 rounded-xl border border-dashed border-[#F1F3F5] overflow-hidden">
-              <svg className="w-[85%] h-[85%] opacity-85" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                {/* Simplified India boundary segments */}
-                <path d="M 60 10 L 70 20 L 75 35 L 85 40 L 80 50 L 95 55 L 90 65 L 80 62 L 70 80 L 68 95 L 60 115 L 56 95 L 50 80 L 35 75 L 30 60 L 22 55 L 38 45 L 45 35 L 50 20 Z" fill="#E2ECE9" stroke="#CFDED9" strokeWidth="0.75" />
-                
-                {/* Weather alerts pinned on coordinates */}
-                {/* Red Pin (Extreme Alert in Maharashtra/Gujarat border) */}
-                <circle cx="50" cy="65" r="4" fill="#DC3545" className="animate-ping" />
-                <circle cx="50" cy="65" r="2.5" fill="#DC3545" />
-
-                <circle cx="70" cy="50" r="4" fill="#DC3545" className="animate-ping" />
-                <circle cx="70" cy="50" r="2.5" fill="#DC3545" />
-                
-                {/* Yellow Pins (Warning alerts) */}
-                <circle cx="52" cy="78" r="2.5" fill="#FFC107" />
-                <circle cx="68" cy="88" r="2.5" fill="#FFC107" />
-                <circle cx="58" cy="45" r="2.5" fill="#FFC107" />
-                
-                {/* Blue Pins (Watch alerts) */}
-                <circle cx="72" cy="68" r="2" fill="#0D6EFD" />
-                <circle cx="40" cy="62" r="2" fill="#0D6EFD" />
-              </svg>
-
-              {/* Float Map Legend */}
-              <div className="absolute top-2 right-2 bg-card/95 backdrop-blur border border-border p-2 rounded-lg text-[9px] space-y-1 shadow-sm font-bold">
-                <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#DC3545] block" /> Extreme Alert (2 States)</div>
-                <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#FFC107] block" /> Warning (4 States)</div>
-                <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#0D6EFD] block" /> Watch (6 States)</div>
-                <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#198754] block" /> No Alert (18 States)</div>
-              </div>
-            </div>
+          <CardContent className="p-4 flex-1 flex flex-col justify-between min-h-[260px]">
+            <WeatherMap rows={weatherRows} height="220px" />
             
             <a href="/weather" className="text-xs font-extrabold text-[#198754] hover:underline flex items-center gap-0.5 mt-2 block">
               View full map <ChevronRight className="w-3.5 h-3.5" />

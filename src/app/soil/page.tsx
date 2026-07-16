@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { useApiList } from "@/lib/query";
 import { StatusBadge } from "@/components/admin/resource-page";
 
@@ -144,7 +144,7 @@ export default function SoilPage() {
                 <div className="flex items-center justify-between mb-1">
                   <StatusBadge value={alert.severity ?? "info"} />
                   <span className="text-[10px] text-muted-foreground">
-                    {alert.createdAt ? new Date(String(alert.createdAt)).toLocaleDateString() : ""}
+                    {alert.createdAt ? formatDate(alert.createdAt as string) : ""}
                   </span>
                 </div>
                 <p className="text-xs font-medium">{String(alert.title ?? alert.message ?? "Alert")}</p>

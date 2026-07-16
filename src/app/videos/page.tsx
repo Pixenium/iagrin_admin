@@ -9,7 +9,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { useApiList } from "@/lib/query";
 import { apiFetch, recordId } from "@/lib/api";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +25,7 @@ export default function VideosPage() {
   const [sort, setSort] = useState("-createdAt");
   const [page, setPage] = useState(1);
   const [showUpload, setShowUpload] = useState(false);
+  const [editingVideo, setEditingVideo] = useState<Record<string, any> | null>(null);
   const [notice, setNotice] = useState("");
 
   const params = { page, limit: 20, ...(search ? { search } : {}), ...(filter !== "all" ? { status: filter } : {}), sort };
@@ -234,7 +235,7 @@ export default function VideosPage() {
                     <td className="px-4 py-4 text-xs">{row.isFeatured ? "⭐" : "-"}</td>
                     <td className="px-4 py-4 text-xs">{row.isTrending ? "🔥" : "-"}</td>
                     <td className="px-4 py-4 text-xs text-muted-foreground">
-                      {row.createdAt ? new Date(String(row.createdAt)).toLocaleDateString() : "-"}
+                      {row.createdAt ? formatDate(row.createdAt as string) : "-"}
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex items-center justify-end gap-1">
@@ -243,6 +244,9 @@ export default function VideosPage() {
                             <Button variant="ghost" size="sm"><Eye className="w-3.5 h-3.5" /></Button>
                           </a>
                         ) : null}
+                        <Button variant="ghost" size="sm" onClick={() => setEditingVideo(row)}>
+                          <Edit3 className="w-3.5 h-3.5 text-blue-500" />
+                        </Button>
                         <Button variant="ghost" size="sm" onClick={() => deleteVideo(row)}>
                           <Trash2 className="w-3.5 h-3.5 text-red-500" />
                         </Button>
@@ -275,8 +279,12 @@ export default function VideosPage() {
       </div>
 
       <VideoUploadDialog
-        open={showUpload}
-        onClose={() => setShowUpload(false)}
+        open={showUpload || !!editingVideo}
+        videoToEdit={editingVideo}
+        onClose={() => {
+          setShowUpload(false);
+          setEditingVideo(null);
+        }}
         onComplete={() => query.refetch()}
       />
     </motion.div>

@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { cn, formatDateTime } from "@/lib/utils";
 import { useApiList } from "@/lib/query";
 
 export default function ActivityLogsPage() {
@@ -131,7 +131,7 @@ export default function ActivityLogsPage() {
                   <td className="px-4 py-4 text-xs text-muted-foreground whitespace-nowrap">
                     <div className="flex items-center gap-1.5">
                       <Clock className="w-3 h-3" />
-                      {row.createdAt ? new Date(String(row.createdAt)).toLocaleString() : "-"}
+                      {row.createdAt ? formatDateTime(row.createdAt as string) : "-"}
                     </div>
                   </td>
                   <td className="px-4 py-4">

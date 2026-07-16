@@ -27,6 +27,7 @@ import {
   Calendar,
   ShieldCheck,
   Brain,
+  Flag,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
@@ -35,7 +36,6 @@ const navItems = [
   { label: "Users", href: "/farmers", icon: Users },
   { label: "Community", href: "/community", icon: MessageSquare },
   { label: "Crop Doctor", href: "/crop-doctor", icon: Bot },
-  { label: "AI Management", href: "/ai-management", icon: Brain },
   { label: "Weather", href: "/weather", icon: Cloud },
   { label: "Market", href: "/market", icon: TrendingUp },
   { label: "Machinery", href: "/machinery", icon: Tractor },
@@ -46,6 +46,7 @@ const navItems = [
   { label: "Tasks", href: "/tasks", icon: CheckSquare },
   { label: "Soil", href: "/soil", icon: Satellite },
   { label: "Notifications", href: "/notifications", icon: Bell },
+  { label: "Reports", href: "/reports", icon: Flag },
   { label: "Settings", href: "/settings", icon: Settings },
   { label: "Roles & Permissions", href: "/roles", icon: ShieldCheck },
   { label: "Activity Logs", href: "/activities", icon: BarChart3 },
@@ -97,11 +98,11 @@ export function Sidebar() {
               className={cn(
                 "group relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all",
                 isActive
-                  ? "text-white bg-[#0F5132] dark:bg-[#81C784] dark:text-[#1A2922] shadow-sm"
-                  : "text-muted-foreground hover:text-[#212529] hover:bg-accent/40 dark:hover:bg-[#1f2d26]"
+                  ? "text-[#0F5132] bg-[#0F5132]/10 dark:text-[#81C784] dark:bg-[#81C784]/10 border-l-4 border-[#0F5132] dark:border-[#81C784] rounded-r-xl rounded-l-none pl-2.5 font-bold shadow-sm"
+                  : "text-muted-foreground hover:text-[#0F5132] dark:hover:text-[#81C784] hover:bg-[#0F5132]/5 dark:hover:bg-[#81C784]/5 border-l-4 border-transparent pl-2.5"
               )}
             >
-              <item.icon className={cn("w-4 h-4 shrink-0 relative z-10", isActive ? "text-white dark:text-[#1A2922]" : "text-muted-foreground")} />
+              <item.icon className={cn("w-4 h-4 shrink-0 relative z-10", isActive ? "text-[#0F5132] dark:text-[#81C784]" : "text-muted-foreground group-hover:text-[#0F5132] dark:group-hover:text-[#81C784]")} />
               <AnimatePresence>
                 {!collapsed && (
                   <motion.span

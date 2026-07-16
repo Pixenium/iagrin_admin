@@ -1,8 +1,8 @@
 "use client";
 
-import Dashboard from "@/app/page";
+import { ResourcePage } from "@/components/admin/resource-page";
+import { resources } from "@/lib/admin-resources";
 
 export default function ReportsPage() {
-  return <Dashboard />;
+  return <ResourcePage config={resources.reports} />;
 }
-

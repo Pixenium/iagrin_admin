@@ -33,5 +33,26 @@ export function timeAgo(date: Date): string {
 export function formatDate(date: Date | string | number): string {
   const d = new Date(date);
   if (isNaN(d.getTime())) return "-";
-  return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+export function formatTime(date: Date | string | number): string {
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "-";
+  let hours = d.getHours();
+  const minutes = String(d.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  const strHours = String(hours).padStart(2, "0");
+  return `${strHours}:${minutes} ${ampm}`;
+}
+
+export function formatDateTime(date: Date | string | number): string {
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "-";
+  return `${formatDate(d)} ${formatTime(d)}`;
 }

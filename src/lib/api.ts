@@ -156,16 +156,16 @@ export function normalizeList<T = Record<string, unknown>>(payload: unknown, pag
     [];
 
   const pagination = ((sourceRecord.pagination as Record<string, unknown> | undefined) ?? (meta.pagination as Record<string, unknown> | undefined) ?? meta) as Record<string, unknown>;
-  const total = Number(pagination.total ?? sourceRecord.total ?? rows.length);
-  const currentPage = Number(pagination.page ?? page);
-  const pageSize = Number(pagination.limit ?? limit);
+  const total = Number(data?.total ?? pagination.total ?? sourceRecord.total ?? rows.length);
+  const currentPage = Number(data?.page ?? pagination.page ?? page);
+  const pageSize = Number(data?.limit ?? pagination.limit ?? limit);
 
   return {
     rows,
     total,
     page: currentPage,
     limit: pageSize,
-    totalPages: Number(pagination.totalPages ?? Math.max(1, Math.ceil(total / Math.max(1, pageSize)))),
+    totalPages: Number(data?.totalPages ?? pagination.totalPages ?? Math.max(1, Math.ceil(total / Math.max(1, pageSize)))),
     raw: payload,
   };
 }

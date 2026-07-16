@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch, buildQuery, recordId } from "./api";
+import { formatDateTime } from "./utils";
 
 export type NotificationRecord = {
   _id?: string;
@@ -54,7 +55,7 @@ export function formatNotificationTime(value?: any) {
   if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? "" : "s"} ago`;
   const diffDays = Math.floor(diffHours / 24);
   if (diffDays < 7) return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
-  return date.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+  return formatDateTime(date);
 }
 
 export function notificationVisualType(row: NotificationRecord): "alert" | "info" | "success" | "warning" | "emergency" {
