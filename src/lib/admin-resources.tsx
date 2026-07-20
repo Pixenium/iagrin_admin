@@ -48,19 +48,26 @@ export const resources: Record<string, ResourceConfig> = {
     fields: [
       { key: "name", label: "Name", render: (row) => (
         <div className="flex items-center gap-2">
-          {row.photoUrl || row.avatarUrl ? (
-            <img 
-              src={String(row.photoUrl ?? row.avatarUrl).startsWith('http') ? String(row.photoUrl ?? row.avatarUrl) : `${process.env.NEXT_PUBLIC_API_URL?.replace('/api/v1', '') ?? 'http://localhost:4000'}${row.photoUrl ?? row.avatarUrl}`}
-              alt="Avatar" 
-              className="w-8 h-8 rounded-full object-cover shrink-0 border border-border"
-              onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.removeAttribute('style'); }}
-            />
-          ) : null}
-          <div 
-            className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary shrink-0"
-            style={{ display: row.photoUrl || row.avatarUrl ? 'none' : 'flex' }}
-          >
-            {String(row.name ?? row.email ?? "U").charAt(0).toUpperCase()}
+          <div className="relative w-8 h-8 shrink-0">
+            {row.photoUrl || row.avatarUrl ? (
+              <img 
+                src={String(row.photoUrl ?? row.avatarUrl).startsWith('http') ? String(row.photoUrl ?? row.avatarUrl) : `${process.env.NEXT_PUBLIC_API_URL?.replace('/api/v1', '') ?? 'http://localhost:4000'}${row.photoUrl ?? row.avatarUrl}`}
+                alt="Avatar" 
+                className="w-8 h-8 rounded-full object-cover border border-border"
+                onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.removeAttribute('style'); }}
+              />
+            ) : null}
+            <div 
+              className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary"
+              style={{ display: row.photoUrl || row.avatarUrl ? 'none' : 'flex' }}
+            >
+              {String(row.name ?? row.email ?? "U").charAt(0).toUpperCase()}
+            </div>
+            {row.isOnline ? (
+              <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-background" title="Online" />
+            ) : (
+              <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-neutral-400 ring-2 ring-background" title="Offline" />
+            )}
           </div>
           <div>
             <p className="text-sm font-medium">{String(row.name ?? "Unknown")}</p>

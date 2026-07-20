@@ -27,7 +27,14 @@ import {
   HelpCircle,
   ShieldCheck,
   ChevronRight,
-  UserCheck
+  UserCheck,
+  Globe,
+  Wifi,
+  Zap,
+  Cloud,
+  HardDrive,
+  Cpu,
+  Layers
 } from "lucide-react";
 import {
   Area,
@@ -75,9 +82,14 @@ export default function Dashboard() {
   const { status, socket } = useRealtime();
   const { user } = useAuth();
   
+  const [userTab, setUserTab] = useState<"growth" | "status">("growth");
+  
   // Real database endpoints counts
   const statsQuery = useApiItem<any>(["dashboard", "stats"], "/admin/dashboard-stats");
   const statsData = statsQuery.data ?? {};
+
+  const healthQuery = useApiItem<any>(["dashboard", "health"], "/admin/system-health");
+  const healthData = healthQuery.data ?? {};
 
   const usersQuery = useApiList(["dashboard", "users"], "/admin/users", { page: 1, limit: 100 });
   const farmsQuery = useApiList(["dashboard", "farms"], "/farms", { page: 1, limit: 100 });
@@ -171,15 +183,16 @@ export default function Dashboard() {
   const [recentEvents, setRecentEvents] = useState<AuditEvent[]>([]);
   const [hoveredPin, setHoveredPin] = useState<any>(null);
 
-  // Update CPU/RAM usage based on real server stats from statsData
+  // Update CPU/RAM usage based on real server stats from healthData or statsData
   useEffect(() => {
-    if (statsData.system?.cpu) {
-      setCpuUsage(statsData.system.cpu);
+    const sys = healthData.system || statsData.system;
+    if (sys?.cpu !== undefined) {
+      setCpuUsage(sys.cpu);
     }
-    if (statsData.system?.ram) {
-      setRamUsage(statsData.system.ram);
+    if (sys?.ram !== undefined) {
+      setRamUsage(sys.ram);
     }
-  }, [statsData.system]);
+  }, [healthData.system, statsData.system]);
 
   // Listen to real system stats from socket
   useEffect(() => {
@@ -286,6 +299,29 @@ export default function Dashboard() {
       }
     });
     return growth.slice(-6);
+  }, [usersQuery.data?.rows]);
+
+  // User status distribution
+  const userStatusChartData = useMemo(() => {
+    const users = usersQuery.data?.rows ?? [];
+    let active = 0;
+    let suspended = 0;
+    let banned = 0;
+    users.forEach((u: any) => {
+      const status = String(u.status ?? "active").toLowerCase();
+      if (status === "suspended") {
+        suspended++;
+      } else if (status === "banned" || status === "blocked") {
+        banned++;
+      } else {
+        active++;
+      }
+    });
+    return [
+      { name: "Active", value: active, color: "#10B981" },
+      { name: "Suspended", value: suspended, color: "#F59E0B" },
+      { name: "Banned", value: banned, color: "#EF4444" }
+    ];
   }, [usersQuery.data?.rows]);
 
   // Top states by farmers
@@ -588,17 +624,49 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 flex-1">
             <div className="md:col-span-2 space-y-2">
-              <span className="text-xs font-bold text-muted-foreground">User Growth</span>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-muted-foreground">Farmers Analytics</span>
+                <div className="flex bg-accent/40 rounded-lg p-0.5 border border-border">
+                  <button 
+                    onClick={() => setUserTab("growth")}
+                    className={cn("px-2 py-1 text-[10px] font-bold rounded-md transition-all", userTab === "growth" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}
+                  >
+                    Growth
+                  </button>
+                  <button 
+                    onClick={() => setUserTab("status")}
+                    className={cn("px-2 py-1 text-[10px] font-bold rounded-md transition-all", userTab === "status" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}
+                  >
+                    Status
+                  </button>
+                </div>
+              </div>
               <div className="h-[200px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={userGrowthChartData}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
-                    <XAxis dataKey="name" fontSize={9} stroke="#ADB5BD" axisLine={false} />
-                    <YAxis fontSize={9} stroke="#ADB5BD" axisLine={false} />
-                    <Tooltip />
-                    <Line type="monotone" dataKey="Users" stroke="#198754" strokeWidth={3} dot={{ r: 4, stroke: "#198754", fill: "#FFF" }} activeDot={{ r: 6 }} />
-                  </LineChart>
-                </ResponsiveContainer>
+                {userTab === "growth" ? (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={userGrowthChartData}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+                      <XAxis dataKey="name" fontSize={9} stroke="#ADB5BD" axisLine={false} />
+                      <YAxis fontSize={9} stroke="#ADB5BD" axisLine={false} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="Users" stroke="#198754" strokeWidth={3} dot={{ r: 4, stroke: "#198754", fill: "#FFF" }} activeDot={{ r: 6 }} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={userStatusChartData}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+                      <XAxis dataKey="name" fontSize={9} stroke="#ADB5BD" axisLine={false} />
+                      <YAxis fontSize={9} stroke="#ADB5BD" axisLine={false} />
+                      <Tooltip />
+                      <Bar dataKey="value" radius={[4, 4, 0, 0]} barSize={40}>
+                        {userStatusChartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                )}
               </div>
             </div>
             
@@ -662,28 +730,127 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent className="p-5 space-y-4 flex-1 flex flex-col justify-between">
-            <div className="space-y-3.5">
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { label: "API Status", val: "Operational", color: "text-[#198754] font-bold" },
-                { label: "Socket.IO", val: status === "connected" ? "Connected" : "Connecting", color: status === "connected" ? "text-[#198754] font-bold" : "text-amber-500 font-bold" },
-                { label: "MongoDB", val: "Healthy", color: "text-[#198754] font-bold" },
-                { label: "Redis Cache", val: "Active", color: "text-[#198754] font-bold" },
-                { label: "Storage (R2)", val: "75% Used", color: "text-amber-500 font-bold" }
-              ].map((h, i) => (
-                <div key={i} className="flex justify-between items-center text-xs">
-                  <span className="text-muted-foreground font-medium">{h.label}</span>
-                  <span className={h.color}>{h.val}</span>
-                </div>
-              ))}
+                { 
+                  label: "API Gateway", 
+                  val: healthData.apiStatus ?? "Operational", 
+                  status: (healthData.apiStatus ?? "Operational") === "Operational" ? "healthy" : "error",
+                  icon: Globe 
+                },
+                { 
+                  label: "Socket.IO", 
+                  val: status === "connected" ? "Connected" : "Connecting", 
+                  status: status === "connected" ? "healthy" : "warning",
+                  icon: Wifi 
+                },
+                { 
+                  label: "MongoDB", 
+                  val: healthData.mongoStatus ?? "Healthy", 
+                  status: (healthData.mongoStatus ?? "Healthy") === "Healthy" ? "healthy" : "error",
+                  icon: Database 
+                },
+                { 
+                  label: "PostgreSQL", 
+                  val: healthData.postgresStatus ?? "Healthy", 
+                  status: (healthData.postgresStatus ?? "Healthy") === "Healthy" ? "healthy" : "error",
+                  icon: Server 
+                },
+                { 
+                  label: "Redis Cache", 
+                  val: healthData.redisStatus ?? "Active", 
+                  status: (healthData.redisStatus ?? "Active") === "Active" ? "healthy" : "offline",
+                  icon: Zap 
+                },
+                { 
+                  label: "Cloudflare R2", 
+                  val: healthData.r2Status ?? "Healthy", 
+                  status: (healthData.r2Status ?? "Healthy") === "Healthy" ? "healthy" : "offline",
+                  icon: Cloud 
+                }
+              ].map((h, i) => {
+                const Icon = h.icon;
+                const colorsMap = {
+                  healthy: { bg: "bg-green-500/5 dark:bg-green-500/10", border: "border-green-500/20", dot: "bg-green-500", text: "text-green-500" },
+                  warning: { bg: "bg-amber-500/5 dark:bg-amber-500/10", border: "border-amber-500/20", dot: "bg-amber-500", text: "text-amber-500" },
+                  error: { bg: "bg-red-500/5 dark:bg-red-500/10", border: "border-red-500/20", dot: "bg-red-500", text: "text-red-500" },
+                  offline: { bg: "bg-neutral-500/5 dark:bg-neutral-500/10", border: "border-neutral-500/20", dot: "bg-neutral-500", text: "text-neutral-400" }
+                };
+                const statusColors = colorsMap[h.status as keyof typeof colorsMap] || colorsMap.offline;
+
+                return (
+                  <div key={i} className={`flex items-center gap-2.5 p-2.5 rounded-xl border ${statusColors.border} ${statusColors.bg} transition-all duration-300 hover:scale-[1.02] cursor-default`}>
+                    <div className="p-1 rounded-lg bg-background/50 border border-border/20">
+                      <Icon className={`w-3.5 h-3.5 ${statusColors.text}`} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] font-bold text-muted-foreground truncate">{h.label}</p>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span className="relative flex h-1.5 w-1.5">
+                          {h.status === "healthy" && (
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          )}
+                          <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${statusColors.dot}`}></span>
+                        </span>
+                        <span className={`text-[10px] font-black truncate ${statusColors.text}`}>{h.val}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="space-y-1.5 pt-2">
-              <div className="flex justify-between text-xs font-bold text-foreground">
-                <span>Server Load</span>
-                <span>{cpuUsage}%</span>
+            {/* Storage Card */}
+            <div className="p-3 rounded-xl border border-border bg-accent/20 dark:bg-accent/10 space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-1.5 font-bold text-foreground">
+                  <HardDrive className="w-4 h-4 text-[#198754]" />
+                  <span>Server Storage</span>
+                </div>
+                <span className="text-[11px] font-extrabold text-muted-foreground">
+                  {healthData.storage ? `${healthData.storage.used} / ${healthData.storage.total}` : "Loading..."}
+                </span>
               </div>
+              
               <div className="h-1.5 w-full rounded-full bg-accent/40 dark:bg-[#22332a] overflow-hidden">
-                <div className="h-full bg-[#198754] rounded-full transition-all duration-1000" style={{ width: `${cpuUsage}%` }} />
+                <div 
+                  className="h-full rounded-full transition-all duration-1000" 
+                  style={{ 
+                    width: `${healthData.storage?.percentage ?? 0}%`,
+                    backgroundColor: (healthData.storage?.percentage ?? 0) > 85 ? "#dc3545" : (healthData.storage?.percentage ?? 0) > 60 ? "#ffc107" : "#198754"
+                  }} 
+                />
+              </div>
+              
+              <div className="flex justify-between text-[10px] text-muted-foreground font-semibold">
+                <span>{healthData.storage?.percentage ?? 0}% Used</span>
+                <span>{healthData.storage?.free ?? "50 GB"} remaining</span>
+              </div>
+            </div>
+
+            {/* Dual System Resource Meters */}
+            <div className="grid grid-cols-2 gap-4 pt-1">
+              <div className="space-y-1">
+                <div className="flex justify-between text-[10px] font-bold text-foreground">
+                  <span className="flex items-center gap-1 text-muted-foreground"><Cpu className="w-3.5 h-3.5" /> CPU Load</span>
+                  <span>{cpuUsage}%</span>
+                </div>
+                <div className="h-1 w-full rounded-full bg-accent/40 dark:bg-[#22332a] overflow-hidden">
+                  <div className="h-full bg-[#198754] rounded-full transition-all duration-1000" style={{ width: `${cpuUsage}%` }} />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-[10px] font-bold text-foreground">
+                  <span className="flex items-center gap-1 text-muted-foreground"><Layers className="w-3.5 h-3.5" /> Memory</span>
+                  <span>{ramUsage} GB</span>
+                </div>
+                <div className="h-1 w-full rounded-full bg-accent/40 dark:bg-[#22332a] overflow-hidden">
+                  <div 
+                    className="h-full bg-[#198754] rounded-full transition-all duration-1000" 
+                    style={{ width: `${Math.min(100, Math.round((ramUsage / 8) * 100))}%` }} 
+                  />
+                </div>
               </div>
             </div>
 

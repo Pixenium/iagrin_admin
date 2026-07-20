@@ -46,30 +46,22 @@ const STORAGE_KEYS = {
   USER: "iagrin_user",
 } as const;
 
-function saveSession(tokens: AuthTokens, user: AuthUser) {
+function saveSession(tokens: AuthTokens) {
   localStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, tokens.accessToken);
   localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, tokens.refreshToken);
-  localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
 }
 
-function loadSession(): { tokens: AuthTokens; user: AuthUser } | null {
+function loadTokens(): AuthTokens | null {
   if (typeof window === "undefined") return null;
   const accessToken = localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
   const refreshToken = localStorage.getItem(STORAGE_KEYS.REFRESH_TOKEN);
-  const userStr = localStorage.getItem(STORAGE_KEYS.USER);
-  if (!accessToken || !refreshToken || !userStr) return null;
-  try {
-    const user = JSON.parse(userStr) as AuthUser;
-    return { tokens: { accessToken, refreshToken }, user };
-  } catch {
-    return null;
-  }
+  if (!accessToken || !refreshToken) return null;
+  return { accessToken, refreshToken };
 }
 
 function clearSession() {
   localStorage.removeItem(STORAGE_KEYS.ACCESS_TOKEN);
   localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
-  localStorage.removeItem(STORAGE_KEYS.USER);
   // Also clear legacy keys
   localStorage.removeItem("accessToken");
   localStorage.removeItem("token");
@@ -87,14 +79,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Hydrate from localStorage on mount
   useEffect(() => {
-    const session = loadSession();
-    Promise.resolve().then(() => {
-      if (session) {
-        setTokens(session.tokens);
-        setUser(session.user);
-      }
+    const tokens = loadTokens();
+    if (tokens) {
+      setTokens(tokens);
+      fetch(`${getApiBase()}/user/profile`, {
+        headers: { Authorization: `Bearer ${tokens.accessToken}` }
+      })
+      .then(res => res.ok ? res.json() : null)
+      .then(body => {
+        const u = body?.data;
+        if (u && u.role === "admin" && u.email === "admin@iagrin.com") {
+          setUser({ id: u.id, name: u.name, email: u.email, role: u.role, provider: u.provider || "local" });
+        } else {
+          clearSession();
+          setTokens(null);
+          setUser(null);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
+    } else {
       setIsLoading(false);
-    });
+    }
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
@@ -123,9 +129,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       provider: data?.user?.provider ?? "local",
     };
 
-    // Verify user has admin role
-    if (userData.role !== "admin") {
-      throw new Error("Access denied: Admin privileges required");
+    // Verify user has admin role and is the authorized admin email
+    if (userData.role !== "admin" || userData.email !== "admin@iagrin.com") {
+      throw new Error("Access denied: You are not authorized to access this admin panel.");
     }
 
     if (!accessToken) {
@@ -133,14 +139,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     const newTokens: AuthTokens = { accessToken, refreshToken };
-    saveSession(newTokens, userData);
+    saveSession(newTokens);
     setTokens(newTokens);
     setUser(userData);
   }, []);
 
   const logout = useCallback(async () => {
     const API_BASE = getApiBase();
-    const currentTokens = tokens ?? loadSession()?.tokens;
+    const currentTokens = tokens ?? loadTokens();
 
     // Try server-side logout (non-blocking)
     if (currentTokens?.refreshToken) {
@@ -166,7 +172,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const refreshSession = useCallback(async (): Promise<boolean> => {
     const API_BASE = getApiBase();
-    const currentTokens = tokens ?? loadSession()?.tokens;
+    const currentTokens = tokens ?? loadTokens();
     if (!currentTokens?.refreshToken) return false;
 
     try {
@@ -197,10 +203,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       const newTokens: AuthTokens = { accessToken: newAccessToken, refreshToken: newRefreshToken };
-      const currentUser = user ?? loadSession()?.user;
-      if (currentUser) {
-        saveSession(newTokens, currentUser);
-      }
+      saveSession(newTokens);
       setTokens(newTokens);
       return true;
     } catch {

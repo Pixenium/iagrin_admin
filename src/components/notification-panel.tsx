@@ -161,16 +161,6 @@ export function NotificationPanel({ open, onClose }: NotificationPanelProps) {
                                 {displayType}
                               </span>
                             )}
-                            {displayStatus && (
-                              <span
-                                className={cn(
-                                  "text-[10px] uppercase tracking-wide",
-                                  displayStatus === "failed" ? "text-error" : "text-success",
-                                )}
-                              >
-                                {displayStatus}
-                              </span>
-                            )}
                           </div>
                         </div>
                       </motion.div>
